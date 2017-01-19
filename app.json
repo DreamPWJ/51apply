@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/apply/applysubject",
+    "pages/apply/applyperson",
     "pages/index/index"
   ],
   "window":{

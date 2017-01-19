@@ -1,0 +1,65 @@
+
+<!--pages/apply/applyperson.wxml-->
+
+<!--pages/apply/applysubject.wxml-->
+<form>
+  <view class="list">
+    <view class="item item-divider">
+      基本资料(以下项目均为必填项)
+    </view>
+    <view class="item item-icon-right ">
+      证件类型
+      <text class="item-note">身份证 </text>
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-input">
+      <span class="input-label"> 证件号码 </span> 
+      <input type="text" class="text-right" placeholder="请输入您选择的证件号码" />
+    </view>
+    <view class="item item-input">
+      <span class="input-label"> 姓名 </span> 
+      <input type="text" class="text-right" placeholder="请输入您的真实姓名" />
+    </view>
+    <view class="item item-icon-right">
+      出生年月
+      <text class="item-note">请输入您的生日 </text>
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+      民族
+      <text class="item-note">汉 </text>
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+      职业
+      <text class="item-note">学生 </text>
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-input">
+      <span class="input-label"> 工作单位 </span> 
+      <input type="text" class="text-right" placeholder="无" />
+    </view>
+    <view class="item item-icon-right">
+      学历
+      <text class="item-note">本科 </text>
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+      学位
+      <text class="item-note">学士 </text>
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+      学历类型
+      <text class="item-note">全日制</text>
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+        <view class="item item-input">
+      <span class="input-label"> 手机号码 </span> 
+      <input type="text" class="text-right" placeholder="请输入您的手机号码" />
+    </view>
+    <view class="padding-top">
+    <button size="" plain="" bindtap="" class=" energized-bg light "> 下一步 </button>
+      </view>
+  </view>
+</form>

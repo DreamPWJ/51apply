@@ -1,5 +1,6 @@
 // pages/apply/applysubject.js
-// map.js
+//获取应用实例
+var app = getApp()
 Page({
     data: {
         markers: [{
@@ -33,6 +34,11 @@ Page({
             },
             clickable: true
         }]
-    }
-
+    },
+  //事件处理函数
+  applyperson: function() {
+    wx.navigateTo({
+      url: 'applyperson'
+    })
+  },
 })
