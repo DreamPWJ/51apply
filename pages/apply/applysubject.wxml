@@ -1,0 +1,12 @@
+<!--pages/apply/applysubject.wxml-->
+<view class="list" >
+<view class="item item-divider">
+你好啊
+</view>
+<view class="item">
+你好啊
+</view>
+<view class="item">
+你好啊
+</view>
+</view>

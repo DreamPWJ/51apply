@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/apply/applysubject",
+    "pages/index/index"
   ],
   "window":{
     "navigationBarBackgroundColor": "#f26604"
