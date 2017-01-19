@@ -3,12 +3,12 @@
 Page({
     data: {
         markers: [{
-            iconPath: "/images/map/addresslocalization.png",
+            iconPath: "/images/map/localization.png",
             id: 0,
             latitude: 23.099994,
             longitude: 113.324520,
-            width: 50,
-            height: 50
+            width: 20,
+            height: 20
         }],
         polyline: [{
             points: [{
@@ -24,12 +24,12 @@ Page({
         }],
         controls: [{
             id: 1,
-            iconPath: '/images/map/addresslocalization.png',
+            iconPath: '/images/map/localization.png',
             position: {
                 left: 0,
                 top: 300 - 50,
-                width: 50,
-                height: 50
+                width: 20,
+                height: 20
             },
             clickable: true
         }]
