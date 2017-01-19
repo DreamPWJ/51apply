@@ -1,31 +1,9 @@
 //app.js
 App({
     onLaunch: function () {
-        //调用API从本地缓存中获取数据
-        var logs = wx.getStorageSync('logs') || []
-        logs.unshift(Date.now())
-        wx.setStorageSync('logs', logs)
+        //启动时执行的初始化工作 全局只触发一次
     },
-    getUserInfo: function (cb) {
-        var that = this
-        if (this.globalData.userInfo) {
-            typeof cb == "function" && cb(this.globalData.userInfo)
-        } else {
-            //调用登录接口
-            wx.login({
-                success: function () {
-                    wx.getUserInfo({
-                        success: function (res) {
-                            that.globalData.userInfo = res.userInfo
-                            typeof cb == "function" && cb(that.globalData.userInfo)
-                        }
-                    })
-                }
-            })
-        }
-    },
-    globalData: {
-        userInfo: null,
-        api: "https://api.douban.com",
+    globalData: { //全局常量参数配置
+        api: "http://221.234.46.31:9055",
     }
 })
