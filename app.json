@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/apply/applysubject",
-    "pages/apply/applyperson",
-    "pages/index/index"
+     "pages/index/index",
+     "pages/apply/applysubject",
+     "pages/apply/applyperson"
   ],
   "window":{
     "navigationBarBackgroundColor": "#f26604"

@@ -59,7 +59,7 @@
       <input type="text" class="text-right" placeholder="请输入您的手机号码" />
     </view>
     <view class="padding-top">
-    <button size="" plain="" bindtap="" class=" energized-bg light "> 下一步 </button>
+    <button size="" plain="" bindtap="" class=" energized-bg light "> 提交 </button>
       </view>
   </view>
 </form>
