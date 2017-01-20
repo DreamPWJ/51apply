@@ -100,10 +100,7 @@ text, input {
   border-color: rgba(221, 221, 221, 0.3) !important;
 }
 
-.item-sub {
-  font-size: 0.8rem;
-  color: #585858;
-}
+
 
 .fixed-bottom {
   position: fixed;
@@ -519,7 +516,7 @@ text, input {
   font-size: 10px;
 }
 
-.item p {
+.item p,.item text,.item view {
   color: #666;
   font-size: 14px;
   margin-bottom: 2px;
@@ -527,7 +524,7 @@ text, input {
 
 .item h1:last-child, .item h2:last-child, .item h3:last-child,
 .item h4:last-child, .item h5:last-child, .item h6:last-child,
-.item p:last-child {
+.item p:last-child,.item text:last-child,.item view:last-child  {
   margin-bottom: 0;
 }
 
@@ -801,7 +798,7 @@ text, input {
   background-color: #262626;
 }
 
-.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p,
+.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p ,.item text,.item view,
 .item-content, .item-content h1, .item-content h2, .item-content h3,
 .item-content h4, .item-content h5, .item-content h6, .item-content p {
   overflow: hidden;

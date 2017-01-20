@@ -23,15 +23,15 @@
     <view class="item item-avatar item-button-right">
     <image src="../../images/map/localization.png"></image>
       全国计算机等级考试
-      <view class="item-sub"> 报名时间 : 2017年年1月1日-6月20日</view>
-      <view class="item-sub"> 报名时间 : 2017年年1月1-20日</view>
+      <view  > 报名时间 : 2017年年1月1日-6月20日</view>
+      <view > 报名时间 : 2017年年1月1-20日</view>
     <text class="button button-energized button-outline" size="1">预约报名</text>
     </view>
         <view class="item item-avatar item-button-right">
     <image src="../../images/map/localization.png"></image>
       全国计算机等级考试
-      <view class="item-sub"> 报名时间 : 2017年年1月1日-6月20日</view>
-      <view class="item-sub"> 报名时间 : 2017年年1月1-20日</view>
+      <view > 报名时间 : 2017年年1月1日-6月20日</view>
+      <view > 报名时间 : 2017年年1月1-20日</view>
       <text class="button button-energized button-outline" size="1">预约报名</text>
     </view>
   </view>
