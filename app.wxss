@@ -969,12 +969,12 @@ a.item:hover, a.item:focus {
   -moz-align-items: center;
   align-items: center;
   position: absolute;
-  top: 8px;
-  right: 16px;
-  min-width: 34px;
-  min-height: 34px;
-  font-size: 18px;
-  line-height: 32px;
+  top: 30px;
+  right: 6px;
+  min-width: 30px;
+  min-height: 30px;
+  font-size: 12px;
+  line-height: 30px;
 }
 
 .item-button-right > .button .icon:before,
@@ -990,10 +990,10 @@ a.item:hover, a.item:focus {
 .item-button-right > .button, .item-button-right .item-content > .button,
 .item-button-right > .buttons, .item-button-right .item-content > .buttons {
   margin: 0px 2px;
-  min-width: 34px;
-  min-height: 34px;
-  font-size: 18px;
-  line-height: 32px;
+  min-width: 30px;
+  min-height: 30px;
+  font-size: 12px;
+  line-height: 30px;
 }
 
 .item-button-left.item-button-right .button:first-child {
