@@ -1,6 +1,6 @@
 
 <!--index.wxml-->
-<view>
+<view  class="index">
   <view class="row text-center row-center header-nav energized-bg">
     <view class="col">
       <view class="iconfont icon-wodedingdan"></view>
@@ -23,15 +23,15 @@
     <view class="item item-avatar item-button-right">
     <image src="../../images/map/localization.png"></image>
       全国计算机等级考试
-      <view >报名时间:2017年1月1日-6月20日</view>
-      <view >报名时间:2017年1月1-20日</view>
+      <view >报名时间:2017年1月1-6月20</view>
+      <view >报名时间:2017年1月1-20</view>
     <text  bindtap="applysubject" class="button button-energized button-outline" >预约报名</text>
     </view>
         <view class="item item-avatar item-button-right">
     <image src="../../images/map/localization.png"></image>
       全国计算机等级考试
-      <view >报名时间:2017年1月1日-6月20日</view>
-      <view >报名时间:2017年1月1-20日</view>
+      <view >报名时间:2017年1月1-6月20</view>
+      <view >报名时间:2017年1月1-20</view>
       <text bindtap="applysubject" class="button button-energized button-outline" >预约报名</text>
     </view>
   </view>

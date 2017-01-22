@@ -1,4 +1,8 @@
 /**index.wxss**/
+.index{
+  with:100%;
+  overflow: hidden;
+}
 .header-nav{
   color: #ffffff;
   height: 200rpx;
