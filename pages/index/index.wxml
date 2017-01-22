@@ -1,6 +1,6 @@
 
 <!--index.wxml-->
-<view  class="index">
+<view  id="index" class="stable-bg">
   <view class="row text-center row-center header-nav energized-bg">
     <view class="col">
       <view class="iconfont icon-wodedingdan"></view>
@@ -11,28 +11,30 @@
       <text class="icon-text">准考证查询</text>
     </view>
     <view class="col">
-      <view class="iconfont icon-sousuo"></view>
+      <view class="iconfont icon-chaxun"></view>
       <text class="icon-text">成绩查询</text>
     </view>
   </view>
-  <view class="list">
-    <view class="item item-divider item-icon-right">
+  <view class="list " >
+    <view class="item item-divider  light-bg item-icon-right">
+    <text></text>
       报名考试
       <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
-    <view class="item item-avatar item-button-right">
-    <image src="../../images/map/localization.png"></image>
+    <view class="item item-icon-left item-button-right">
+    <text  class="iconfont icon-naozhong" >
+    </text>
       全国计算机等级考试
-      <view >报名时间:2017年1月1-6月20</view>
-      <view >报名时间:2017年1月1-20</view>
-    <text  bindtap="applysubject" class="button button-energized button-outline" >预约报名</text>
+      <view class="p">报名时间 : 2017年1月1-6月20</view>
+      <view  class="p">报名时间 : 2017年1月1-20</view>
+    <text  bindtap="applysubject" class="button button-energized button-outline " >预约报名</text>
     </view>
-        <view class="item item-avatar item-button-right">
-    <image src="../../images/map/localization.png"></image>
+    <view class="item item-icon-left item-button-right">
+    <text  class="iconfont icon-naozhong " ></text>
       全国计算机等级考试
-      <view >报名时间:2017年1月1-6月20</view>
-      <view >报名时间:2017年1月1-20</view>
-      <text bindtap="applysubject" class="button button-energized button-outline" >预约报名</text>
+      <view  class="p">报名时间 : 2017年1月1-6月20</view>
+      <view  class="p">报名时间 : 2017年1月1-20</view>
+    <text  bindtap="applysubject" class="button button-energized button-outline" >预约报名</text>
     </view>
   </view>
 </view>

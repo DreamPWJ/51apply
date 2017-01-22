@@ -1,15 +1,30 @@
 /**index.wxss**/
-.index{
-  with:100%;
+
+#index {
+  with: 100%;
   overflow: hidden;
 }
-.header-nav{
-  color: #ffffff;
+
+.header-nav {
+  color: #fff;
   height: 200rpx;
 }
-.header-nav .iconfont{
+
+.header-nav .iconfont {
   font-size: 1.8rem;
 }
-.header-nav .icon-text{
+
+.header-nav .icon-text {
   font-size: 0.8rem;
+}
+
+.icon-naozhong:before {
+  border-color: transparent;
+  color: #f26604;
+}
+
+.item-divider text:first-child{
+ margin-right:0.61rem;
+ height:0.1rem;
+ border-left:3px solid #f26604!important;
 }
