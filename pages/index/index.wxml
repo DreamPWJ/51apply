@@ -1,6 +1,6 @@
 
 <!--index.wxml-->
-<view  id="index" class="stable-bg">
+<view id="index" class="stable-bg">
   <view class="row text-center row-center header-nav energized-bg">
     <view class="col">
       <view class="iconfont icon-wodedingdan"></view>
@@ -15,26 +15,65 @@
       <text class="icon-text">成绩查询</text>
     </view>
   </view>
-  <view class="list " >
+  <view class="list ">
     <view class="item item-divider  light-bg item-icon-right">
-    <text></text>
+      <text></text>
       报名考试
       <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
     <view class="item item-icon-left item-button-right">
-    <text  class="iconfont icon-naozhong" >
-    </text>
+      <text class="iconfont icon-naozhong"></text>
       全国计算机等级考试
-      <view class="p">报名时间 : 2017年1月1-6月20</view>
-      <view  class="p">报名时间 : 2017年1月1-20</view>
-    <text  bindtap="applysubject" class="button button-energized button-outline " >预约报名</text>
+      <view class="p"> 报名时间 : 2017年1月1-6月20</view>
+      <view class="p"> 报名时间 : 2017年1月1-20</view>
+      <text bindtap="applysubject" class="button button-energized button-outline ">预约报名</text>
     </view>
     <view class="item item-icon-left item-button-right">
-    <text  class="iconfont icon-naozhong " ></text>
+      <text class="iconfont icon-naozhong "></text>
       全国计算机等级考试
-      <view  class="p">报名时间 : 2017年1月1-6月20</view>
-      <view  class="p">报名时间 : 2017年1月1-20</view>
-    <text  bindtap="applysubject" class="button button-energized button-outline" >预约报名</text>
+      <view class="p"> 报名时间 : 2017年1月1-6月20</view>
+      <view class="p"> 报名时间 : 2017年1月1-20</view>
+      <text bindtap="applysubject" class="button button-energized button-outline">预约报名</text>
+    </view>
+  </view>
+  <view class="row text-center row-center header-subnav light-bg">
+    <view class="col">
+      <view class="iconfont icon-shengyin energized"></view>
+      <text class="icon-text">考试公告</text>
+    </view>
+    <view class="col">
+      <view class="iconfont icon-jushoucanggift royal"></view>
+      <text class="icon-text">考试关注</text>
+    </view>
+    <view class="col">
+      <view class="iconfont icon-yijianfankui balanced"></view>
+      <text class="icon-text">考试宝典</text>
+    </view>
+  </view>
+  <view class="list margin-top">
+    <view class="item item-divider  light-bg item-icon-right">
+      <text></text>
+      最新章节练习
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item ">
+      第一章 C语言概述
+      <text bindtap="" class="item-note">2017-1-22</text>
+    </view>
+    <view class="item ">
+      第二章 JAVA语言概述
+      <text bindtap="" class="item-note">2017-1-23</text>
+    </view>
+    <view class="item ">
+      第三章 微信小程序语言概述
+      <text bindtap="" class="item-note">2017-1-25</text>
+    </view>
+  </view>
+  <view class="list share" >
+    <view class="item item-divider  light-bg item-icon-right">
+      <text></text>
+      考霸与您分享
+      <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
   </view>
 </view>
