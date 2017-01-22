@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "51报名管家"
+    "navigationBarTitleText": "51报名管家",
+    "enablePullDownRefresh": false
 }

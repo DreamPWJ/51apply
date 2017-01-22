@@ -11,7 +11,7 @@
       <text class="icon-text">准考证查询</text>
     </view>
     <view class="col">
-      <view class="iconfont icon-chaxun"></view>
+      <view class="iconfont icon-chaxun1"></view>
       <text class="icon-text">成绩查询</text>
     </view>
   </view>
