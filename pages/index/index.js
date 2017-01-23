@@ -9,7 +9,7 @@ Page({
     },
 
     onLoad: function () {
-        util.http(app.globalData.api + "/GetHeadLines","GET", this.getHeadLines)
+        util.http(app.globalData.api + "/GetHeadLines","GET", {praviteKey: 'oiox3tmqu1sn56x7occdd'},this.getHeadLines)
     },
     getHeadLines: function (data) {
         console.log(data);

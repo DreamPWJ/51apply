@@ -16,10 +16,11 @@ function formatNumber(n) {
     return n[1] ? n : '0' + n
 }
 
-function http(url, type, callBack) {
+function http(url, type, data, callBack) {
     wx.request({
         url: url,
         method: type,
+        data: data,
         header: {
             "Content-Type": "json"
         },
