@@ -49,6 +49,10 @@
       <view class="iconfont icon-yijianfankui balanced"></view>
       <text class="icon-text">考试宝典</text>
     </view>
+       <view class="col">
+      <view class="iconfont icon-trade assertive"></view>
+      <text class="icon-text">增值服务</text>
+    </view>
   </view>
   <view class="list margin-top">
     <view class="item item-divider  light-bg item-icon-right">

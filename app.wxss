@@ -2296,7 +2296,7 @@ input[type="color"] {
   color: #fff;
 }
 
-.button.button-energized:hover {
+.button.button-energized:active {
   color: #fff;
   text-decoration: none;
 }
@@ -2324,7 +2324,7 @@ input[type="color"] {
   color: #f26604;
 }
 
-.button.button-energized.button-outline.active,
+.button.button-energized.button-outline:active,
 .button.button-energized.button-outline.activated {
   background-color: #f26604;
   box-shadow: none;
