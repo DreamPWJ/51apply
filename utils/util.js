@@ -26,9 +26,25 @@ function http(url, type, data, callBack) {
         },
         success: function (res) {
             callBack(res.data);
+            if (res.data.StatusCode != 0) {
+                wx.showToast({
+                    title: res.data.Msg,
+                    icon: 'success',
+                    duration: 2000
+                })
+            }
+
         },
         fail: function (error) {
+            wx.showToast({
+                title: "请求失败:" + error,
+                icon: 'success',
+                duration: 2000
+            })
             console.log(error)
+        },
+        complete: function () {
+
         }
     })
 }

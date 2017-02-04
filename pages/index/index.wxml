@@ -21,20 +21,14 @@
       报名考试
       <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
+    <block wx:for="{{headLinesData}}"  >
     <view class="item item-icon-left item-button-right">
       <text class="iconfont icon-naozhong"></text>
-      全国计算机等级考试
-      <view class="p"> 报名时间 : 2017年1月1-6月20</view>
-      <view class="p"> 报名时间 : 2017年1月1-20</view>
+     {{item.NewsTitle}}
+      <view class="p"> 报名时间 : {{item.NewsDate}}</view>
       <text bindtap="applysubject" class="button button-energized button-outline ">预约报名</text>
     </view>
-    <view class="item item-icon-left item-button-right">
-      <text class="iconfont icon-naozhong "></text>
-      全国计算机等级考试
-      <view class="p"> 报名时间 : 2017年1月1-6月20</view>
-      <view class="p"> 报名时间 : 2017年1月1-20</view>
-      <text bindtap="applysubject" class="button button-energized button-outline">预约报名</text>
-    </view>
+    </block>
   </view>
   <view class="row text-center row-center header-subnav light-bg">
     <view class="col">

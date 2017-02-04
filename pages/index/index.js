@@ -9,12 +9,21 @@ Page({
     },
 
     onLoad: function () {
-        util.http(app.globalData.api + "/GetHeadLines","GET", {praviteKey: 'oiox3tmqu1sn56x7occdd'},this.getHeadLines)
+        util.http(app.globalData.api + "/GetExamNotice", "GET", {
+                inputJson: {
+                    CurrPage: 1,
+                    PageSize: 2
+                },
+                praviteKey: 'oiox3tmqu1sn56x7occdd'
+            }
+            ,
+            this.getHeadLines
+        )
     },
     getHeadLines: function (data) {
         console.log(data);
         this.setData({
-            headLinesData: data
+            headLinesData: data.Data
         });
 
     },
