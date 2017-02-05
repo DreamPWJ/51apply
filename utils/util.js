@@ -16,7 +16,7 @@ function formatNumber(n) {
     return n[1] ? n : '0' + n
 }
 
-function http(url, type, data, callBack) {
+function https(url, type, data, callBack) {
     wx.request({
         url: url,
         method: type,
@@ -51,5 +51,5 @@ function http(url, type, data, callBack) {
 
 module.exports = {
     formatTime: formatTime,
-    http: http
+    https: https
 }

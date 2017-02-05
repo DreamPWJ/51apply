@@ -9,7 +9,7 @@ Page({
     },
 
     onLoad: function () {
-        util.http(app.globalData.api + "/GetExamNotice", "GET", {
+        util.https(app.globalData.api + "/GetExamNotice", "GET", {
                 inputJson: {
                     CurrPage: 1,
                     PageSize: 2
