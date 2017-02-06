@@ -58,7 +58,7 @@ text, input {
 }
 
 .margin-top {
-  margin-top: 0.6rem;
+  margin-top: 0.6rem!important;
 }
 
 .border-radius-50 {

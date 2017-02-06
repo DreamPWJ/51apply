@@ -32,5 +32,11 @@ Page({
         wx.navigateTo({
             url: '../apply/applysubject'
         })
+    },
+    //事件处理函数
+    applyrecord: function () {
+        wx.navigateTo({
+            url: '../record/applyrecord'
+        })
     }
 })

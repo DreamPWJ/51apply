@@ -16,7 +16,18 @@ function formatNumber(n) {
     return n[1] ? n : '0' + n
 }
 
+/**
+ * 公共微信https请求封装
+ * @param url
+ * @param type
+ * @param data
+ * @param callBack
+ */
 function https(url, type, data, callBack) {
+    wx.showToast({
+        title: '51报名管家',
+        icon: 'loading'
+    })
     wx.request({
         url: url,
         method: type,
@@ -44,7 +55,7 @@ function https(url, type, data, callBack) {
             console.log(error)
         },
         complete: function () {
-
+            wx.hideToast();
         }
     })
 }

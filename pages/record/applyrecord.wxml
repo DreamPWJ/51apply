@@ -1,0 +1,31 @@
+<!--pages/record/applyrecord.wxml-->
+<view id="applyrecord" class="stable-bg">
+    <view class="list ">
+        <view class="item item-divider text-center item-energized ">
+            考试倒计时124天
+        </view>
+        <view class="item  ">
+            考试类型
+            <text class="item-note">会计从业资格考试</text>
+        </view>
+        <view class="item ">
+            考试科目
+            <text class="item-note">会计从业资格科目</text>
+
+        </view>
+        <view class="item ">
+            报名时间
+            <text class="item-note">2017-2-6</text>
+
+        </view>
+        <view class="item ">
+            <text class="energized">已缴费</text>
+
+        </view>
+
+
+        <view class="fixed-bottom padding-top">
+            <button size="" plain="" bindtap="applyperson" class="energized-bg light "> 添加记录</button>
+        </view>
+    </view>
+</view>

@@ -2,7 +2,7 @@
 <!--index.wxml-->
 <view id="index" class="stable-bg">
   <view class="row text-center row-center header-nav energized-bg">
-    <view class="col">
+    <view class="col" bindtap="applyrecord">
       <view class="iconfont icon-wodedingdan"></view>
       <text class="icon-text">报名记录</text>
     </view>
