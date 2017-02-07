@@ -55,18 +55,12 @@
       最新章节练习
       <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
+    <block wx:for="{{examTestList}}"  >
     <view class="item ">
-      第一章 C语言概述
-      <text bindtap="" class="item-note">2017-1-22</text>
+      {{item.QuestionTitle}}
+      <text bindtap="" class="item-note">{{item.ReturnDate}}</text>
     </view>
-    <view class="item ">
-      第二章 JAVA语言概述
-      <text bindtap="" class="item-note">2017-1-23</text>
-    </view>
-    <view class="item ">
-      第三章 微信小程序语言概述
-      <text bindtap="" class="item-note">2017-1-25</text>
-    </view>
+    </block>
   </view>
   <view class="list share" >
     <view class="item item-divider  light-bg item-icon-right">
