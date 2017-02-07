@@ -14,6 +14,12 @@ text, input {
   font-family: MicroSoft Yahei;
 }
 
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #f8f8f8;
+}
+
 /* 网格布局row水平方向居中*/
 
 .row-horizontal-center {
