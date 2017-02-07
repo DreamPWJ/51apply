@@ -1,47 +1,56 @@
-
 <!--pages/apply/applysubject.wxml-->
 <view class="list">
-  <view class="item item-divider">
-    选择考点及科目
-  </view>
-  <view class="item item-icon-right ">
-    考试名称
-    <text class="item-note">全国计算机考试 </text>
-    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
-  </view>
-  <view class="item item-icon-right">
-    科目选择
-    <text class="item-note">请选择考试科目 </text>
-    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
-  </view>
-  <view class="item item-icon-right">
-    考试省份
-    <text class="item-note">请选择考试省份 </text>
-    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
-  </view>
-  <view class="item item-icon-right">
-    考点选择
-    <text class="item-note">请选择考点 </text>
-    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
-  </view>
-  <view class="item item-divider">
-    考点信息
-  </view>
-  <view class="item ">
-    考点电话
-  </view>
-  <view class="item ">
-    考点地址
-  </view>
-  <view class="item ">
-    考点距离
-  </view>
+    <view class="item item-divider">
+        选择考点及科目
+    </view>
+    <view class="item item-icon-right ">
+        考试名称
+        <text class="item-note">全国计算机考试</text>
+        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+        科目选择
+        <text class="item-note">请选择考试科目</text>
+        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+        考试省份
+        <text class="item-note">请选择考试省份</text>
+        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+        考点选择
+        <view class="item-note">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    {{array[index]}}
+                </view>
+            </picker>
+        </view>
 
-  <!-- map.wxml -->
-  <view>
-    <map id="map" longitude="113.324520" latitude="23.099994" scale="16" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 160px;"></map>
-  </view>
-  <view class="padding-top">
-    <button size="" plain="" bindtap="applyperson" class="energized-bg light "> 下一步 </button>
-  </view>
+        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+
+    <view class="item item-divider">
+        考点信息
+    </view>
+    <view class="item ">
+        考点电话
+    </view>
+    <view class="item ">
+        考点地址
+    </view>
+    <view class="item ">
+        考点距离
+    </view>
+
+    <!-- map.wxml -->
+    <view>
+        <map id="map" longitude="113.324520" latitude="23.099994" scale="16" controls="{{controls}}"
+             bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}"
+             bindregionchange="regionchange" show-location style="width: 100%; height: 160px;"></map>
+    </view>
+    <view class="padding-top">
+        <button size="" plain="" bindtap="applyperson" class="energized-bg light "> 下一步</button>
+    </view>
 </view>

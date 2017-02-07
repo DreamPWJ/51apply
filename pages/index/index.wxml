@@ -21,11 +21,12 @@
       报名考试
       <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
-    <block wx:for="{{headLinesData}}"  >
+    <block wx:for="{{headExamType}}"  >
     <view class="item item-icon-left item-button-right">
       <text class="iconfont icon-naozhong"></text>
-     {{item.NewsTitle}}
-      <view class="p"> 报名时间 : {{item.NewsDate}}</view>
+     {{item.ExamTypeName}}
+      <view class="p"> 报名时间 : {{item.SignTimes}}</view>
+      <view class="p"> 考试时间 : {{item.ExamTimes}}</view>
       <text bindtap="applysubject" class="button button-energized button-outline ">预约报名</text>
     </view>
     </block>
