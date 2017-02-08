@@ -13,8 +13,8 @@ Page({
         markers: [{
             iconPath: "/images/map/localization.png",
             id: 0,
-            latitude: wx.getStorageSync("latitude"),
-            longitude: wx.getStorageSync("longitude"),
+            latitude: 0,
+            longitude: 0,
             width: 20,
             height: 20
         }]
@@ -113,7 +113,7 @@ Page({
                     SubjectID: this.data.examSubject[this.data.examSubjectIndex].ExamTypeId,//用户选中的考试科目ID,如果有多个，一定要加,号分割，如果只有一个科目一定不要加,号.
                     Latitude: wx.getStorageSync("latitude"), //纬度
                     Longitude: wx.getStorageSync("longitude"), //经度
-                    ProvinceName: this.data.examSubject[e.detail.value].ProvinceName //省份名称,可以为空
+                    ProvinceName: this.data.examProvinceList[e.detail.value].ProvinceName //省份名称,可以为空
                 },
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
             },
@@ -125,7 +125,7 @@ Page({
         console.log(data);
         this.setData({
             examPlace: data.Data,
-            examPlaceItem:data.Data[0]
+            examPlaceItem: data.Data[0]
         });
 
     },
@@ -133,8 +133,13 @@ Page({
     bindExamPlacePickerChange: function (e) {
         this.setData({
             examPlaceIndex: e.detail.value,
-            examPlaceItem:this.data.examPlace[e.detail.value]
+            examPlaceItem: this.data.examPlace[e.detail.value],
+            longitude: this.data.examPlace[e.detail.value].Longitude,
+            latitude: this.data.examPlace[e.detail.value].Latitude,
+            'markers[0].latitude': this.data.examPlace[e.detail.value].Latitude,
+            'markers[0].longitude': this.data.examPlace[e.detail.value].Longitude
         })
+        console.log(this.data);
 
     }
 })

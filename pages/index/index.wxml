@@ -61,11 +61,11 @@
             </view>
         </block>
     </view>
-    <view class="list share">
+<!--    <view class="list share">
         <view class="item item-divider  light-bg item-icon-right">
             <text></text>
             考霸与您分享
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
-    </view>
+    </view>-->
 </view>
