@@ -4,43 +4,26 @@ var app = getApp();
 var util = require('../../utils/util.js');
 Page({
     data: {
-        array: ['美国', '中国', '巴西', '日本'],
-        index: 0,
+        headExamTypeIndex: 0,
+        examSubjectIndex: 0,
+        provinceListIndex: 0,
+        examPlaceIndex: 0,
+        longitude: wx.getStorageSync("longitude"),
+        latitude: wx.getStorageSync("latitude"),
         markers: [{
             iconPath: "/images/map/localization.png",
             id: 0,
-            latitude: 23.099994,
-            longitude: 113.324520,
+            latitude: wx.getStorageSync("latitude"),
+            longitude: wx.getStorageSync("longitude"),
             width: 20,
             height: 20
-        }],
-        polyline: [{
-            points: [{
-                longitude: 113.3245211,
-                latitude: 23.10229
-            }, {
-                longitude: 113.324520,
-                latitude: 23.21229
-            }],
-            color: "#FF0000DD",
-            width: 2,
-            dottedLine: true
-        }],
-        controls: [{
-            id: 1,
-            iconPath: '/images/map/localization.png',
-            position: {
-                left: 0,
-                top: 300 - 50,
-                width: 20,
-                height: 20
-            },
-            clickable: true
         }]
+
     },
 
 
     onLoad: function () {
+
         //考试报名列表
         util.https(app.globalData.api + "/GetHeadExamType", "GET", {
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
@@ -52,9 +35,16 @@ Page({
     },
     //考试报名列表
     getHeadExamType: function (data) {
-        console.log(data);
+        var headExamTypeArr = [];
+        for (var index in data.Data) {
+            var item = data.Data[index];
+            if (item.IsActive == 1 || item.IsActive == 2) {//只显示IsActive 是1或者2的考试类型
+                headExamTypeArr.push(item);
+            }
+
+        }
         this.setData({
-            headExamType: data.Data
+            headExamType: headExamTypeArr
         });
 
     },
@@ -64,11 +54,87 @@ Page({
             url: 'applyperson'
         })
     },
-    //地区选择
-    bindPickerChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
+    //考试名称选择
+    bindNamePickerChange: function (e) {
         this.setData({
-            index: e.detail.value
+            headExamTypeIndex: e.detail.value
         })
+
+        //考试科目获取
+        util.https(app.globalData.api + "/GetExamSubject", "GET", {
+                inputJson: {
+                    ExamTypeId: this.data.headExamType[e.detail.value].ExamTypeId//考试类型ID， 如果是培训默认给6.
+                },
+                praviteKey: 'oiox3tmqu1sn56x7occdd'
+            },
+            this.getExamSubject
+        )
+    },
+    //考试科目获取
+    getExamSubject: function (data) {
+        console.log(data);
+        this.setData({
+            examSubject: data.Data
+        });
+
+    },
+    //考试科目选择
+    bindexamSubjectPickerChange: function (e) {
+        this.setData({
+            examSubjectIndex: e.detail.value
+        })
+        //考试的省份获取
+        util.https(app.globalData.api + "/GetExamProvinceList", "GET", {
+                inputJson: {
+                    ExamTypeId: this.data.examSubject[e.detail.value].ExamTypeId //考试类型ID  如果给空或者0，则返回全部省份
+                },
+                praviteKey: 'oiox3tmqu1sn56x7occdd'
+            },
+            this.getExamProvinceList
+        )
+    },
+
+    //考试的省份获取
+    getExamProvinceList: function (data) {
+        console.log(data);
+        this.setData({
+            examProvinceList: data.Data
+        });
+
+    },
+    //考试的省份选择
+    bindProvincePickerChange: function (e) {
+        this.setData({
+            provinceListIndex: e.detail.value
+        })
+        //考点获取
+        util.https(app.globalData.api + "/GetExamPlace", "GET", {
+                inputJson: {
+                    SubjectID: this.data.examSubject[this.data.examSubjectIndex].ExamTypeId,//用户选中的考试科目ID,如果有多个，一定要加,号分割，如果只有一个科目一定不要加,号.
+                    Latitude: wx.getStorageSync("latitude"), //纬度
+                    Longitude: wx.getStorageSync("longitude"), //经度
+                    ProvinceName: this.data.examSubject[e.detail.value].ProvinceName //省份名称,可以为空
+                },
+                praviteKey: 'oiox3tmqu1sn56x7occdd'
+            },
+            this.getExamPlace
+        )
+    },
+    //考点获取
+    getExamPlace: function (data) {
+        console.log(data);
+        this.setData({
+            examPlace: data.Data,
+            examPlaceItem:data.Data[0]
+        });
+
+    },
+    //考点获取选择
+    bindExamPlacePickerChange: function (e) {
+        this.setData({
+            examPlaceIndex: e.detail.value,
+            examPlaceItem:this.data.examPlace[e.detail.value]
+        })
+
     }
 })

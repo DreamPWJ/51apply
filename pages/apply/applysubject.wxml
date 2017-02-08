@@ -6,9 +6,10 @@
     <view class="item item-icon-right ">
         考试名称
         <view class="item-note">
-            <picker bindchange="bindPickerChange" value="{{index}}" range-key="ExamTypeName" range="{{headExamType}}">
+            <picker bindchange="bindNamePickerChange" value="{{headExamTypeIndex}}" range-key="ExamTypeName"
+                    range="{{headExamType}}">
                 <view class="picker">
-                    {{headExamType[index].ExamTypeName}}
+                    {{headExamType[headExamTypeIndex].ExamTypeName}}
                 </view>
             </picker>
         </view>
@@ -16,20 +17,35 @@
     </view>
     <view class="item item-icon-right">
         科目选择
-        <text class="item-note">请选择考试科目</text>
+        <view class="item-note">
+            <picker bindchange="bindexamSubjectPickerChange" value="{{examSubjectIndex}}" range-key="SubjectName"
+                    range="{{examSubject}}">
+                <view class="picker">
+                    {{examSubject[examSubjectIndex].SubjectName}}
+                </view>
+            </picker>
+        </view>
         <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
     <view class="item item-icon-right">
         考试省份
-        <text class="item-note">请选择考试省份</text>
+        <view class="item-note">
+            <picker bindchange="bindProvincePickerChange" value="{{provinceListIndex}}" range-key="ProvinceName"
+                    range="{{examProvinceList}}">
+                <view class="picker">
+                    {{examProvinceList[provinceListIndex].ProvinceName}}
+                </view>
+            </picker>
+        </view>
         <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
     <view class="item item-icon-right">
         考点选择
         <view class="item-note">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <picker bindchange="bindExamPlacePickerChange" value="{{examPlaceIndex}}" range-key="SchoolName"
+                    range="{{examPlace}}">
                 <view class="picker">
-                    {{array[index]}}
+                    {{examPlace[examPlaceIndex].SchoolName}}
                 </view>
             </picker>
         </view>
@@ -42,17 +58,20 @@
     </view>
     <view class="item ">
         考点电话
+        <text class="item-note">{{examPlaceItem.TelNum}}</text>
     </view>
     <view class="item ">
         考点地址
+        <text class="item-note">{{examPlaceItem.Address}}</text>
     </view>
     <view class="item ">
         考点距离
+        <text class="item-note">{{examPlaceItem.Diatance}}</text>
     </view>
 
     <!-- map.wxml -->
     <view>
-        <map id="map" longitude="113.324520" latitude="23.099994" scale="16" controls="{{controls}}"
+        <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" controls="{{controls}}"
              bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}"
              bindregionchange="regionchange" show-location style="width: 100%; height: 160px;"></map>
     </view>
