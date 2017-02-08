@@ -5,7 +5,13 @@
     </view>
     <view class="item item-icon-right ">
         考试名称
-        <text class="item-note">全国计算机考试</text>
+        <view class="item-note">
+            <picker bindchange="bindPickerChange" value="{{index}}" range-key="ExamTypeName" range="{{headExamType}}">
+                <view class="picker">
+                    {{headExamType[index].ExamTypeName}}
+                </view>
+            </picker>
+        </view>
         <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
     <view class="item item-icon-right">

@@ -1,27 +1,10 @@
 // pages/apply/applysubject.js
 //获取应用实例
-var app = getApp()
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
     data: {
         array: ['美国', '中国', '巴西', '日本'],
-        objectArray: [
-            {
-                id: 0,
-                name: '美国'
-            },
-            {
-                id: 1,
-                name: '中国'
-            },
-            {
-                id: 2,
-                name: '巴西'
-            },
-            {
-                id: 3,
-                name: '日本'
-            }
-        ],
         index: 0,
         markers: [{
             iconPath: "/images/map/localization.png",
@@ -54,6 +37,26 @@ Page({
             },
             clickable: true
         }]
+    },
+
+
+    onLoad: function () {
+        //考试报名列表
+        util.https(app.globalData.api + "/GetHeadExamType", "GET", {
+                praviteKey: 'oiox3tmqu1sn56x7occdd'
+            }
+            ,
+            this.getHeadExamType
+        )
+
+    },
+    //考试报名列表
+    getHeadExamType: function (data) {
+        console.log(data);
+        this.setData({
+            headExamType: data.Data
+        });
+
     },
     //事件处理函数
     applyperson: function () {
