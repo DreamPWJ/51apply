@@ -52,7 +52,14 @@
 
         <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
-
+    <view>
+        <view class="item item-divider">
+            增值服务
+        </view>
+        <view class="item ">
+            增值服务
+        </view>
+    </view>
     <view class="item item-divider">
         考点信息
     </view>

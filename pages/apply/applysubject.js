@@ -139,7 +139,24 @@ Page({
             'markers[0].latitude': this.data.examPlace[e.detail.value].Latitude,
             'markers[0].longitude': this.data.examPlace[e.detail.value].Longitude
         })
-        console.log(this.data);
+
+        //根据考试的科目和考点来获取对应的增值服务
+        util.https(app.globalData.api + "/GetAddServices", "GET", {
+                inputJson: {
+                    SubjectID: this.data.examSubject[this.data.examSubjectIndex].ExamTypeId,//用户选中的考试科目ID
+                    SchoolId: 2 //用户选中的考点ID
+                },
+                praviteKey: 'oiox3tmqu1sn56x7occdd'
+            },
+            this.getAddServices
+        )
+    },
+    //根据考试的科目和考点来获取对应的增值服务
+    getAddServices: function (data) {
+        console.log(data);
+        this.setData({
+            addServices: data.Data
+        });
 
     }
 })
