@@ -20,6 +20,10 @@ page {
   background-color: #f8f8f8;
 }
 
+/** 修改默认的navigator点击态 **/
+.navigator-hover {
+  color:#f26604;
+}
 /* 网格布局row水平方向居中*/
 
 .row-horizontal-center {

@@ -1,1 +1,9 @@
 /* pages/apply/applysubject.wxss */
+.checkbox{
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.checkbox checkbox{
+    margin-right: 0.8rem;
+}

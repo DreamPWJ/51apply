@@ -1,5 +1,5 @@
 <!--pages/apply/applysubject.wxml-->
-<view class="list">
+<view class="list" >
     <view class="item item-divider">
         选择考点及科目
     </view>
@@ -56,9 +56,16 @@
         <view class="item item-divider">
             增值服务
         </view>
-        <view class="item ">
-            增值服务
-        </view>
+        <checkbox-group bindchange="checkboxChange" class="light-bg">
+            <label class="checkbox" wx:for="{{addServices}}">
+                <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#f26604"/>{{item.value}}
+                <text class="float-right">￥66.66</text>
+            </label>
+            <label class="checkbox" >
+                <checkbox  checked="true" disabled="true" color="#f26604"/>快递(默认收8元快递费用)
+            </label>
+        </checkbox-group>
+        <navigator url="../address/addressmanage" open-type="navigate" hover-class="navigator-hover" class="text-center padding-vertical light-bg grey">点击选择地址</navigator>
     </view>
     <view class="item item-divider">
         考点信息

@@ -32,8 +32,9 @@ Page({
             this.getHeadExamType
         )
 
-    },
-    //考试报名列表
+    }
+    ,
+//考试报名列表
     getHeadExamType: function (data) {
         var headExamTypeArr = [];
         for (var index in data.Data) {
@@ -47,14 +48,16 @@ Page({
             headExamType: headExamTypeArr
         });
 
-    },
-    //事件处理函数
+    }
+    ,
+//事件处理函数
     applyperson: function () {
         wx.navigateTo({
             url: 'applyperson'
         })
-    },
-    //考试名称选择
+    }
+    ,
+//考试名称选择
     bindNamePickerChange: function (e) {
         this.setData({
             headExamTypeIndex: e.detail.value
@@ -69,16 +72,17 @@ Page({
             },
             this.getExamSubject
         )
-    },
-    //考试科目获取
+    }
+    ,
+//考试科目获取
     getExamSubject: function (data) {
-        console.log(data);
         this.setData({
             examSubject: data.Data
         });
 
-    },
-    //考试科目选择
+    }
+    ,
+//考试科目选择
     bindexamSubjectPickerChange: function (e) {
         this.setData({
             examSubjectIndex: e.detail.value
@@ -92,17 +96,18 @@ Page({
             },
             this.getExamProvinceList
         )
-    },
+    }
+    ,
 
-    //考试的省份获取
+//考试的省份获取
     getExamProvinceList: function (data) {
-        console.log(data);
         this.setData({
             examProvinceList: data.Data
         });
 
-    },
-    //考试的省份选择
+    }
+    ,
+//考试的省份选择
     bindProvincePickerChange: function (e) {
         this.setData({
             provinceListIndex: e.detail.value
@@ -119,8 +124,9 @@ Page({
             },
             this.getExamPlace
         )
-    },
-    //考点获取
+    }
+    ,
+//考点获取
     getExamPlace: function (data) {
         console.log(data);
         this.setData({
@@ -128,8 +134,9 @@ Page({
             examPlaceItem: data.Data[0]
         });
 
-    },
-    //考点获取选择
+    }
+    ,
+//考点获取选择
     bindExamPlacePickerChange: function (e) {
         this.setData({
             examPlaceIndex: e.detail.value,
@@ -141,10 +148,12 @@ Page({
         })
 
         //根据考试的科目和考点来获取对应的增值服务
+        console.log(this.data.examSubjectIndex);
+        console.log(this.data.examSubject);
         util.https(app.globalData.api + "/GetAddServices", "GET", {
                 inputJson: {
                     SubjectID: this.data.examSubject[this.data.examSubjectIndex].ExamTypeId,//用户选中的考试科目ID
-                    SchoolId: 2 //用户选中的考点ID
+                    SchoolId: this.data.examPlace[this.data.examPlaceIndex].SchoolID  //用户选中的考点ID
                 },
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
             },
@@ -157,6 +166,9 @@ Page({
         this.setData({
             addServices: data.Data
         });
-
+    },
+    //点击选择增值服务
+    checkboxChange: function (e) {
+        console.log('checkbox发生change事件，携带value值为：', e.detail.value)
     }
 })

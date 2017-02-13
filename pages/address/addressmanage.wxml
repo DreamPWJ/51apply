@@ -1,0 +1,6 @@
+<!--pages/address/addressmanage.wxml-->
+<view class="list">
+    <view class="fixed-bottom padding-top">
+        <button size="" plain="" bindtap="" class="energized-bg light "> 新增地址</button>
+    </view>
+</view>

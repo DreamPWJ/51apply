@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/apply/applysubject", 
+    "pages/apply/applysubject",
     "pages/apply/applyperson",
-    "pages/record/applyrecord"
+    "pages/record/applyrecord",
+    "pages/address/addressmanage"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f26604"
