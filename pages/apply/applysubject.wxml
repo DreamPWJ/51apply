@@ -52,14 +52,14 @@
 
         <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
-    <view>
+    <view wx:if="{{addServices}}">
         <view class="item item-divider">
             增值服务
         </view>
         <checkbox-group bindchange="checkboxChange" class="light-bg">
             <label class="checkbox" wx:for="{{addServices}}">
-                <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#f26604"/>{{item.value}}
-                <text class="float-right">￥66.66</text>
+                <checkbox value="{{item.BookList.BookId}}"  color="#f26604"/>{{item.BookList.BookName}}
+                <text class="float-right">￥{{item.BookList.BookMoney}}</text>
             </label>
             <label class="checkbox" >
                 <checkbox  checked="true" disabled="true" color="#f26604"/>快递(默认收8元快递费用)
