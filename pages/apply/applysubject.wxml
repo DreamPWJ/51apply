@@ -57,9 +57,9 @@
             增值服务
         </view>
         <checkbox-group bindchange="checkboxChange" class="light-bg">
-            <label class="checkbox" wx:for="{{addServices}}">
-                <checkbox value="{{item.BookList.BookId}}"  color="#f26604"/>{{item.BookList.BookName}}
-                <text class="float-right">￥{{item.BookList.BookMoney}}</text>
+            <label class="checkbox" wx:for="{{addServices.MNExamList}}">
+                <checkbox value="{{item.TestID}}"  color="#f26604"/>{{item.TestName}}
+                <text class="float-right">￥{{item.TestMoney}}</text>
             </label>
             <label class="checkbox" >
                 <checkbox  checked="true" disabled="true" color="#f26604"/>快递(默认收8元快递费用)

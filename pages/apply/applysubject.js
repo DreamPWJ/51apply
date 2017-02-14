@@ -115,7 +115,7 @@ Page({
         //考点获取
         util.https(app.globalData.api + "/GetExamPlace", "GET", {
                 inputJson: {
-                    SubjectID: this.data.examSubject[this.data.examSubjectIndex].ExamTypeId,//用户选中的考试科目ID,如果有多个，一定要加,号分割，如果只有一个科目一定不要加,号.
+                    SubjectID: this.data.examSubject[this.data.examSubjectIndex].SubjectID,//用户选中的考试科目ID,如果有多个，一定要加,号分割，如果只有一个科目一定不要加,号.
                     Latitude: wx.getStorageSync("latitude"), //纬度
                     Longitude: wx.getStorageSync("longitude"), //经度
                     ProvinceName: this.data.examProvinceList[e.detail.value].ProvinceName //省份名称,可以为空
@@ -152,7 +152,7 @@ Page({
         console.log(this.data.examSubject);
         util.https(app.globalData.api + "/GetAddServices", "GET", {
                 inputJson: {
-                    SubjectID: this.data.examSubject[this.data.examSubjectIndex].ExamTypeId,//用户选中的考试科目ID
+                    SubjectID: this.data.examSubject[this.data.examSubjectIndex].SubjectID,//用户选中的考试科目ID
                     SchoolId: this.data.examPlace[this.data.examPlaceIndex].SchoolID  //用户选中的考点ID
                 },
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
