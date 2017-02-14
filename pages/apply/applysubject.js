@@ -21,16 +21,14 @@ Page({
 
     },
 
-
-    onLoad: function () {
-
+    onLoad: function (options) {
+        // 页面初始化 options为页面跳转所带来的参数
         //考试报名列表
         util.https(app.globalData.api + "/GetHeadExamType", "GET", {
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
             },
             this.getHeadExamType
         )
-
     }
     ,
 //考试报名列表
@@ -47,15 +45,13 @@ Page({
             headExamType: headExamTypeArr
         });
 
-    }
-    ,
+    },
 //事件处理函数
     applyperson: function () {
         wx.navigateTo({
             url: 'applyperson'
         })
-    }
-    ,
+    },
 //考试名称选择
     bindNamePickerChange: function (e) {
         this.setData({
@@ -123,7 +119,7 @@ Page({
                     SubjectID: this.data.examSubject[this.data.examSubjectIndex].SubjectID,//用户选中的考试科目ID,如果有多个，一定要加,号分割，如果只有一个科目一定不要加,号.
                     Latitude: wx.getStorageSync("latitude"), //纬度
                     Longitude: wx.getStorageSync("longitude"), //经度
-                    ProvinceName: this.data.examProvinceList[e?e.detail.value:0].ProvinceName //省份名称,可以为空
+                    ProvinceName: this.data.examProvinceList[e ? e.detail.value : 0].ProvinceName //省份名称,可以为空
                 },
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
             },
