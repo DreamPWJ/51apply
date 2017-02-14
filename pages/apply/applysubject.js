@@ -132,7 +132,11 @@ Page({
         console.log(data);
         this.setData({
             examPlace: data.Data,
-            examPlaceItem: data.Data[0]
+            examPlaceItem: data.Data[0],
+            longitude: data.Data[0].Longitude,
+            latitude: data.Data[0].Latitude,
+            'markers[0].latitude': data.Data[0].Latitude,
+            'markers[0].longitude': data.Data[0].Longitude
         });
         //根据考试的科目和考点来获取对应的增值服务
         this.getAddServicesHttp();

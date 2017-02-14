@@ -52,7 +52,7 @@
 
         <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
     </view>
-    <view wx:if="{{addServices.MNExamList.length!=0}}">
+    <view wx:if="{{addServices.MNExamList&&addServices.MNExamList.length!=0}}">
         <view class="item item-divider">
             增值服务
         </view>
