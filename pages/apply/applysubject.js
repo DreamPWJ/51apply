@@ -27,8 +27,7 @@ Page({
         //考试报名列表
         util.https(app.globalData.api + "/GetHeadExamType", "GET", {
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
-            }
-            ,
+            },
             this.getHeadExamType
         )
 
@@ -104,7 +103,8 @@ Page({
         this.setData({
             examProvinceList: data.Data
         });
-
+        //考点获取
+        this.getExamPlaceHttp();
     }
     ,
 //考试的省份选择
@@ -113,19 +113,24 @@ Page({
             provinceListIndex: e.detail.value
         })
         //考点获取
+        this.getExamPlaceHttp(e);
+    }
+    ,
+    //考点获取http请求
+    getExamPlaceHttp: function (e) {
         util.https(app.globalData.api + "/GetExamPlace", "GET", {
                 inputJson: {
                     SubjectID: this.data.examSubject[this.data.examSubjectIndex].SubjectID,//用户选中的考试科目ID,如果有多个，一定要加,号分割，如果只有一个科目一定不要加,号.
                     Latitude: wx.getStorageSync("latitude"), //纬度
                     Longitude: wx.getStorageSync("longitude"), //经度
-                    ProvinceName: this.data.examProvinceList[e.detail.value].ProvinceName //省份名称,可以为空
+                    ProvinceName: this.data.examProvinceList[e?e.detail.value:0].ProvinceName //省份名称,可以为空
                 },
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
             },
             this.getExamPlace
         )
-    }
-    ,
+    },
+
 //考点获取
     getExamPlace: function (data) {
         console.log(data);
@@ -133,7 +138,8 @@ Page({
             examPlace: data.Data,
             examPlaceItem: data.Data[0]
         });
-
+        //根据考试的科目和考点来获取对应的增值服务
+        this.getAddServicesHttp();
     }
     ,
 //考点获取选择
@@ -148,8 +154,10 @@ Page({
         })
 
         //根据考试的科目和考点来获取对应的增值服务
-        console.log(this.data.examSubjectIndex);
-        console.log(this.data.examSubject);
+        this.getAddServicesHttp();
+    },
+    //根据考试的科目和考点来获取对应的增值服务http请求
+    getAddServicesHttp: function () {
         util.https(app.globalData.api + "/GetAddServices", "GET", {
                 inputJson: {
                     SubjectID: this.data.examSubject[this.data.examSubjectIndex].SubjectID,//用户选中的考试科目ID

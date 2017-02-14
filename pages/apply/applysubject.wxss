@@ -7,3 +7,9 @@
 .checkbox checkbox{
     margin-right: 0.8rem;
 }
+
+
+.checkbox view{
+    margin-left: 2.5rem;
+    color: #585858;
+}
