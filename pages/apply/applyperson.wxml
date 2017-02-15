@@ -6,7 +6,14 @@
         </view>
         <view class="item item-icon-right ">
             证件类型
-            <text class="item-note">身份证</text>
+            <view class="item-note">
+                <picker bindchange="bindCredentialsPickerChange" value="{{credentialsIndex}}"
+                        range="{{credentials}}">
+                    <view class="picker">
+                        {{credentials[credentialsIndex]}}
+                    </view>
+                </picker>
+            </view>
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
         <view class="item item-input">
