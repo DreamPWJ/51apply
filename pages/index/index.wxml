@@ -1,18 +1,18 @@
 <!--index.wxml-->
 <view id="index" class="stable-bg">
     <view class="row text-center row-center header-nav energized-bg">
-        <view class="col" bindtap="applyrecord">
+        <navigator class="col"  url="../record/applyrecord" open-type="navigate" hover-class="none" >
             <view class="iconfont icon-wodedingdan"></view>
             <text class="icon-text">报名记录</text>
-        </view>
-        <view class="col">
+        </navigator>
+        <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none" >
             <view class="iconfont icon-seach"></view>
             <text class="icon-text">准考证查询</text>
-        </view>
-        <view class="col">
+        </navigator>
+        <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none" >
             <view class="iconfont icon-chaxun1"></view>
             <text class="icon-text">成绩查询</text>
-        </view>
+        </navigator>
     </view>
     <view class="list ">
         <view class="item item-divider  light-bg item-icon-right">
@@ -26,7 +26,7 @@
                 {{item.ExamTypeName}}
                 <view class="p"> 报名时间 : {{item.SignTimes}}</view>
                 <view class="p"> 考试时间 : {{item.ExamTimes}}</view>
-                <text bindtap="applysubject" class="button button-energized button-outline ">预约报名</text>
+                <navigator url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate" hover-class="navigator-hover" class="button button-energized button-outline ">预约报名</navigator>
             </view>
         </block>
     </view>

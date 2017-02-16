@@ -32,22 +32,10 @@ Page({
     },
     //章节练习
     getExamTestList: function (data) {
-        console.log(data);
         this.setData({
             examTestList: data.Data
         });
 
     },
-    //事件处理函数
-    applysubject: function () {
-        wx.navigateTo({
-            url: '../apply/applysubject'
-        })
-    },
-    //事件处理函数
-    applyrecord: function () {
-        wx.navigateTo({
-            url: '../record/applyrecord'
-        })
-    }
+
 })

@@ -23,6 +23,9 @@ Page({
 
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
+        this.setData({
+            headExamTypeIndex: options.ExamTypeId - 1
+        });
         //考试报名列表
         util.https(app.globalData.api + "/GetHeadExamType", "GET", {
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
