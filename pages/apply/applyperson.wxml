@@ -26,12 +26,26 @@
         </view>
         <view class="item item-icon-right">
             出生年月
-            <text class="item-note">请输入您的生日</text>
+            <view class="item-note">
+                <picker mode="date" bindchange="bindDateChange" value="{{date}}"
+                        start="1900-01-01" end="{{date}}">
+                    <view class="picker">
+                        {{date}}
+                    </view>
+                </picker>
+            </view>
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
         <view class="item item-icon-right">
             民族
-            <text class="item-note">汉</text>
+            <view class="item-note">
+                <picker bindchange="bindNationPickerChange" value="{{nationIndex}}"
+                        range="{{nation}}">
+                    <view class="picker">
+                        {{nation[nationIndex]}}
+                    </view>
+                </picker>
+            </view>
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
         <view class="item item-icon-right">

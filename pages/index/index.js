@@ -24,10 +24,17 @@ Page({
     },
     //考试报名列表
     getHeadExamType: function (data) {
-        console.log(data);
+
+        var headExamType = data.Data;
+        for (var index in headExamType) {
+            //考试时间差
+            headExamType[index].differdays = Math.floor((new Date(headExamType[index].RealExamDate).getTime() - new Date().getTime()) / (24 * 3600 * 1000));
+        }
+        console.log(headExamType);
         this.setData({
-            headExamType: data.Data
+            headExamType: headExamType
         });
+
 
     },
     //章节练习

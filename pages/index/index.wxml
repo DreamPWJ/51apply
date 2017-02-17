@@ -1,15 +1,15 @@
 <!--index.wxml-->
 <view id="index" class="stable-bg">
     <view class="row text-center row-center header-nav energized-bg">
-        <navigator class="col"  url="../record/applyrecord" open-type="navigate" hover-class="none" >
+        <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none">
             <view class="iconfont icon-wodedingdan"></view>
             <text class="icon-text">报名记录</text>
         </navigator>
-        <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none" >
+        <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none">
             <view class="iconfont icon-seach"></view>
             <text class="icon-text">准考证查询</text>
         </navigator>
-        <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none" >
+        <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none">
             <view class="iconfont icon-chaxun1"></view>
             <text class="icon-text">成绩查询</text>
         </navigator>
@@ -22,11 +22,13 @@
         </view>
         <block wx:for="{{headExamType}}">
             <view wx-if="{{item.IsActive==1||item.IsActive==2}}" class="item item-icon-left item-button-right">
-                <text class="iconfont icon-naozhong"></text>
+                <text class="iconfont icon-naozhong">{{item.differdays}}</text>
                 {{item.ExamTypeName}}
                 <view class="p"> 报名时间 : {{item.SignTimes}}</view>
                 <view class="p"> 考试时间 : {{item.ExamTimes}}</view>
-                <navigator url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate" hover-class="navigator-hover" class="button button-energized button-outline ">预约报名</navigator>
+                <navigator url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate"
+                           hover-class="navigator-hover" class="button button-energized button-outline ">预约报名
+                </navigator>
             </view>
         </block>
     </view>
@@ -61,11 +63,11 @@
             </view>
         </block>
     </view>
-<!--    <view class="list share">
-        <view class="item item-divider  light-bg item-icon-right">
-            <text></text>
-            考霸与您分享
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
-        </view>
-    </view>-->
+    <!--    <view class="list share">
+            <view class="item item-divider  light-bg item-icon-right">
+                <text></text>
+                考霸与您分享
+                <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+            </view>
+        </view>-->
 </view>

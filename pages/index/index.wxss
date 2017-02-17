@@ -1,47 +1,54 @@
 /**index.wxss**/
 
 #index {
-  with: 100%;
-  overflow: hidden;
+    with: 100%;
+    overflow: hidden;
 }
 
 .header-nav {
-  color: #fff;
-  height: 200rpx;
+    color: #fff;
+    height: 200 rpx;
 }
 
 .header-nav .iconfont {
-  font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 .header-nav .icon-text, .header-subnav .icon-text {
-  font-size: 0.8rem;
+    font-size: 0.8rem;
 }
 
 .icon-naozhong:before {
-  border-color: transparent;
-  color: #f26604;
+    border-color: transparent;
+    color: #f26604;
+    width: 0.4rem !important;
+    font-size: 2rem !important;
+}
+
+.icon-naozhong {
+    color: #ffffff;
+    font-size: 1rem !important;
 }
 
 .header-subnav {
-  margin-top: -0.6rem;
-  color: #000;
-  height: 200rpx;
+    margin-top: -0.6rem;
+    color: #000;
+    height: 200 rpx;
 }
 
 .header-subnav .iconfont {
-  font-size: 1.6rem;
+    font-size: 1.6rem;
 }
 
 .item-divider text:first-child {
-  display: inline-block;
-  margin-right: 0.6rem;
-  height: 0.8rem;
-  border-left: 3px solid #f26604 !important;
+    display: inline-block;
+    margin-right: 0.6rem;
+    height: 0.8rem;
+    border-left: 3px solid #f26604 !important;
 }
 
-.share{
-  margin-top: -0.6rem;
-  color: #000;
-  height: 300rpx;
+.share {
+    margin-top: -0.6rem;
+    color: #000;
+    height: 300 rpx;
 }
