@@ -23,6 +23,19 @@ Date.prototype.Format = function (fmt) { //
     return fmt;
 }
 /**
+ * JavaScript合并两个Json对象
+ */
+ function mergeJsonObject (jsonbject1, jsonbject2) {
+    var resultJsonObject={};
+    for(var attr in jsonbject1){
+        resultJsonObject[attr]=jsonbject1[attr];
+    }
+    for(var attr in jsonbject2){
+        resultJsonObject[attr]=jsonbject2[attr];
+    }
+    return resultJsonObject;
+};
+/**
  * 公共微信https请求封装
  * @param url
  * @param type
@@ -67,5 +80,6 @@ function https(url, type, data, callBack) {
 }
 
 module.exports = {
-    https: https
+    https: https,
+    mergeJsonObject:mergeJsonObject
 }
