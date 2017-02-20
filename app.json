@@ -4,7 +4,9 @@
     "pages/apply/applysubject",
     "pages/apply/applyperson",
     "pages/record/applyrecord",
-    "pages/address/addressmanage"
+    "pages/address/addressmanage",
+    "pages/address/addaddress",
+    "pages/pay/applypay"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f26604"

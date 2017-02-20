@@ -1,0 +1,13 @@
+<!--pages/pay/applypay.wxml-->
+
+<view class="list">
+    <view class="item item-divider">
+        <view class="iconfont icon-shengyin assertive "> 注意 : 在线支付成功后报名方为有效</view>
+    </view>
+    <view class="item item-divider">
+        商品信息
+    </view>
+    <view class="fixed-bottom padding-top">
+        <button size="" plain="" bindtap="" class="energized-bg light "> 立即支付</button>
+    </view>
+</view>
