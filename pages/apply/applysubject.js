@@ -181,5 +181,13 @@ Page({
     //点击选择增值服务
     checkboxChange: function (e) {
         console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    },
+    //使用微信内置地图查看位置
+    openLocation: function () {
+        wx.openLocation({
+            latitude: this.data.latitude,
+            longitude: this.data.longitude,
+            scale: 28
+        })
     }
 })

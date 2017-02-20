@@ -20,6 +20,11 @@ page {
   background-color: #f8f8f8;
 }
 
+.item-note picker{
+  min-width: 5rem;
+  text-align: right;
+}
+
 /** 修改默认的navigator点击态 **/
 .navigator-hover {
   color:#f26604;

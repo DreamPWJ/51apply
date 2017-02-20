@@ -50,7 +50,14 @@
         </view>
         <view class="item item-icon-right">
             职业
-            <text class="item-note">学生</text>
+            <view class="item-note">
+                <picker bindchange="bindProfessionPickerChange" value="{{professionIndex}}" range-key="name"
+                        range="{{profession}}">
+                    <view class="picker">
+                        {{profession[professionIndex].name}}
+                    </view>
+                </picker>
+            </view>
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
         <view class="item item-input">
@@ -59,17 +66,38 @@
         </view>
         <view class="item item-icon-right">
             学历
-            <text class="item-note">本科</text>
+            <view class="item-note">
+                <picker bindchange="bindCulturePickerChange" value="{{cultureIndex}}"
+                        range="{{culture}}">
+                    <view class="picker">
+                        {{culture[cultureIndex]}}
+                    </view>
+                </picker>
+            </view>
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
         <view class="item item-icon-right">
             学位
-            <text class="item-note">学士</text>
+            <view class="item-note">
+                <picker bindchange="bindDegreePickerChange" value="{{degreeIndex}}"
+                        range="{{degree}}">
+                    <view class="picker">
+                        {{degree[degreeIndex]}}
+                    </view>
+                </picker>
+            </view>
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
         <view class="item item-icon-right">
             学历类型
-            <text class="item-note">全日制</text>
+            <view class="item-note">
+                <picker bindchange="bindCultureTypePickerChange" value="{{cultureTypeIndex}}"
+                        range="{{cultureType}}">
+                    <view class="picker">
+                        {{cultureType[cultureTypeIndex]}}
+                    </view>
+                </picker>
+            </view>
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
         <view class="item item-input">
@@ -82,7 +110,7 @@
         </view>
         <view class="item item-input">
             <span class="input-label"> 联系地址 </span>
-            <input type="text" class="text-right" placeholder=""/>
+            <input type="text" class="text-right" placeholder="{{currentCityAddress}}" value="{{currentCityAddress}}"/>
         </view>
 
 
