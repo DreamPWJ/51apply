@@ -123,6 +123,7 @@ page {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 10000!important;
 }
 
 .input-label {
@@ -1382,6 +1383,14 @@ a.item:hover, a.item:focus {
   flex: 0 0 15%;
   max-width: 15%;
 }
+.col-20 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 20%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 20%;
+  -ms-flex: 0 0 20%;
+  flex: 0 0 20%;
+  max-width: 20%; }
 
 .col-30 {
   -webkit-box-flex: 0;
@@ -1442,6 +1451,15 @@ a.item:hover, a.item:focus {
   flex: 0 0 70%;
   max-width: 70%;
 }
+
+.col-80 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 80%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 80%;
+  -ms-flex: 0 0 80%;
+  flex: 0 0 80%;
+  max-width: 80%; }
 
 .col-85 {
   -webkit-box-flex: 0;

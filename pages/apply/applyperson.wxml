@@ -120,7 +120,7 @@
         <view class="item item-input">
             <span class="input-label"> 联系地址 </span>
             <input type="text" id="Address" bindchange="bindChange" class="text-right"
-                   placeholder="{{currentCityAddress}}" value="{{currentCityAddress}}"/>
+                   placeholder="请输入您的联系地址" />
         </view>
         <view wx:if="{{examTypeFieldList.length!=0}}">
             <view class="item item-divider">

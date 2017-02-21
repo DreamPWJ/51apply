@@ -35,12 +35,12 @@ Page({
             this.getExamTypeFieldList
         )
         //获取地理位置信息 高德web api
-        util.https("https://restapi.amap.com/v3/geocode/regeo", "GET", {
-                key: '972cafdc2472d8f779c5274db770ac22',
-                location: Number(wx.getStorageSync("longitude")).toFixed(6) + "," + Number(wx.getStorageSync("latitude")).toFixed(6)
-            },
-            this.getCurrentCityInfo
-        )
+        /*        util.https("https://restapi.amap.com/v3/geocode/regeo", "GET", {
+         key: '972cafdc2472d8f779c5274db770ac22',
+         location: Number(wx.getStorageSync("longitude")).toFixed(6) + "," + Number(wx.getStorageSync("latitude")).toFixed(6)
+         },
+         this.getCurrentCityInfo
+         )*/
         //初始化数据
         inputContent["IDType"] = this.data.credentials[0];
         inputContent["Nation"] = this.data.nation[0];
@@ -71,13 +71,13 @@ Page({
     },
 
     //获取地理位置信息 高德web api
-    getCurrentCityInfo: function (data) {
-        console.log(data);
-        this.setData({
-            currentCityAddress: data.status == 1 ? data.regeocode.formatted_address : ""
+    /*    getCurrentCityInfo: function (data) {
+     console.log(data);
+     this.setData({
+     currentCityAddress: data.status == 1 ? data.regeocode.formatted_address : ""
 
-        })
-    },
+     })
+     },*/
 
     //证件类型选择
     bindCredentialsPickerChange: function (e) {
@@ -199,15 +199,7 @@ Page({
         inputJson.Birthday = tmpStr;
         inputJson.Gender = sex;
         console.log(inputJson);
-        //预约考试报名数据提交
-        /*    util.https(app.globalData.api + "/SetOrderExamInfo", "GET", {
-         inputJson: inputJson,
-         praviteKey: 'oiox3tmqu1sn56x7occdd'
-         },
-         function (data) {
-         console.log(data);
-         }
-         )*/
+
         //支付页面
         wx.navigateTo({
             url: '../pay/applypay'
