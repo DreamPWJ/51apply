@@ -19,7 +19,7 @@
     <view class="item item-icon-right">
         科目选择
         <view class="item-note">
-            <picker id="SubjectId" bindchange="bindexamSubjectPickerChange" value="{{examSubjectIndex}}"
+            <picker id="SubjectId" bindchange="bindexamSubjectPickerChange"  value="{{examSubjectIndex}}"
                     range-key="SubjectName"
                     range="{{examSubject}}">
                 <view class="picker">
@@ -32,7 +32,7 @@
     <view class="item item-icon-right">
         考试省份
         <view class="item-note">
-            <picker id="ProvinceName" bindchange="bindProvincePickerChange" value="{{provinceListIndex}}"
+            <picker id="ProvinceName" name="province" bindchange="bindProvincePickerChange" value="{{provinceListIndex}}"
                     range-key="ProvinceName"
                     range="{{examProvinceList}}">
                 <view class="picker">
@@ -65,8 +65,8 @@
                 <checkbox value="{{item.TestID}}" color="#f26604"/>
                 {{item.TestName}}
                 <text class="float-right energized">￥{{item.TestMoney}}</text>
-                <view> <text class="iconfont icon-time balanced"></text> {{item.TestAddress}}</view>
-                <view> <text class="iconfont icon-shouhuodizhi balanced"></text> {{item.TestTime}}</view>
+                <view> <text class="iconfont icon-time balanced"></text> {{item.TestTime}}</view>
+                <view> <text class="iconfont icon-shouhuodizhi balanced"></text> {{item.TestAddress}}</view>
             </label>
             <label class="checkbox" wx:for="{{addServices.BookList}}">
                 <checkbox value="{{item.BookId}}" color="#f26604"/>

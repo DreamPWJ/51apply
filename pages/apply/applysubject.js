@@ -2,6 +2,8 @@
 //获取应用实例
 var app = getApp();
 var util = require('../../utils/util.js');
+//import WxValidate from 'utils/WxValidate'
+
 var inputContent = {};//输入内容
 Page({
     data: {
@@ -23,6 +25,18 @@ Page({
     },
 
     onLoad: function (options) {
+        //验证表单
+/*        this.WxValidate = new WxValidate({
+                province: { //验证规则 input name值
+                    required: true
+                }
+            },
+            {
+                province: { //提示信息
+                    required: "请选择省份"
+                }
+            })*/
+
         // 页面初始化 options为页面跳转所带来的参数
         this.setData({
             headExamTypeIndex: options.ExamTypeId - 1
@@ -49,6 +63,8 @@ Page({
         this.setData({
             headExamType: headExamTypeArr
         });
+        //考试科目获取
+        this.getExamSubjectHttp(this.data.headExamTypeIndex + 1)
         inputContent["ExamType"] = this.data.headExamType[this.data.headExamTypeIndex].ExamTypeId;
     },
 
@@ -59,16 +75,21 @@ Page({
         })
         inputContent[e.currentTarget.id] = this.data.headExamType[e.detail.value].ExamTypeId;
         //考试科目获取
+        this.getExamSubjectHttp(this.data.headExamType[e.detail.value].ExamTypeId)
+    }
+    ,
+
+//获取考试科目请求
+    getExamSubjectHttp: function (ExamTypeId) {
         util.https(app.globalData.api + "/GetExamSubject", "GET", {
                 inputJson: {
-                    ExamTypeId: this.data.headExamType[e.detail.value].ExamTypeId//考试类型ID， 如果是培训默认给6.
+                    ExamTypeId: ExamTypeId//考试类型ID， 如果是培训默认给6.
                 },
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
             },
             this.getExamSubject
         )
-    }
-    ,
+    },
 //考试科目获取
     getExamSubject: function (data) {
         this.setData({
@@ -195,8 +216,18 @@ Page({
     },
 
     //下一步事件处理函数
-    applyperson: function () {
+    applyperson: function (e) {
+        //调用验证表单方法
+        /*        if(!this.WxValidate.checkForm(e)){
+         const error=this.WxValidate.errorList[0] //获取验证失败的错误信息
+         App.WxValidate.showModal({
+         title:"友情提示",
+         content:`${error.param} :${error.msg}`,
+         showCancel:!1,
+         })
+         }*/
         console.log(inputContent);
+        return;
         wx.navigateTo({
             url: 'applyperson?inputContent=' + JSON.stringify(inputContent)
         })
