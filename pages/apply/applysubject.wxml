@@ -1,12 +1,13 @@
 <!--pages/apply/applysubject.wxml-->
-<view class="list" >
+<view class="list">
     <view class="item item-divider">
         选择考点及科目
     </view>
     <view class="item item-icon-right ">
         考试名称
         <view class="item-note">
-            <picker id="ExamType" bindchange="bindNamePickerChange" value="{{headExamTypeIndex}}" range-key="ExamTypeName"
+            <picker id="ExamType" bindchange="bindNamePickerChange" value="{{headExamTypeIndex}}"
+                    range-key="ExamTypeName"
                     range="{{headExamType}}">
                 <view class="picker">
                     {{headExamType[headExamTypeIndex].ExamTypeName}}
@@ -18,7 +19,8 @@
     <view class="item item-icon-right">
         科目选择
         <view class="item-note">
-            <picker id="SubjectId" bindchange="bindexamSubjectPickerChange" value="{{examSubjectIndex}}" range-key="SubjectName"
+            <picker id="SubjectId" bindchange="bindexamSubjectPickerChange" value="{{examSubjectIndex}}"
+                    range-key="SubjectName"
                     range="{{examSubject}}">
                 <view class="picker">
                     {{examSubject[examSubjectIndex].SubjectName}}
@@ -30,7 +32,8 @@
     <view class="item item-icon-right">
         考试省份
         <view class="item-note">
-            <picker id="ProvinceName" bindchange="bindProvincePickerChange" value="{{provinceListIndex}}" range-key="ProvinceName"
+            <picker id="ProvinceName" bindchange="bindProvincePickerChange" value="{{provinceListIndex}}"
+                    range-key="ProvinceName"
                     range="{{examProvinceList}}">
                 <view class="picker">
                     {{examProvinceList[provinceListIndex].ProvinceName}}
@@ -42,7 +45,8 @@
     <view class="item item-icon-right">
         考点选择
         <view class="item-note">
-            <picker id="SchoolID" bindchange="bindExamPlacePickerChange" value="{{examPlaceIndex}}" range-key="SchoolName"
+            <picker id="SchoolID" bindchange="bindExamPlacePickerChange" value="{{examPlaceIndex}}"
+                    range-key="SchoolName"
                     range="{{examPlace}}">
                 <view class="picker">
                     {{examPlace[examPlaceIndex].SchoolName}}
@@ -58,15 +62,27 @@
         </view>
         <checkbox-group bindchange="checkboxChange" class="light-bg">
             <label class="checkbox" wx:for="{{addServices.MNExamList}}">
-                <checkbox value="{{item.TestID}}"  color="#f26604"/>{{item.TestName}}  <text class="float-right">￥{{item.TestMoney}}</text>
-                <view>{{item.TestAddress}}</view>
-                <view>{{item.TestTime}}</view>
+                <checkbox value="{{item.TestID}}" color="#f26604"/>
+                {{item.TestName}}
+                <text class="float-right energized">￥{{item.TestMoney}}</text>
+                <view> <text class="iconfont icon-time balanced"></text> {{item.TestAddress}}</view>
+                <view> <text class="iconfont icon-shouhuodizhi balanced"></text> {{item.TestTime}}</view>
             </label>
-            <label class="checkbox" >
-                <checkbox  checked="true" disabled="true" color="#f26604"/>快递(默认收8元快递费用)
+            <label class="checkbox" wx:for="{{addServices.BookList}}">
+                <checkbox value="{{item.BookId}}" color="#f26604"/>
+                {{item.BookName}}
+                <text class="float-right energized">￥{{item.BookMoney}}</text>
+  <!--              <image style="width:80%; height: 100px; background-color: #eeeeee;" mode="scaleToFill"
+                       src="{{item.BookPicUrl}}"></image>-->
+            </label>
+            <label class="checkbox">
+                <checkbox checked="true" disabled="true" color="#f26604"/>
+                快递(默认收8元快递费用)
             </label>
         </checkbox-group>
-        <navigator url="../address/addressmanage" open-type="navigate" hover-class="navigator-hover" class="text-center padding-vertical light-bg grey">点击选择地址</navigator>
+        <navigator url="../address/addressmanage" open-type="navigate" hover-class="navigator-hover"
+                   class="text-center padding-vertical light-bg grey">点击选择地址
+        </navigator>
     </view>
     <view class="item item-divider">
         考点信息
@@ -88,7 +104,8 @@
     <view>
         <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" controls="{{controls}}"
              bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}"
-             bindregionchange="regionchange" show-location bindtap="openLocation" style="width: 100%; height: 160px;"></map>
+             bindregionchange="regionchange" show-location bindtap="openLocation"
+             style="width: 100%; height: 160px;"></map>
     </view>
 
     <view class="padding-top">

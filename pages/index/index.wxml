@@ -10,7 +10,7 @@
             <text class="icon-text">准考证查询</text>
         </navigator>
         <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none">
-            <view class="iconfont icon-chaxun1"></view>
+            <view class="iconfont icon-xiangguanjiansuo"></view>
             <text class="icon-text">成绩查询</text>
         </navigator>
     </view>
