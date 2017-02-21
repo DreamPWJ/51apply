@@ -6,7 +6,7 @@
     <view class="item item-icon-right ">
         考试名称
         <view class="item-note">
-            <picker bindchange="bindNamePickerChange" value="{{headExamTypeIndex}}" range-key="ExamTypeName"
+            <picker id="ExamType" bindchange="bindNamePickerChange" value="{{headExamTypeIndex}}" range-key="ExamTypeName"
                     range="{{headExamType}}">
                 <view class="picker">
                     {{headExamType[headExamTypeIndex].ExamTypeName}}
@@ -18,7 +18,7 @@
     <view class="item item-icon-right">
         科目选择
         <view class="item-note">
-            <picker bindchange="bindexamSubjectPickerChange" value="{{examSubjectIndex}}" range-key="SubjectName"
+            <picker id="SubjectId" bindchange="bindexamSubjectPickerChange" value="{{examSubjectIndex}}" range-key="SubjectName"
                     range="{{examSubject}}">
                 <view class="picker">
                     {{examSubject[examSubjectIndex].SubjectName}}
@@ -30,7 +30,7 @@
     <view class="item item-icon-right">
         考试省份
         <view class="item-note">
-            <picker bindchange="bindProvincePickerChange" value="{{provinceListIndex}}" range-key="ProvinceName"
+            <picker id="ProvinceName" bindchange="bindProvincePickerChange" value="{{provinceListIndex}}" range-key="ProvinceName"
                     range="{{examProvinceList}}">
                 <view class="picker">
                     {{examProvinceList[provinceListIndex].ProvinceName}}
@@ -42,7 +42,7 @@
     <view class="item item-icon-right">
         考点选择
         <view class="item-note">
-            <picker bindchange="bindExamPlacePickerChange" value="{{examPlaceIndex}}" range-key="SchoolName"
+            <picker id="SchoolID" bindchange="bindExamPlacePickerChange" value="{{examPlaceIndex}}" range-key="SchoolName"
                     range="{{examPlace}}">
                 <view class="picker">
                     {{examPlace[examPlaceIndex].SchoolName}}

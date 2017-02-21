@@ -24,10 +24,10 @@
             <span class="input-label"> 姓名 </span>
             <input type="text" class="text-right" id="Name" bindchange="bindChange" placeholder="请输入您的真实姓名"/>
         </view>
-        <view class="item item-icon-right" wx:if="{{credentialsIndex!=0}}">
+        <view   class="item item-icon-right" wx:if="{{credentialsIndex!=0}}">
             出生年月
             <view class="item-note">
-                <picker mode="date" bindchange="bindDateChange" value="{{date}}"
+                <picker id="Birthday" mode="date" bindchange="bindDateChange" value="{{date}}"
                         start="1900-01-01" end="{{date}}">
                     <view class="picker">
                         {{date}}
@@ -39,7 +39,7 @@
         <view class="item item-icon-right" wx:if="{{credentialsIndex!=0}}">
             性别
             <view class="item-note">
-                <picker bindchange="bindSexPickerChange" value="{{sexIndex}}"
+                <picker id="Gender" bindchange="bindSexPickerChange" value="{{sexIndex}}"
                         range="{{sex}}">
                     <view class="picker">
                         {{sex[sexIndex]}}

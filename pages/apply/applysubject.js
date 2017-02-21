@@ -2,6 +2,7 @@
 //获取应用实例
 var app = getApp();
 var util = require('../../utils/util.js');
+var inputContent = {};//输入内容
 Page({
     data: {
         headExamTypeIndex: 0,
@@ -32,6 +33,7 @@ Page({
             },
             this.getHeadExamType
         )
+
     }
     ,
 //考试报名列表
@@ -47,20 +49,15 @@ Page({
         this.setData({
             headExamType: headExamTypeArr
         });
+        inputContent["ExamType"] = this.data.headExamType[this.data.headExamTypeIndex].ExamTypeId;
+    },
 
-    },
-//事件处理函数
-    applyperson: function () {
-        wx.navigateTo({
-            url: 'applyperson'
-        })
-    },
 //考试名称选择
     bindNamePickerChange: function (e) {
         this.setData({
             headExamTypeIndex: e.detail.value
         })
-
+        inputContent[e.currentTarget.id] = this.data.headExamType[e.detail.value].ExamTypeId;
         //考试科目获取
         util.https(app.globalData.api + "/GetExamSubject", "GET", {
                 inputJson: {
@@ -85,6 +82,7 @@ Page({
         this.setData({
             examSubjectIndex: e.detail.value
         })
+        inputContent[e.currentTarget.id] = this.data.examSubject[e.detail.value].SubjectID;
         //考试的省份获取
         util.https(app.globalData.api + "/GetExamProvinceList", "GET", {
                 inputJson: {
@@ -102,6 +100,7 @@ Page({
         this.setData({
             examProvinceList: data.Data
         });
+        inputContent["ProvinceName"] = this.data.examProvinceList[0].ProvinceName;
         //考点获取
         this.getExamPlaceHttp();
     }
@@ -111,6 +110,7 @@ Page({
         this.setData({
             provinceListIndex: e.detail.value
         })
+        inputContent[e.currentTarget.id] = this.data.examProvinceList[e.detail.value].ProvinceName;
         //考点获取
         this.getExamPlaceHttp(e);
     }
@@ -141,6 +141,7 @@ Page({
             'markers[0].latitude': data.Data[0].Latitude,
             'markers[0].longitude': data.Data[0].Longitude
         });
+        inputContent["SchoolID"] = this.data.examPlace[0].SchoolID;
         //根据考试的科目和考点来获取对应的增值服务
         this.getAddServicesHttp();
     }
@@ -155,7 +156,7 @@ Page({
             'markers[0].latitude': this.data.examPlace[e.detail.value].Latitude,
             'markers[0].longitude': this.data.examPlace[e.detail.value].Longitude
         })
-
+        inputContent[e.currentTarget.id] = this.data.examPlace[e.detail.value].SchoolID;
         //根据考试的科目和考点来获取对应的增值服务
         this.getAddServicesHttp();
     },
@@ -178,10 +179,12 @@ Page({
             addServices: data.Data
         });
     },
+
     //点击选择增值服务
     checkboxChange: function (e) {
         console.log('checkbox发生change事件，携带value值为：', e.detail.value)
     },
+
     //使用微信内置地图查看位置
     openLocation: function () {
         wx.openLocation({
@@ -189,5 +192,13 @@ Page({
             longitude: this.data.longitude,
             scale: 28
         })
-    }
+    },
+
+    //下一步事件处理函数
+    applyperson: function () {
+        console.log(inputContent);
+        wx.navigateTo({
+            url: 'applyperson?inputContent=' + JSON.stringify(inputContent)
+        })
+    },
 })

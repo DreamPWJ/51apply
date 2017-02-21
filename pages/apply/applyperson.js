@@ -14,7 +14,7 @@ Page({
         professionIndex: 0,
         profession: ["学生", "事业单位负责人", "企业负责人", "军人", "不便分类的其他从业人员", "失业（含待业及无业人员）", "其他专业技术人员", "行政办公人员", "医疗卫生辅助服务人员", "社会服务和居民生活服务人员", "其他行业"],
         cultureIndex: 0,
-        culture: ["大专", "本科", "硕士", "其他"],
+        culture: ["大专", "本科", "硕士"],
         degreeIndex: 0,
         degree: ["学士", "硕士", "博士", "无学位"],
         cultureTypeIndex: 0,
@@ -23,12 +23,13 @@ Page({
         sex: ["男", "女"]
     },
     onLoad: function (options) {
+        console.log(options);
         // 页面初始化 options为页面跳转所带来的参数
-
+        inputContent = JSON.parse(options.inputContent);//接受上一步操作参数
         //考试的动态填写字段获取 不同的考试，有些自己特有的字段
         util.https(app.globalData.api + "/GetExamTypeFieldList", "GET", {
                 inputJson: {
-                    ExamTypeId: 1 //考试类型ID
+                    ExamTypeId: inputContent.ExamType //考试类型ID
                 },
                 praviteKey: 'oiox3tmqu1sn56x7occdd'
             },
@@ -42,11 +43,13 @@ Page({
          this.getCurrentCityInfo
          )*/
         //初始化数据
-        inputContent["IDType"] = this.data.credentials[0];
+        inputContent["IDType"] = 1;
         inputContent["Nation"] = this.data.nation[0];
         inputContent["Job"] = this.data.profession[0];
         inputContent["Admssion"] = this.data.entranceDate[0];
         inputContent["Education"] = this.data.culture[0];
+        inputContent["Birthday"] = this.data.date.replace(/-/g, "");
+        inputContent["Gender"] = 1;
     },
     onReady: function () {
         // 页面渲染完成
@@ -84,7 +87,7 @@ Page({
         this.setData({
             credentialsIndex: e.detail.value
         })
-        inputContent[e.currentTarget.id] = this.data.credentials[e.detail.value]
+        inputContent[e.currentTarget.id] = Number(e.detail.value) + 1;
 
     },
 
@@ -101,6 +104,7 @@ Page({
         this.setData({
             date: e.detail.value
         })
+        inputContent[e.currentTarget.id] = this.data.date.replace(/-/g, "");
     },
     //入学时间类型选择
     bindEntranceDateChange: function (e) {
@@ -140,6 +144,7 @@ Page({
         this.setData({
             sexIndex: e.detail.value
         })
+        inputContent[e.currentTarget.id] = Number(e.detail.value) + 1;
     },
     //获取用户输入
     bindChange: function (e) {
@@ -150,23 +155,6 @@ Page({
      * 考试报名最终提交数据
      */
     applySubmit: function () {
-        //根据身份证 自动获取生日和性别
-        if (this.data.credentialsIndex == 0) {
-            var iIdNo = "371122198808188339";
-            var sex = "";
-            var tmpStr = "";
-            if (iIdNo.length == 15) {
-                tmpStr = iIdNo.substring(6, 12);
-                tmpStr = "19" + tmpStr;
-                sex = (iIdNo.substring(14, 15)) % 2 == 0 ? 2 : 1
-            }
-            else {
-                tmpStr = iIdNo.substring(6, 14);
-                sex = (iIdNo.substring(16, 17)) % 2 == 0 ? 2 : 1
-            }
-        }
-
-
         var inputJson = {
             OperatorType: 1,// 如果用户没登陆过，就给0，登录过给1 "提交类别" 1表示没有注册过，第一次报名提交，2表示已经快速注册,3 表示立即支付进入
             //  Name: "",  //姓名
@@ -183,26 +171,62 @@ Page({
             // Colledge: "计算机学院",//学院
             // Education: "本科", //学历
             //  Admssion: "2010",   //入学年份字符串
-            GraduationTime: "2014", //毕业年份，毕业年份不需要填，直接根据入学年份加上学历就算出毕业年份了
+            //  GraduationTime: "2014", //毕业年份，毕业年份不需要填，直接根据入学年份加上学历就算出毕业年份了
             // MajorCode: "计算机技术",  //专业
             // ClassCode: "1班",          //班级
             // Address: "武汉市金融港", //用户当前地址
 
             SchoolID: "1",       //考点ID号，该值必须传入
-            SubjectId: "4",    //科目ID号，该值必须传入
-            ExamType: "1",  //包括类型，1表示计算机考试，2表示会计，3表示教师资格…，该值必须传入
-            ProvinceName: "湖北省",//省份名称
-            ExamDate: "2016年3月", //考试的预约日期
+            //  SubjectId: "4",    //科目ID号，该值必须传入
+         //   ExamType: "1",  //包括类型，1表示计算机考试，2表示会计，3表示教师资格…，该值必须传入
+          //  ProvinceName: "湖北省",//省份名称
+            IsJoin: "0",  //模拟考试ID，0表示没参加。最多传入一个考试科目ID 勾选了模拟考试就给1，没勾就给0
             BookID: "0", //需要的教材ID，如果有多本就用,号分割，没有预定就是0
-            IsJoin: "0"  //模拟考试ID，0表示没参加。最多传入一个考试科目ID 勾选了模拟考试就给1，没勾就给0
-        };
-        inputJson.Birthday = tmpStr;
-        inputJson.Gender = sex;
-        console.log(inputJson);
+            ReceiveName: "",// 表示收件人
+            ReceiveTel: "", // 表示收件人电话
+            ReceiveAdd: "",// 表示收件人地址
+            OpenId: "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",// 微信用户标示
 
-        //支付页面
+
+        }
+
+
+//根据身份证 自动获取生日和性别
+        if (this.data.credentialsIndex == 0) {
+            var iIdNo = inputContent.IDCard;
+            var sex = "";
+            var tmpStr = "";
+            if (iIdNo.length == 15) {
+                tmpStr = iIdNo.substring(6, 12);
+                tmpStr = "19" + tmpStr;
+                sex = (iIdNo.substring(14, 15)) % 2 == 0 ? 2 : 1
+            }
+            else {
+                tmpStr = iIdNo.substring(6, 14);
+                sex = (iIdNo.substring(16, 17)) % 2 == 0 ? 2 : 1
+            }
+
+            inputJson.Birthday = tmpStr;
+            inputJson.Gender = sex;
+        }
+
+// 毕业年份，毕业年份不需要填，直接根据入学年份加上学历就算出毕业年份了
+        var seniorYear = inputContent.Admssion
+        if (this.data.cultureIndex == 0) {
+            seniorYear = Number(seniorYear) + 3;
+        } else if (this.data.cultureIndex == 1) {
+            seniorYear = Number(seniorYear) + 4;
+        } else if (this.data.cultureIndex == 2) {
+            seniorYear = Number(seniorYear) + 6;
+        }
+
+
+        inputJson.GraduationTime = seniorYear;
+        console.log(util.mergeJsonObject(inputJson, inputContent));
+
+//支付页面
         wx.navigateTo({
-            url: '../pay/applypay'
+            url: '../pay/applypay?inputJson=' +JSON.stringify(inputJson)
         })
     }
 })

@@ -7,6 +7,7 @@ Page({
         paydata: {}
     },
     onLoad: function (options) {
+        console.log(JSON.parse(options.inputJson));
         // 页面初始化 options为页面跳转所带来的参数
         //调用接口获取登录凭证（code）进而换取用户登录态信息，包括用户的唯一标识（openid）
         wx.login({
@@ -15,13 +16,13 @@ Page({
                     //发起网络请求
                     console.log(res);
                     //微信小程序考试报名数据提交
-                    util.https(app.globalData.api + "/SetWXOrderExamInfo", "GET", {
-                            inputJson: inputJson,
-                            praviteKey: 'oiox3tmqu1sn56x7occdd'
-                        },
-                        function (data) {
+                    /*           util.https(app.globalData.api + "/SetWXOrderExamInfo", "GET", {
+                     inputJson: JSON.parse(options.inputJson),
+                     praviteKey: 'oiox3tmqu1sn56x7occdd'
+                     },
+                     function (data) {
 
-                        })
+                     })*/
 
                 } else {
                     console.log('获取用户登录态失败！' + res.errMsg)

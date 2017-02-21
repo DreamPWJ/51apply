@@ -1,48 +1,49 @@
 <!--pages/pay/applypay.wxml-->
+<view id="applypay">
+    <view class="list">
+        <view class="item item-divider">
+            <view class="iconfont icon-shengyin assertive "> 注意 : 在线支付成功后报名方为有效</view>
+        </view>
+        <view class="item item-divider">
+            商品信息
+        </view>
+        <view class="item  ">
+            <text class="p">订单编号 : KSAPP201715525454155412554122</text>
+        </view>
+        <view class="item">
+            <view class="row row-wrap ">
+                <text class="col-85">Visual FoxPro数据库程序设计</text>
+                <text class="col-15  energized">￥80.0</text>
+            </view>
+            <view class="row row-wrap ">
+                <text class="col-85">技术服务费</text>
+                <text class="col-15  energized">￥5.0</text>
+            </view>
+            <view class="row row-wrap ">
+                <text class="col-offset-50 col-35 text-center">合计 :</text>
+                <text class="col-15 energized">￥85.0</text>
+            </view>
+        </view>
+        <view class="item item-divider">
+            支付说明
+        </view>
+        <view class="item ">
+            <view class="p text-wrap">1 、本系统支持微信即时到账在线支付方式</view>
+            <view class="padding-top p text-wrap">2 、点击立即支付按钮 ，系统会自动调起到微信支付</view>
+        </view>
+        <view class="item item-divider">
+            支付方式
+        </view>
+        <view class="item item-icon-left item-icon-right">
+            <text class="iconfont icon-weixin1 balanced"></text>
+            <view>微信</view>
+            <view class="p padding-top">推荐微信用户使用</view>
+            <text class="iconfont icon-wancheng energized"></text>
+        </view>
 
-<view class="list">
-    <view class="item item-divider">
-        <view class="iconfont icon-shengyin assertive "> 注意 : 在线支付成功后报名方为有效</view>
-    </view>
-    <view class="item item-divider">
-        商品信息
-    </view>
-    <view class="item row ">
-        <text class="col-20">订单编号</text>
-        <text class="col-80">KSAPP201715525454155412554122</text>
-    </view>
-    <view class="item">
-        <view class="row row-wrap ">
-            <text class="col-85">Visual FoxPro数据库程序设计</text>
-            <text class="col-15  energized">￥80.0</text>
+        <view class="fixed-bottom padding-top">
+            <button size="" plain="" bindtap="pay" class="energized-bg light "> 立即支付</button>
         </view>
-        <view class="row row-wrap ">
-            <text class="col-85">技术服务费</text>
-            <text class="col-15  energized">￥5.0</text>
-        </view>
-        <view class="row row-wrap ">
-            <text class="col-offset-50 col-35 text-center">合计 :</text>
-            <text class="col-15 energized">￥85.0</text>
-        </view>
-    </view>
-    <view class="item item-divider">
-        支付说明
-    </view>
-    <view class="item ">
-        <view class="p text-wrap">1 、本系统支持微信即时到账在线支付方式</view>
-        <view class="padding-top p text-wrap">2 、点击立即支付按钮 ，系统会自动调起到微信支付</view>
-    </view>
-    <view class="item item-divider">
-        支付方式
-    </view>
-    <view class="item item-icon-left item-icon-right">
-        <text class="iconfont icon-weixin1 balanced"></text>
-        <view>微信</view>
-        <view class="p padding-top">推荐微信用户使用</view>
-        <text class="iconfont icon-wancheng energized"></text>
     </view>
 
-    <view class="fixed-bottom padding-top">
-        <button size="" plain="" bindtap="pay" class="energized-bg light "> 立即支付</button>
-    </view>
 </view>
