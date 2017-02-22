@@ -2,9 +2,9 @@
 //获取应用实例
 var app = getApp();
 var util = require('../../utils/util.js');
-//import WxValidate from 'utils/WxValidate'
-
 var inputContent = {};//输入内容
+
+
 Page({
     data: {
         headExamTypeIndex: 0,
@@ -25,17 +25,6 @@ Page({
     },
 
     onLoad: function (options) {
-        //验证表单
-/*        this.WxValidate = new WxValidate({
-                province: { //验证规则 input name值
-                    required: true
-                }
-            },
-            {
-                province: { //提示信息
-                    required: "请选择省份"
-                }
-            })*/
 
         // 页面初始化 options为页面跳转所带来的参数
         this.setData({
@@ -214,20 +203,9 @@ Page({
             scale: 28
         })
     },
-
     //下一步事件处理函数
-    applyperson: function (e) {
-        //调用验证表单方法
-        /*        if(!this.WxValidate.checkForm(e)){
-         const error=this.WxValidate.errorList[0] //获取验证失败的错误信息
-         App.WxValidate.showModal({
-         title:"友情提示",
-         content:`${error.param} :${error.msg}`,
-         showCancel:!1,
-         })
-         }*/
+    applyperson: function () {
         console.log(inputContent);
-        return;
         wx.navigateTo({
             url: 'applyperson?inputContent=' + JSON.stringify(inputContent)
         })

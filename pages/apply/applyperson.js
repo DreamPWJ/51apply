@@ -3,6 +3,7 @@
 var app = getApp();
 var util = require('../../utils/util.js');
 var inputContent = {};//输入内容
+import WxValidate from '../../utils/validate'
 Page({
     data: {
         date: new Date().Format("yyyy-MM-dd"),
@@ -50,6 +51,19 @@ Page({
         inputContent["Education"] = this.data.culture[0];
         inputContent["Birthday"] = this.data.date.replace(/-/g, "");
         inputContent["Gender"] = 1;
+
+        //验证表单
+        this.WxValidate = new WxValidate({
+                idcard: { //验证规则 input name值
+                    required: true
+                }
+            },
+            {
+                idcard: { //提示信息
+                    required: "请填写身份证号"
+                }
+            })
+
     },
     onReady: function () {
         // 页面渲染完成
@@ -154,7 +168,27 @@ Page({
     /**
      * 考试报名最终提交数据
      */
-    applySubmit: function () {
+    applySubmit: function (e) {
+        //调用验证表单方法
+        const params = e.detail.value
+        if (!this.WxValidate.checkForm(e)) {
+            const error = this.WxValidate.errorList
+            wx.showModal({
+                title: '友情提示',
+                content: error[0].msg,
+                showCancel: false,
+                confirmColor: "#f26604",
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定')
+                    }
+                }
+            })
+            console.log(error)
+
+            return false
+        }
+
         var inputJson = {
             OperatorType: 1,// 如果用户没登陆过，就给0，登录过给1 "提交类别" 1表示没有注册过，第一次报名提交，2表示已经快速注册,3 表示立即支付进入
             //  Name: "",  //姓名
