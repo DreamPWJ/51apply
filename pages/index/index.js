@@ -10,14 +10,14 @@ Page({
     onLoad: function () {
         //考试报名列表
         util.https(app.globalData.api + "/GetHeadExamType", "GET", {
-                praviteKey: 'oiox3tmqu1sn56x7occdd'
+                praviteKey: app.globalData.praviteKey
             }
             ,
             this.getHeadExamType
         )
         //章节练习
         util.https(app.globalData.api + "/GetNewestTestTitle", "GET", {
-                praviteKey: 'oiox3tmqu1sn56x7occdd'
+                praviteKey: app.globalData.praviteKey
             },
             this.getExamTestList
         )

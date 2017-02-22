@@ -32,7 +32,7 @@ Page({
                 inputJson: {
                     ExamTypeId: inputContent.ExamType //考试类型ID
                 },
-                praviteKey: 'oiox3tmqu1sn56x7occdd'
+                praviteKey: app.globalData.praviteKey
             },
             this.getExamTypeFieldList
         )
@@ -55,12 +55,21 @@ Page({
         //验证表单
         this.WxValidate = new WxValidate({
                 idcard: { //验证规则 input name值
-                    required: true
+                    required: true,
+                    idcard: true
+                },
+                address: {
+                    required: true,
+                    minlength: 5
                 }
             },
             {
                 idcard: { //提示信息
                     required: "请填写身份证号"
+                },
+                address: { //提示信息
+                    required: "请填写联系地址",
+                    minlength: "联系地址至少输入五个字符"
                 }
             })
 
@@ -171,7 +180,8 @@ Page({
     applySubmit: function (e) {
         //调用验证表单方法
         const params = e.detail.value
-        if (!this.WxValidate.checkForm(e)) {
+        console.log(params);
+  /*      if (!this.WxValidate.checkForm(e)) {
             const error = this.WxValidate.errorList
             wx.showModal({
                 title: '友情提示',
@@ -187,7 +197,7 @@ Page({
             console.log(error)
 
             return false
-        }
+        }*/
 
         var inputJson = {
             OperatorType: 1,// 如果用户没登陆过，就给0，登录过给1 "提交类别" 1表示没有注册过，第一次报名提交，2表示已经快速注册,3 表示立即支付进入

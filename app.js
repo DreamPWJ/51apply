@@ -12,6 +12,7 @@ App({
         })
     },
     globalData: { //全局常量参数配置
-        api: "https://t.51enroll.com/Service.asmx"
+        api: "https://t.51enroll.com/Service.asmx",
+        praviteKey:"oiox3tmqu1sn56x7occdd"
     }
 })

@@ -15,14 +15,23 @@ Page({
                 if (res.code) {
                     //发起网络请求
                     console.log(res);
-                    //微信小程序考试报名数据提交
-                    /*           util.https(app.globalData.api + "/SetWXOrderExamInfo", "GET", {
-                     inputJson: JSON.parse(options.inputJson),
-                     praviteKey: 'oiox3tmqu1sn56x7occdd'
-                     },
-                     function (data) {
+                    //根据微信Code获取对应的openId
+                    util.https(app.globalData.api + "/GetOpenidFromJsCode", "GET", {
+                            inputJson: {JsCode: res.code},
+                            praviteKey: app.globalData.praviteKey
+                        },
+                        function (data) {
+                            console.log(data);
+                            wx.setStorageSync("openId", data.OpenId);//微信openid
+                            //微信小程序考试报名数据提交
+                            /*           util.https(app.globalData.api + "/SetWXOrderExamInfo", "GET", {
+                             inputJson: JSON.parse(options.inputJson),
+                             praviteKey: app.globalData.praviteKey
+                             },
+                             function (data) {
 
-                     })*/
+                             })*/
+                        })
 
                 } else {
                     console.log('获取用户登录态失败！' + res.errMsg)

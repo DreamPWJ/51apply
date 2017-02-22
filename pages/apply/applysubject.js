@@ -32,7 +32,7 @@ Page({
         });
         //考试报名列表
         util.https(app.globalData.api + "/GetHeadExamType", "GET", {
-                praviteKey: 'oiox3tmqu1sn56x7occdd'
+                praviteKey: app.globalData.praviteKey
             },
             this.getHeadExamType
         )
@@ -74,7 +74,7 @@ Page({
                 inputJson: {
                     ExamTypeId: ExamTypeId//考试类型ID， 如果是培训默认给6.
                 },
-                praviteKey: 'oiox3tmqu1sn56x7occdd'
+                praviteKey: app.globalData.praviteKey
             },
             this.getExamSubject
         )
@@ -98,7 +98,7 @@ Page({
                 inputJson: {
                     ExamTypeId: this.data.examSubject[e.detail.value].ExamTypeId //考试类型ID  如果给空或者0，则返回全部省份
                 },
-                praviteKey: 'oiox3tmqu1sn56x7occdd'
+                praviteKey: app.globalData.praviteKey
             },
             this.getExamProvinceList
         )
@@ -134,7 +134,7 @@ Page({
                     Longitude: wx.getStorageSync("longitude"), //经度
                     ProvinceName: this.data.examProvinceList[e ? e.detail.value : 0].ProvinceName //省份名称,可以为空
                 },
-                praviteKey: 'oiox3tmqu1sn56x7occdd'
+                praviteKey: app.globalData.praviteKey
             },
             this.getExamPlace
         )
@@ -177,7 +177,7 @@ Page({
                     SubjectID: this.data.examSubject[this.data.examSubjectIndex].SubjectID,//用户选中的考试科目ID
                     SchoolId: this.data.examPlace[this.data.examPlaceIndex].SchoolID  //用户选中的考点ID
                 },
-                praviteKey: 'oiox3tmqu1sn56x7occdd'
+                praviteKey: app.globalData.praviteKey
             },
             this.getAddServices
         )
