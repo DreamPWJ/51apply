@@ -49,8 +49,11 @@ Page({
         inputContent["Job"] = this.data.profession[0];
         inputContent["Admssion"] = this.data.entranceDate[0];
         inputContent["Education"] = this.data.culture[0];
-        inputContent["Birthday"] = this.data.date.replace(/-/g, "");
-        inputContent["Gender"] = 1;
+        if (this.data.credentialsIndex != 0) {
+            inputContent["Birthday"] = this.data.date.replace(/-/g, "");
+            inputContent["Gender"] = 1;
+        }
+
 
         //验证表单
         this.WxValidate = new WxValidate({
@@ -181,7 +184,7 @@ Page({
         //调用验证表单方法
         const params = e.detail.value
         console.log(params);
-  /*      if (!this.WxValidate.checkForm(e)) {
+        if (!this.WxValidate.checkForm(e)) {
             const error = this.WxValidate.errorList
             wx.showModal({
                 title: '友情提示',
@@ -197,10 +200,10 @@ Page({
             console.log(error)
 
             return false
-        }*/
+        }
 
         var inputJson = {
-            OperatorType: 1,// 如果用户没登陆过，就给0，登录过给1 "提交类别" 1表示没有注册过，第一次报名提交，2表示已经快速注册,3 表示立即支付进入
+            OperatorType: !wx.getStorageSync("TokenInfo") ? 1 : 2,// 如果用户没登陆过，就给0，登录过给1 "提交类别" 1表示没有注册过，第一次报名提交，2表示已经快速注册,3 表示立即支付进入
             //  Name: "",  //姓名
             //   SearchPwd: "", //登录密码，如果是已经注册过的用户不需要再次传入密码，直接设置为空
             //  IDType: "", //1表示身份证号
@@ -229,8 +232,12 @@ Page({
             ReceiveName: "",// 表示收件人
             ReceiveTel: "", // 表示收件人电话
             ReceiveAdd: "",// 表示收件人地址
-            OpenId: "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",// 微信用户标示
-
+            //  OpenId: "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",// 微信用户标示
+            AutoData: [
+               /* {
+                    TypeFieldId: "",//自动字段ID，来源于接口99的返回
+                    AutoValue: "" //自动字段用户填写输入的信息
+                }*/]
 
         }
 

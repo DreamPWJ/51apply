@@ -178,10 +178,10 @@
             <span class="input-label"> 密码 </span>
             <input type="text" class="text-right" id="SearchPwd" bindchange="bindChange" placeholder="请输入您的密码"/>
         </view>
-        <view class="item item-input">
+<!--        <view class="item item-input">
             <span class="input-label"> 确认密码 </span>
             <input type="text" class="text-right" placeholder="请再次输入您的密码"/>
-        </view>
+        </view>-->
 
         <view class="padding-top">
             <button size="" plain="" formType="submit" class=" energized-bg light "> 提交</button>

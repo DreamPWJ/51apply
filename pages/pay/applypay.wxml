@@ -8,20 +8,17 @@
             商品信息
         </view>
         <view class="item  ">
-            <text class="p">订单编号 : KSAPP201715525454155412554122</text>
+            <text class="p">订单编号 : {{paydata.OrderId}}</text>
         </view>
         <view class="item">
-            <view class="row row-wrap ">
-                <text class="col-85">Visual FoxPro数据库程序设计</text>
-                <text class="col-15  energized">￥80.0</text>
+            <view class="row row-wrap " wx:for="{{paydata.ItemInfo}}">
+                <text class="col-85">{{item.ItemName}}</text>
+                <text class="col-15  energized">￥{{item.Price}}</text>
             </view>
-            <view class="row row-wrap ">
-                <text class="col-85">技术服务费</text>
-                <text class="col-15  energized">￥5.0</text>
-            </view>
+
             <view class="row row-wrap ">
                 <text class="col-offset-50 col-35 text-center">合计 :</text>
-                <text class="col-15 energized">￥85.0</text>
+                <text class="col-15 energized">￥{{paydata.AllPrice}}</text>
             </view>
         </view>
         <view class="item item-divider">
