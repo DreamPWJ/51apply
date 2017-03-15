@@ -65,17 +65,18 @@ Page({
                 inputJson: inputJson,
                 praviteKey: app.globalData.praviteKey
             },
-            function (data) {
-                console.log(data);
-                if (data.StatusCode == 0) {
-                    wx.setStorageSync("StudentId", data.Data.StudentId);//"用户ID"
-                    wx.setStorageSync("TokenInfo", data.Data.TokenInfo);//"用户Token"
+            this.setWXOrderExamInfoCallBack)
+    },
+    setWXOrderExamInfoCallBack: function (data) {
+        console.log(data);
+        if (data.StatusCode == 0) {
+            wx.setStorageSync("StudentId", data.Data.StudentId);//"用户ID"
+            wx.setStorageSync("TokenInfo", data.Data.TokenInfo);//"用户Token"
 
-                    this.setData({
-                        paydata: data.Data
-                    })
-                }
+            this.setData({
+                paydata: data.Data
             })
+        }
     },
     /**
      * 立即支付
