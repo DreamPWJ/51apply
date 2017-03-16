@@ -22,7 +22,7 @@
         </view>
         <block wx:for="{{headExamType}}">
             <view wx-if="{{item.IsActive==1||item.IsActive==2}}" class="item item-icon-left item-button-right">
-                <text class="iconfont icon-naozhong">{{item.differdays}}</text>
+                <text class="iconfont icon-naozhong"><text>{{item.differdays}}</text></text>
                 {{item.ExamTypeName}}
                 <view class="p"> 报名时间 : {{item.SignTimes}}</view>
                 <view class="p"> 考试时间 : {{item.ExamTimes}}</view>

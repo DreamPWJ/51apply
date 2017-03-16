@@ -28,7 +28,7 @@ Page({
 
         // 页面初始化 options为页面跳转所带来的参数
         this.setData({
-            headExamTypeIndex: options.ExamTypeId - 1
+            ExamTypeId: options.ExamTypeId
         });
         //考试报名列表
         util.https(app.globalData.api + "/GetHeadExamType", "GET", {
@@ -46,14 +46,20 @@ Page({
             var item = data.Data[index];
             if (item.IsActive == 1 || item.IsActive == 2) {//只显示IsActive 是1或者2的考试类型
                 headExamTypeArr.push(item);
+                if (item.ExamTypeId == this.data.ExamTypeId) {
+                    this.setData({
+                        headExamTypeIndex: index
+                    })
+                }
             }
 
         }
+
         this.setData({
             headExamType: headExamTypeArr
         });
         //考试科目获取
-        this.getExamSubjectHttp(this.data.headExamTypeIndex + 1)
+        this.getExamSubjectHttp(this.data.ExamTypeId)
         inputContent["ExamType"] = this.data.headExamType[this.data.headExamTypeIndex].ExamTypeId;
     },
 

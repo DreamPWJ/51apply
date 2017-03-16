@@ -21,15 +21,21 @@
 .icon-naozhong:before {
     border-color: transparent;
     color: #f26604;
-    width: 0.4rem !important;
     font-size: 2rem !important;
 }
 
 .icon-naozhong {
-    color: #ffffff;
+    position: relative;
+    color: #fff;
     font-size: 1rem !important;
 }
-
+.icon-naozhong text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
 .header-subnav {
     margin-top: -0.6rem;
     color: #000;
