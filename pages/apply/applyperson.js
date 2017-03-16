@@ -53,29 +53,8 @@ Page({
             inputContent["Birthday"] = this.data.date.replace(/-/g, "");
             inputContent["Gender"] = 1;
         }
-
-
         //验证表单
-        this.WxValidate = new WxValidate({
-                idcard: { //验证规则 input name值
-                    required: true,
-                    idcard: true
-                },
-                address: {
-                    required: true,
-                    minlength: 5
-                }
-            },
-            {
-                idcard: { //提示信息
-                    required: "请填写身份证号"
-                },
-                address: { //提示信息
-                    required: "请填写联系地址",
-                    minlength: "联系地址至少输入五个字符"
-                }
-            })
-
+        this.wxValidate();
     },
     onReady: function () {
         // 页面渲染完成
@@ -89,7 +68,78 @@ Page({
     onUnload: function () {
         // 页面关闭
     },
+    wxValidate: function () {
+        //验证表单
+        this.WxValidate = new WxValidate({
+                idcard: { //验证规则 input name值
+                    required: true,
+                    idcard: true
+                },
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                telnum: {
+                    required: true,
+                    tel: true
+                },
+                qqnumber: {
+                    required: true,
+                    digits: true,
+                    minlength: 5
+                },
+                searchpwd: {
+                    required: true,
+                    minlength: 3
+                },
+                university: {
+                    required: true,
+                    minlength: 4
+                },
+                colledge: {
+                    required: true
+                },
+                majorcode: {
+                    required: true
+                },
+                classcode: {
+                    required: true
+                },
+            },
+            {
+                idcard: { //提示信息
+                    required: "请填写身份证号"
+                },
+                name: { //提示信息
+                    required: "请填写真实姓名",
+                    minlength: "姓名至少输入两个字符"
+                },
+                telnum: { //提示信息
+                    required: "请填写真实手机号码"
+                },
+                qqnumber: { //提示信息
+                    required: "请填写QQ号码"
+                },
+                searchpwd: { //提示信息
+                    required: "请填写密码",
+                    minlength: "密码至少输入三个字符"
+                },
+                university: { //提示信息
+                    required: "请填写学校名称",
+                    minlength: "学校名称至少输入四个字符"
+                },
+                colledge: { //提示信息
+                    required: "请填写学院信息"
+                },
+                majorcode: { //提示信息
+                    required: "请填写专业信息"
+                },
+                classcode: { //提示信息
+                    required: "请填写班级信息"
+                }
+            })
 
+    },
     //考试的动态填写字段获取 不同的考试，有些自己特有的字段
     getExamTypeFieldList: function (data) {
         console.log(data);
@@ -144,6 +194,66 @@ Page({
         this.setData({
             professionIndex: e.detail.value
         })
+        if (this.data.professionIndex == 0) {
+            //验证表单
+            this.wxValidate();
+        } else {
+            //验证表单
+            this.WxValidate = new WxValidate({
+                    idcard: { //验证规则 input name值
+                        required: true,
+                        idcard: true
+                    },
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    telnum: {
+                        required: true,
+                        tel: true
+                    },
+                    qqnumber: {
+                        required: true,
+                        digits: true,
+                        minlength: 5
+                    },
+                    searchpwd: {
+                        required: true,
+                        minlength: 3
+                    },
+                    address: {
+                        required: true,
+                        minlength: 5
+                    },
+
+                },
+                {
+                    idcard: { //提示信息
+                        required: "请填写身份证号"
+                    },
+                    name: { //提示信息
+                        required: "请填写真实姓名",
+                        minlength: "姓名至少输入两个字符"
+                    },
+                    telnum: { //提示信息
+                        required: "请填写真实手机号码"
+                    },
+                    qqnumber: { //提示信息
+                        required: "请填写QQ号码"
+                    },
+                    searchpwd: { //提示信息
+                        required: "请填写密码",
+                        minlength: "密码至少输入三个字符"
+                    },
+                    address: { //提示信息
+                        required: "请填写联系地址",
+                        minlength: "联系地址至少输入五个字符"
+                    },
+
+                })
+        }
+
+
         inputContent[e.currentTarget.id] = this.data.profession[e.detail.value]
     },
     //学历选择
@@ -234,10 +344,10 @@ Page({
             ReceiveAdd: "",// 表示收件人地址
             //  OpenId: "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",// 微信用户标示
             AutoData: [
-               /* {
-                    TypeFieldId: "",//自动字段ID，来源于接口99的返回
-                    AutoValue: "" //自动字段用户填写输入的信息
-                }*/]
+                /* {
+                 TypeFieldId: "",//自动字段ID，来源于接口99的返回
+                 AutoValue: "" //自动字段用户填写输入的信息
+                 }*/]
 
         }
 

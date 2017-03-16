@@ -35,11 +35,11 @@
     <view class="row text-center row-center header-subnav light-bg">
         <view class="col">
             <view class="iconfont icon-shengyin energized"></view>
-            <text class="icon-text">考试公告</text>
+            <text class="icon-text">公告</text>
         </view>
         <view class="col">
             <view class="iconfont icon-jushoucanggift royal"></view>
-            <text class="icon-text">考试关注</text>
+            <text class="icon-text">关注</text>
         </view>
         <view class="col">
             <view class="iconfont icon-yijianfankui balanced"></view>
