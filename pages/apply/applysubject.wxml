@@ -75,13 +75,13 @@
   <!--              <image style="width:80%; height: 100px; background-color: #eeeeee;" mode="scaleToFill"
                        src="{{item.BookPicUrl}}"></image>-->
             </label>
-            <label class="checkbox">
-                <checkbox checked="true" disabled="true" color="#f26604"/>
+            <label class="checkbox" wx:if="{{addServices.BookList.length!=0}}">
+                <checkbox checked="true"  disabled="true" color="#f26604"/>
                 快递(默认收8元快递费用)
             </label>
         </checkbox-group>
-        <navigator url="../address/addressmanage" open-type="navigate" hover-class="navigator-hover"
-                   class="text-center padding-vertical light-bg grey">点击选择地址
+        <navigator wx:if="{{addServices.BookList.length!=0}}" url="../address/addressmanage" open-type="navigate" hover-class="navigator-hover"
+                   class="text-center padding-vertical light-bg grey address">点击选择地址
         </navigator>
     </view>
     <view class="item item-divider">
@@ -93,7 +93,7 @@
     </view>
     <view class="item ">
         考点地址
-        <text class="item-note text-wrap">{{examPlaceItem.Address}}</text>
+        <text class="p text-wrap grey">{{examPlaceItem.Address}}</text>
     </view>
     <view class="item ">
         考点距离
@@ -109,6 +109,6 @@
     </view>
 
     <view class="padding-top">
-        <button size="" plain="" bindtap="applyperson" class="energized-bg light "> 下一步</button>
+        <button size="" plain="" disabled="{{!isSelectExamSubject}}" bindtap="applyperson" class="energized-bg light "> 下一步</button>
     </view>
 </view>

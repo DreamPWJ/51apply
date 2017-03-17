@@ -303,7 +303,7 @@ Page({
                 confirmColor: "#f26604",
                 success: function (res) {
                     if (res.confirm) {
-                        console.log('用户点击确定')
+                        console.log('用户点击确定');
                     }
                 }
             })
@@ -337,8 +337,8 @@ Page({
             //  SubjectId: "4",    //科目ID号，该值必须传入
             //   ExamType: "1",  //包括类型，1表示计算机考试，2表示会计，3表示教师资格…，该值必须传入
             //  ProvinceName: "湖北省",//省份名称
-            IsJoin: "0",  //模拟考试ID，0表示没参加。最多传入一个考试科目ID 勾选了模拟考试就给1，没勾就给0
-            BookID: "0", //需要的教材ID，如果有多本就用,号分割，没有预定就是0
+            // IsJoin: "0",  //模拟考试ID，0表示没参加。最多传入一个考试科目ID 勾选了模拟考试就给1，没勾就给0
+            // BookID: "0", //需要的教材ID，如果有多本就用,号分割，没有预定就是0
             ReceiveName: "",// 表示收件人
             ReceiveTel: "", // 表示收件人电话
             ReceiveAdd: "",// 表示收件人地址

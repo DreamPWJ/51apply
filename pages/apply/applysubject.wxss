@@ -1,15 +1,18 @@
 /* pages/apply/applysubject.wxss */
-.checkbox{
+.checkbox {
     display: block;
     padding: 0.5rem 1rem;
 }
 
-.checkbox checkbox{
+.checkbox checkbox {
     margin-right: 0.8rem;
 }
 
-
-.checkbox view{
+.checkbox view {
     margin-left: 2.5rem;
     color: #585858;
+}
+
+.address {
+    color: #f26604 !important;
 }

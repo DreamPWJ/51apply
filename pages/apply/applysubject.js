@@ -9,6 +9,7 @@ Page({
     data: {
         headExamTypeIndex: 0,
         examSubjectIndex: 0,
+        isSelectExamSubject: false,
         provinceListIndex: 0,
         examPlaceIndex: 0,
         longitude: wx.getStorageSync("longitude"),
@@ -96,7 +97,8 @@ Page({
 //考试科目选择
     bindexamSubjectPickerChange: function (e) {
         this.setData({
-            examSubjectIndex: e.detail.value
+            examSubjectIndex: e.detail.value,
+            isSelectExamSubject: true
         })
         inputContent[e.currentTarget.id] = this.data.examSubject[e.detail.value].SubjectID;
         //考试的省份获取
@@ -198,7 +200,15 @@ Page({
 
     //点击选择增值服务
     checkboxChange: function (e) {
-        console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+        console.log('checkbox发生change事件，携带value值为：', e.detail.value);
+        var serveArr = e.detail.value;
+        if (this.data.addServices.BookList.length != 0) { //没有教材， 也不显示那个快递费
+            serveArr = e.detail.value.slice(1);//去掉默认快递费数组
+        }
+        //模拟考试ID，0表示没参加。最多传入一个考试科目ID 勾选了模拟考试就给1，没勾就给0
+        inputContent["IsJoin"] = serveArr.length == 0 ? 0 : 1;
+        //需要的教材ID，如果有多本就用,号分割，没有预定就是0
+        inputContent["BookID"] = serveArr.length <= 1 ? 0 : e.detail.value.slice(1).join(",");
     },
 
     //使用微信内置地图查看位置
@@ -206,7 +216,7 @@ Page({
         wx.openLocation({
             latitude: this.data.latitude,
             longitude: this.data.longitude,
-            scale: 28
+            scale: 18
         })
     },
     //下一步事件处理函数

@@ -14,7 +14,7 @@
             <text class="icon-text">成绩查询</text>
         </navigator>
     </view>
-    <view class="list ">
+    <view class="list applylist">
         <view class="item item-divider  light-bg item-icon-right">
             <text></text>
             报名考试
@@ -27,7 +27,7 @@
                 <view class="p"> 报名时间 : {{item.SignTimes}}</view>
                 <view class="p"> 考试时间 : {{item.ExamTimes}}</view>
                 <navigator url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate"
-                           hover-class="navigator-hover" class="button button-energized button-outline ">预约报名
+                           hover-class="navigator-hover" class="button button-energized button-outline ">{{item.differdays<10?'立即':'预约'}}报名
                 </navigator>
             </view>
         </block>
@@ -38,7 +38,7 @@
             <text class="icon-text">公告</text>
         </view>
         <view class="col">
-            <view class="iconfont icon-jushoucanggift royal"></view>
+            <view class="iconfont icon-jushoucang royal"></view>
             <text class="icon-text">关注</text>
         </view>
         <view class="col">

@@ -58,3 +58,7 @@
     color: #000;
     height: 300 rpx;
 }
+
+.applylist .p{
+   font-size: 13px;
+}
