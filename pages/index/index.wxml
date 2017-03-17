@@ -51,17 +51,14 @@
         </view>
     </view>
     <view class="list margin-top">
-        <view class="item item-divider  light-bg item-icon-right">
-            <text></text>
+        <view class="item item-divider  light-bg item-icon-left item-icon-right">
+            <view class="iconfont icon-shengyin energized" style="font-size: 1.1rem;"></view>
             考试头条
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
         <block wx:for="{{headLine}}">
             <view class="item ">
-
-                <navigator url="{{item.NewsUrl}}" open-type="navigate"
-                      >  {{item.NewsTitle}}
-                </navigator>
+                {{item.NewsTitle}}
             </view>
         </block>
     </view>
