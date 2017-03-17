@@ -15,11 +15,11 @@ Page({
             ,
             this.getHeadExamType
         )
-        //章节练习
-        util.https(app.globalData.api + "/GetNewestTestTitle", "GET", {
+        //考试头条
+        util.https(app.globalData.api + "/GetHeadLines", "GET", {
                 praviteKey: app.globalData.praviteKey
             },
-            this.getExamTestList
+            this.getHeadLines
         )
     },
     //考试报名列表
@@ -37,10 +37,11 @@ Page({
 
 
     },
-    //章节练习
-    getExamTestList: function (data) {
+    //考试头条
+    getHeadLines: function (data) {
+        console.log(data);
         this.setData({
-            examTestList: data.Data
+            headLine: data.Data
         });
 
     },

@@ -53,13 +53,15 @@
     <view class="list margin-top">
         <view class="item item-divider  light-bg item-icon-right">
             <text></text>
-            最新章节练习
+            考试头条
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
-        <block wx:for="{{examTestList}}">
+        <block wx:for="{{headLine}}">
             <view class="item ">
-                {{item.QuestionTitle}}
-                <text bindtap="" class="item-note">{{item.ReturnDate}}</text>
+
+                <navigator url="{{item.NewsUrl}}" open-type="navigate"
+                      >  {{item.NewsTitle}}
+                </navigator>
             </view>
         </block>
     </view>
