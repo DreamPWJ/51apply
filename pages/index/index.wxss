@@ -37,7 +37,6 @@
     transform: translate(-50%,-50%);
 }
 .header-subnav {
-    margin-top: -0.6rem;
     color: #000;
     height: 200 rpx;
 }
@@ -61,4 +60,11 @@
 
 .applylist .p{
    font-size: 13px;
+}
+.headLine{
+    font-size: 0.8rem;
+    color: #262626;
+}
+.headLine .iconfont{
+    font-size: 1rem;
 }

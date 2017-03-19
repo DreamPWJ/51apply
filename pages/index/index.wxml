@@ -14,25 +14,11 @@
             <text class="icon-text">成绩查询</text>
         </navigator>
     </view>
-    <view class="list applylist">
-        <view class="item item-divider  light-bg item-icon-right">
-            <text></text>
-            报名考试
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
-        </view>
-        <block wx:for="{{headExamType}}">
-            <view wx-if="{{item.IsActive==1||item.IsActive==2}}" class="item item-icon-left item-button-right">
-                <text class="iconfont icon-naozhong"><text>{{item.differdays}}</text></text>
-                {{item.ExamTypeName}}
-                <view class="p"> 报名时间 : {{item.SignTimes}}</view>
-                <view class="p"> 考试时间 : {{item.ExamTimes}}</view>
-                <navigator url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate"
-                           hover-class="navigator-hover" class="button button-energized button-outline ">{{item.differdays<10?'立即':'预约'}}报名
-                </navigator>
-            </view>
-        </block>
+    <view class="item item-divider  light-bg item-icon-left headLine">
+        <view class="iconfont icon-shengyin energized" ></view>
+        {{headLine[0].NewsTitle}}
     </view>
-    <view class="row text-center row-center header-subnav light-bg">
+    <view class="row text-center row-center header-subnav light-bg margin-top">
         <view class="col">
             <view class="iconfont icon-shengyin energized"></view>
             <text class="icon-text">公告</text>
@@ -50,23 +36,44 @@
             <text class="icon-text">增值服务</text>
         </view>
     </view>
-    <view class="list margin-top">
-        <view class="item item-divider  light-bg item-icon-left item-icon-right">
-            <view class="iconfont icon-shengyin energized" style="font-size: 1.1rem;"></view>
-            考试头条
+
+    <view class=" applylist margin-top">
+        <view class="item item-divider  light-bg item-icon-right">
+            <text></text>
+            报名考试
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </view>
-        <block wx:for="{{headLine}}">
-            <view class="item ">
-                {{item.NewsTitle}}
+        <block wx:for="{{headExamType}}">
+            <view wx-if="{{item.IsActive==1||item.IsActive==2}}" class="item item-icon-left item-button-right">
+                <text class="iconfont icon-naozhong"><text>{{item.differdays}}</text></text>
+                {{item.ExamTypeName}}
+                <view class="p"> 报名时间 : {{item.SignTimes}}</view>
+                <view class="p"> 考试时间 : {{item.ExamTimes}}</view>
+                <navigator url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate"
+                           hover-class="navigator-hover" class="button button-energized button-outline ">{{item.differdays<10?'立即':'预约'}}报名
+                </navigator>
             </view>
         </block>
     </view>
-    <!--    <view class="list share">
-            <view class="item item-divider  light-bg item-icon-right">
-                <text></text>
-                考霸与您分享
-                <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
+
+    <view class=" applylist margin-top">
+        <view class="item item-divider  light-bg item-icon-right">
+            <text></text>
+            活动报名
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </view>
+        <block wx:for="{{headExamType}}">
+            <view wx-if="{{item.IsActive==1||item.IsActive==2}}" class="item item-icon-left item-button-right">
+                <text class="iconfont icon-naozhong"><text>{{item.differdays}}</text></text>
+                {{item.ExamTypeName}}
+                <view class="p"> 报名时间 : {{item.SignTimes}}</view>
+                <view class="p"> 考试时间 : {{item.ExamTimes}}</view>
+                <navigator url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate"
+                           hover-class="navigator-hover" class="button button-energized button-outline ">{{item.differdays<10?'立即':'预约'}}报名
+                </navigator>
             </view>
-        </view>-->
+        </block>
+    </view>
+
 </view>
