@@ -6,7 +6,9 @@
     "pages/record/applyrecord",
     "pages/address/addressmanage",
     "pages/address/addaddress",
-    "pages/pay/applypay"
+    "pages/pay/applypay",
+    "pages/activity/activityapply",
+    "pages/activity/activitydetails"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f26604"
