@@ -1,2 +1,79 @@
 <!--pages/activity/activityapply.wxml-->
-<text>pages/activity/activityapply.wxml</text>
+<view class="list">
+    <view class="item item-divider">
+        活动介绍
+    </view>
+    <view class="item item-icon-right ">
+        活动名称
+        <view class="item-note">
+            <picker id="ExamType" bindchange="bindNamePickerChange" value="{{headExamTypeIndex}}"
+                    range-key="ExamTypeName"
+                    range="{{headExamType}}">
+                <view class="picker">
+                    {{headExamType[headExamTypeIndex].ExamTypeName}}
+                </view>
+            </picker>
+        </view>
+        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right ">
+        形式选择
+        <view class="item-note">
+            <picker id="shape" bindchange="bindShapePickerChange" value="{{shapeIndex}}"
+                    range="{{shape}}">
+                <view class="picker">
+                    {{shape[shapeIndex]}}
+                </view>
+            </picker>
+        </view>
+        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+        活动省份
+        <view class="item-note">
+            <picker id="ProvinceName" name="province" bindchange="bindProvincePickerChange"
+                    value="{{provinceListIndex}}"
+                    range-key="ProvinceName"
+                    range="{{examProvinceList}}">
+                <view class="picker">
+                    {{examProvinceList[provinceListIndex].ProvinceName}}
+                </view>
+            </picker>
+        </view>
+        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item item-icon-right">
+        活动地点
+        <view class="item-note">
+            <picker id="SchoolID" bindchange="bindExamPlacePickerChange" value="{{examPlaceIndex}}"
+                    range-key="SchoolName"
+                    range="{{examPlace}}">
+                <view class="picker">
+                    {{examPlace[examPlaceIndex].SchoolName}}
+                </view>
+            </picker>
+        </view>
+
+        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+    </view>
+    <view class="item ">
+        具体地址
+        <text class="item-note">{{examPlaceItem.TelNum}}</text>
+    </view>
+    <view class="item item-divider">
+        活动信息
+    </view>
+
+    <view class="item item-content item-image padding">
+        <view>  {{shape.ActiveName}}</view>
+<!--         <view>{{shape.ActiveDesc}}</view>-->
+        <view>时间 : {{shape.ActiveBeginDate}}</view>
+        <!--        <view>地点 : {{shape.ActiveDesc}}</view>-->
+
+    </view>
+
+
+    <view class="padding-top fixed-bottom">
+        <button size="" plain="" bindtap="applyperson" class="energized-bg light "> 立即报名</button>
+    </view>
+</view>
