@@ -47,7 +47,7 @@ Page({
     getActivityDetailsData: function (data) {
         console.log(data);
         this.setData({
-            shape: data.Data
+            activityDetails: data.Data
         })
     }
 })

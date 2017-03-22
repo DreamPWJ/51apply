@@ -29,8 +29,13 @@ Page({
     //报考记录
     getExamReocrdList: function (data) {
         console.log(data);
+        var examReocrdList = data.Data;
+        for (var index in examReocrdList) {
+            //考试时间差
+            examReocrdList[index].differdays = Math.floor((new Date(examReocrdList[index].RealExamDate).getTime() - new Date().getTime()) / (24 * 3600 * 1000));
+        }
         this.setData({
-            examReocrdList: data.Data
+            examReocrdList: examReocrdList
 
         })
     }
