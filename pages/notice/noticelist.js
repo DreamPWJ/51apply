@@ -4,7 +4,8 @@ var util = require('../../utils/util.js');
 Page({
     data: {
         totalCount: 1,
-        examNoticeArr: []
+        examNoticeArr: [],
+        hasData:true
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -32,6 +33,9 @@ Page({
 
     },
     onReachBottom: function (event) {       // 上滑加载
+        if(!this.data.hasData){
+            return;
+        }
         //考试公告列表
         wx.showNavigationBarLoading()
         this.getExamNoticeHttps(this.data.totalCount);
@@ -52,6 +56,9 @@ Page({
     getExamNotice: function (data) {
         console.log(data);
         if (data.Data.length == 0) { //没有数据
+            this.setData({
+                hasData: false
+            });
             wx.showToast({
                 title: "没有更多数据",
                 icon: 'success',
