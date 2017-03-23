@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view id="index" class="stable-bg">
+<view id="index" >
     <view class="row text-center row-center header-nav energized-bg">
         <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none">
             <view class="iconfont icon-wodedingdan"></view>
@@ -19,22 +19,22 @@
         {{headLine[0].NewsTitle}}
     </view>
     <view class="row text-center row-center header-subnav light-bg margin-top">
-        <view class="col">
+        <navigator class="col" url="../notice/noticelist" open-type="navigate" hover-class="none">
             <view class="iconfont icon-shengyin energized"></view>
             <text class="icon-text">公告</text>
-        </view>
-        <view class="col">
+        </navigator>
+        <navigator class="col" url="" open-type="navigate" hover-class="none">
             <view class="iconfont icon-jushoucang royal"></view>
             <text class="icon-text">关注</text>
-        </view>
-        <view class="col">
+        </navigator>
+        <navigator class="col" url="" open-type="navigate" hover-class="none">
             <view class="iconfont icon-yijianfankui balanced"></view>
             <text class="icon-text">考试宝典</text>
-        </view>
-        <view class="col">
+        </navigator>
+        <navigator class="col" url="" open-type="navigate" hover-class="none">
             <view class="iconfont icon-trade assertive"></view>
             <text class="icon-text">增值服务</text>
-        </view>
+        </navigator>
     </view>
 
     <view class=" applylist margin-top">

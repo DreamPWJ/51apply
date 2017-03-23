@@ -7,7 +7,8 @@
     "pages/address/addressmanage",
     "pages/address/addaddress",
     "pages/pay/applypay",
-    "pages/activity/activityapply"
+    "pages/activity/activityapply",
+    "pages/notice/noticelist"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f26604"

@@ -1,0 +1,7 @@
+<!--pages/notice/noticelist.wxml-->
+<view class="list">
+    <view class="item" wx:for="{{examNotice}}">
+        {{item.NewsTitle}}
+        <view class="p">{{item.NewsDate}}</view>
+    </view>
+</view>
