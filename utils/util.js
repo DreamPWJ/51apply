@@ -66,7 +66,7 @@ function https(url, type, data, callBack) {
         },
         fail: function (error) {
             wx.showToast({
-                title: "请求失败:" + error,
+                title: "请求失败:" + JSON.stringify(error),
                 icon: 'success',
                 duration: 3000
             })
