@@ -105,7 +105,7 @@ Page({
         this.setData({
             examSubject: data.Data
         });
-
+        this.getExamProvinceListHttps(this.data.examSubject[0].examSubjectID)
     }
     ,
 //考试科目选择
@@ -116,17 +116,19 @@ Page({
         })
         inputContent[e.currentTarget.id] = this.data.examSubject[e.detail.value].SubjectID;
         //考试的省份获取
+        this.getExamProvinceListHttps(this.data.examSubject[e.detail.value].SubjectID)
+    },
+//考试的省份获取
+    getExamProvinceListHttps: function (SubjectID) {
         util.https(app.globalData.api + "/GetExamProvinceList", "GET", {
                 inputJson: {
-                    ExamTypeId: this.data.examSubject[e.detail.value].ExamTypeId //考试类型ID  如果给空或者0，则返回全部省份
+                    ExamTypeId: SubjectID //考试类型ID  如果给空或者0，则返回全部省份
                 },
                 praviteKey: app.globalData.praviteKey
             },
             this.getExamProvinceList
         )
-    }
-    ,
-
+    },
 //考试的省份获取
     getExamProvinceList: function (data) {
         this.setData({

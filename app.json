@@ -9,6 +9,7 @@
     "pages/address/addaddress",
     "pages/pay/applypay",
     "pages/activity/activityapply",
+    "pages/activity/activityapplymore",
     "pages/notice/noticelist"
   ],
   "window": {

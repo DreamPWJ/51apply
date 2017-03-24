@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view id="index" >
+<view id="index">
     <view class="row text-center row-center header-nav energized-bg">
         <navigator class="col" url="../record/applyrecord" open-type="navigate" hover-class="none">
             <view class="iconfont icon-wodedingdan"></view>
@@ -62,12 +62,13 @@
 
 
     <view class=" applylist margin-top">
-        <view class="item item-divider  light-bg item-icon-right">
+        <navigator url="../activity/activityapplymore" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-divider  light-bg item-icon-right">
             <text></text>
             活动报名
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
-        </view>
-        <block wx:for="{{headActiveList}}">
+        </navigator>
+        <block wx:for="{{headActiveList}}" wx:for-index="idx" wx:if="{{idx<=2}}">
             <view class="item item-icon-left item-button-right">
                 <text class="iconfont icon-naozhong">
                     <text>{{item.differdays}}</text>

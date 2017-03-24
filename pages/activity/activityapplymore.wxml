@@ -1,0 +1,19 @@
+<!--pages/activity/activityapplymore.wxml-->
+<view class=" applylist ">
+
+    <block wx:for="{{headActiveList}}" >
+        <view class="item item-icon-left item-button-right">
+            <text class="iconfont icon-naozhong">
+                <text>{{item.differdays}}</text>
+            </text>
+            {{item.ActiveName}}
+            <view class="p"> 活动地点 : {{item.ActiveAddress}}</view>
+            <view class="p"> 报名时间 : {{item.SignTimes}}</view>
+
+            <navigator url="../activity/activityapply" open-type="navigate"
+                       hover-class="navigator-hover" class="button button-energized button-outline ">
+                {{item.differdays<10?'立即':'预约'}}报名
+            </navigator>
+        </view>
+    </block>
+</view>
