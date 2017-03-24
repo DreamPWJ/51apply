@@ -109,6 +109,6 @@
     </view>
 
     <view class="padding-top">
-        <button size="" plain="" disabled="{{!isSelectExamSubject}}" bindtap="applyperson" class="energized-bg light "> 下一步</button>
+        <button size="" plain=""  bindtap="applyperson" class="energized-bg light "> 下一步</button>
     </view>
 </view>
