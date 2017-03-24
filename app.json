@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/apply/applysubject",
+    "pages/apply/applysubjectmore",
     "pages/apply/applyperson",
     "pages/record/applyrecord",
     "pages/address/addressmanage",

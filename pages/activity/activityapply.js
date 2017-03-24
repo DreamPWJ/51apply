@@ -10,6 +10,23 @@ Page({
         // 页面初始化 options为页面跳转所带来的参数
         //活动详情信息
         this.getActivityDetails();
+        //误操作提示
+        if (!wx.getStorageSync("isManyPeoplePrompt")) {
+            wx.showModal({
+                title: '友情提示',
+                content: "请勿使用同一个小程序或App给多人报名，造成信息错误后果自行承担!",
+                showCancel: false,
+                confirmColor: "#f26604",
+                success: function (res) {
+                    if (res.confirm) {
+                        wx.setStorageSync("isManyPeoplePrompt", true);
+                        console.log('用户点击确定');
+
+                    }
+                }
+            })
+        }
+
     },
     onReady: function () {
         // 页面渲染完成
