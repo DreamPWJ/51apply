@@ -11,10 +11,11 @@
                         range="{{credentials}}">
                     <view class="picker">
                         {{credentials[credentialsIndex]}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <view class="item item-input">
             <span class="input-label"> 证件号码 </span>
@@ -23,7 +24,8 @@
         </view>
         <view class="item item-input">
             <span class="input-label"> 姓名 </span>
-            <input type="text" class="text-right" id="Name" name="name" bindchange="bindChange" placeholder="请输入您的真实姓名"/>
+            <input type="text" class="text-right" id="Name" name="name" bindchange="bindChange"
+                   placeholder="请输入您的真实姓名"/>
         </view>
         <view class="item item-icon-right" wx:if="{{credentialsIndex!=0}}">
             出生年月
@@ -32,10 +34,11 @@
                         start="1900-01-01" end="{{date}}">
                     <view class="picker">
                         {{date}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <view class="item item-icon-right" wx:if="{{credentialsIndex!=0}}">
             性别
@@ -44,10 +47,11 @@
                         range="{{sex}}">
                     <view class="picker">
                         {{sex[sexIndex]}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <view class="item item-icon-right">
             民族
@@ -56,10 +60,11 @@
                         range="{{nation}}">
                     <view class="picker">
                         {{nation[nationIndex]}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <view class="item item-icon-right">
             职业
@@ -68,10 +73,11 @@
                         range="{{profession}}">
                     <view class="picker">
                         {{profession[professionIndex]}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
 
         <view class="item item-icon-right">
@@ -81,10 +87,11 @@
                         range="{{culture}}">
                     <view class="picker">
                         {{culture[cultureIndex]}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <!--        <view class="item item-icon-right">
                     学位
@@ -93,10 +100,11 @@
                                 range="{{degree}}">
                             <view class="picker">
                                 {{degree[degreeIndex]}}
+                               <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                             </view>
                         </picker>
                     </view>
-                    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
                 </view>-->
         <!--        <view class="item item-icon-right">
                     学历类型
@@ -105,18 +113,21 @@
                                 range="{{cultureType}}">
                             <view class="picker">
                                 {{cultureType[cultureTypeIndex]}}
+                                 <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                             </view>
                         </picker>
                     </view>
-                    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
                 </view>-->
         <view class="item item-input">
             <span class="input-label"> 手机号码 </span>
-            <input type="number" id="TelNum" name="telnum" bindchange="bindChange" class="text-right" placeholder="请输入您的手机号码"/>
+            <input type="number" id="TelNum" name="telnum" bindchange="bindChange" class="text-right"
+                   placeholder="请输入您的手机号码"/>
         </view>
         <view class="item item-input">
             <span class="input-label"> QQ号码 </span>
-            <input type="number" id="QQNumber" name="qqnumber" bindchange="bindChange" class="text-right" placeholder="请输入您的QQ号码"/>
+            <input type="number" id="QQNumber" name="qqnumber" bindchange="bindChange" class="text-right"
+                   placeholder="请输入您的QQ号码"/>
         </view>
         <block wx:if="{{professionIndex!=0}}">
             <view class="item item-input">
@@ -148,7 +159,8 @@
             </view>
             <view class="item item-input ">
                 <span class="input-label"> 学院 </span>
-                <input type="text" id="Colledge" name="colledge" bindchange="bindChange" class="text-right" placeholder="请输入您就读的学院"/>
+                <input type="text" id="Colledge" name="colledge" bindchange="bindChange" class="text-right"
+                       placeholder="请输入您就读的学院"/>
             </view>
             <view class="item item-icon-right ">
                 入学时间
@@ -157,18 +169,21 @@
                             start="1960" end="{{entranceDate}}" fields="year">
                         <view class="picker">
                             {{entranceDate}}
+                            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                         </view>
                     </picker>
                 </view>
-                <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
             </view>
             <view class="item item-input">
                 <span class="input-label"> 专业 </span>
-                <input type="text" id="MajorCode" name="majorcode" bindchange="bindChange" class="text-right" placeholder="请输入您就读的专业"/>
+                <input type="text" id="MajorCode" name="majorcode" bindchange="bindChange" class="text-right"
+                       placeholder="请输入您就读的专业"/>
             </view>
             <view class="item item-input">
                 <span class="input-label"> 班级 </span>
-                <input type="text" id="ClassCode" name="classcode" bindchange="bindChange" class="text-right" placeholder="请输入您就读的班级"/>
+                <input type="text" id="ClassCode" name="classcode" bindchange="bindChange" class="text-right"
+                       placeholder="请输入您就读的班级"/>
             </view>
         </block>
         <!--        <view class="item item-input">
@@ -181,7 +196,8 @@
         </view>
         <view class="item item-input">
             <span class="input-label"> 密码 </span>
-            <input type="text" class="text-right" id="SearchPwd" name="searchpwd" bindchange="bindChange" placeholder="请输入您的密码"/>
+            <input type="text" class="text-right" id="SearchPwd" name="searchpwd" bindchange="bindChange"
+                   placeholder="请输入您的密码"/>
         </view>
         <!--        <view class="item item-input">
                     <span class="input-label"> 确认密码 </span>

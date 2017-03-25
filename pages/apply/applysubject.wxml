@@ -11,10 +11,12 @@
                     range="{{headExamType}}">
                 <view class="picker">
                     {{headExamType[headExamTypeIndex].ExamTypeName}}
+                    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                 </view>
+
             </picker>
         </view>
-        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
     </view>
     <view class="item item-icon-right">
         科目选择
@@ -24,10 +26,11 @@
                     range="{{examSubject}}">
                 <view class="picker">
                     {{examSubject[examSubjectIndex].SubjectName}}
+                    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                 </view>
             </picker>
         </view>
-        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
     </view>
     <view class="item item-icon-right">
         考试省份
@@ -37,10 +40,11 @@
                     range="{{examProvinceList}}">
                 <view class="picker">
                     {{examProvinceList[provinceListIndex].ProvinceName}}
+                    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                 </view>
             </picker>
         </view>
-        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
     </view>
     <view class="item item-icon-right">
         考点选择
@@ -50,11 +54,12 @@
                     range="{{examPlace}}">
                 <view class="picker">
                     {{examPlace[examPlaceIndex].SchoolName}}
+                    <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                 </view>
             </picker>
         </view>
 
-        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
     </view>
     <view wx:if="{{addServices.MNExamList&&addServices.MNExamList.length!=0}}">
         <view class="item item-divider">

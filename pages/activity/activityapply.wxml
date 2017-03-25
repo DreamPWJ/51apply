@@ -12,10 +12,11 @@
                         range="{{headExamType}}">
                     <view class="picker">
                         {{headExamType[headExamTypeIndex].ExamTypeName}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <view class="item item-icon-right ">
             形式选择
@@ -24,10 +25,11 @@
                         range="{{shape}}">
                     <view class="picker">
                         {{shape[shapeIndex]}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <view class="item item-icon-right">
             活动省份
@@ -38,10 +40,11 @@
                         range="{{examProvinceList}}">
                     <view class="picker">
                         {{examProvinceList[provinceListIndex].ProvinceName}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <view class="item item-icon-right">
             活动地点
@@ -51,11 +54,12 @@
                         range="{{examPlace}}">
                     <view class="picker">
                         {{examPlace[examPlaceIndex].SchoolName}}
+                        <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
                     </view>
                 </picker>
             </view>
 
-            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+
         </view>
         <view class="item ">
             具体地址
