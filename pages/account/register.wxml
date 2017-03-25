@@ -1,0 +1,33 @@
+<!--pages/account/register.wxml-->
+<view class="list margin-top">
+    <view class="item item-input">
+        <text class="input-label "> 姓名</text>
+        <input type="text" placeholder="请输入你的真实姓名"/>
+    </view>
+
+    <view class="item item-input">
+        <text class="input-label "> 身份证号</text>
+        <input type="idcard" placeholder="请输入身份证号码或者手机号码"/>
+    </view>
+    <view class="item item-input">
+        <text class="input-label "> 学校</text>
+        <input type="text" placeholder="请输入你的学校"/>
+    </view>
+    <view class="item item-input">
+        <text class="input-label  "> 密码</text>
+        <input type="text" placeholder="请输入你的密码"/>
+    </view>
+    <view class="item item-input">
+        <text class="input-label  "> 确认密码</text>
+        <input type="text" placeholder="请再次输入你的密码"/>
+    </view>
+    <view class="item item-input">
+        <text class="input-label  "> QQ号</text>
+        <input type="number" placeholder="请再次输入你的QQ号"/>
+    </view>
+</view>
+
+<view class="padding-horizontal">
+    <text class="button button-full button-energized ">注册
+    </text>
+</view>

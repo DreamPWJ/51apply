@@ -10,9 +10,36 @@
     "pages/pay/applypay",
     "pages/activity/activityapply",
     "pages/activity/activityapplymore",
-    "pages/notice/noticelist"
+    "pages/notice/noticelist",
+    "pages/account/account",
+    "pages/account/login",
+    "pages/account/register"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f26604"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#f26604",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index/home-off.png",
+        "selectedIconPath": "images/index/home-on.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "iconPath": "images/index/user-off.png",
+        "selectedIconPath": "images/index/user-on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
   }
 }

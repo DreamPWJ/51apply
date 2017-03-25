@@ -1,0 +1,19 @@
+<!--pages/account/login.wxml-->
+<view class="list margin-top">
+    <view class="item item-input">
+        <text class="input-label "> 手机号</text>
+        <input type="idcard" placeholder="请输入身份证号码或者手机号码" />
+    </view>
+
+    <view class="item item-input">
+        <text class="input-label  "> 密码</text>
+        <input type="text" placeholder="请输入你的密码"/>
+    </view>
+
+
+</view>
+
+<view class="padding-horizontal">
+    <text class="button button-full button-energized ">登录
+    </text>
+</view>

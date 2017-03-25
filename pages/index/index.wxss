@@ -29,13 +29,15 @@
     color: #fff;
     font-size: 1rem !important;
 }
-.icon-naozhong text{
+
+.icon-naozhong text {
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
+
 .header-subnav {
     color: #000;
     height: 200 rpx;
@@ -58,13 +60,15 @@
     height: 300 rpx;
 }
 
-.applylist .p{
-   font-size: 13px;
+.applylist .p {
+    font-size: 13px;
 }
-.headLine{
+
+.headLine {
     font-size: 0.8rem;
     color: #262626;
 }
-.headLine .iconfont{
+
+.headLine .iconfont {
     font-size: 1rem;
 }

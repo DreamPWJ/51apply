@@ -38,7 +38,7 @@ Page({
             this.getHeadExamType
         )
         //误操作提示
-        if (!wx.getStorageSync("isManyPeoplePrompt")) {
+/*        if (!wx.getStorageSync("isManyPeoplePrompt")) {*/
             wx.showModal({
                 title: '友情提示',
                 content: "请勿使用同一个小程序或App给多人报名，造成信息错误后果自行承担!",
@@ -51,7 +51,7 @@ Page({
                     }
                 }
             })
-        }
+     /*   }*/
     }
     ,
 //考试报名列表

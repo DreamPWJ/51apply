@@ -1,0 +1,7 @@
+/* pages/account/account.wxss */
+.p .button{
+    height: 1.6rem!important;
+    min-height: 1.6rem!important;
+    line-height: 1.6rem!important;
+    border: none;
+}
