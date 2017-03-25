@@ -7,7 +7,7 @@
 
     <view class="item item-input">
         <text class="input-label "> 身份证号</text>
-        <input type="idcard" placeholder="请输入身份证号码或者手机号码"/>
+        <input type="idcard" placeholder="请输入身份证号码"/>
     </view>
     <view class="item item-input">
         <text class="input-label "> 学校</text>
@@ -23,10 +23,11 @@
     </view>
     <view class="item item-input">
         <text class="input-label  "> QQ号</text>
-        <input type="number" placeholder="请再次输入你的QQ号"/>
+        <input type="number" placeholder="请输入你的QQ号"/>
     </view>
-</view>
 
+</view>
+<text class="hint "><text class="iconfont icon-tishi"></text> 以上信息请保持与本人身份证一致，否则将会影响你的报名</text>
 <view class="padding-horizontal">
     <text class="button button-full button-energized ">注册
     </text>

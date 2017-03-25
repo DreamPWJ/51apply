@@ -1,7 +1,12 @@
 /* pages/account/account.wxss */
 .p .button{
-    height: 1.6rem!important;
-    min-height: 1.6rem!important;
-    line-height: 1.6rem!important;
+    height: 1.8rem!important;
+    min-height: 1.8rem!important;
+    line-height: 1.8rem!important;
     border: none;
+}
+
+.item-avatar image{
+    max-width: 65px!important;
+    max-height: 65px!important;
 }

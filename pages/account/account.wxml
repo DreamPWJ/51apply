@@ -2,11 +2,11 @@
 <view class="list">
     <view class="item item-avatar">
         <image src="../../images/logo.png"></image>
-        <view class="p">登录51报名管家,体验更完善功能</view>
+        <view class="p text-center">登录51报名管家,体验更完善功能</view>
         <view class="p row row-horizontal-around">
-            <navigator url="register" open-type="navigate" hover-class="none" class="col-35 button button-energized ">注册
+            <navigator url="register" open-type="navigate" hover-class="none" class="col-30 button button-energized ">注册
             </navigator>
-            <navigator url="login" open-type="navigate" hover-class="none" class="col-35 button button-energized">登录
+            <navigator url="login" open-type="navigate" hover-class="none" class="col-30 button button-energized">登录
             </navigator>
         </view>
     </view>
