@@ -1,4 +1,5 @@
 <!--pages/account/register.wxml-->
+<form bindsubmit="">
 <view class="list margin-top">
     <view class="item item-input">
         <text class="input-label "> 姓名</text>
@@ -28,7 +29,9 @@
 
 </view>
 <text class="hint "><text class="iconfont icon-tishi"></text> 以上信息请保持与本人身份证一致，否则将会影响你的报名</text>
-<view class="padding-horizontal">
-    <text class="button button-full button-energized ">注册
-    </text>
+<view class="padding-horizontal margin-top">
+    <button formType="submit"  class="energized-bg light " >注册
+    </button>
 </view>
+
+</form>
