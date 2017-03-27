@@ -67,6 +67,7 @@
 .headLine {
     font-size: 0.8rem;
     color: #262626;
+    font-weight: 100 !important;
 }
 
 .headLine .iconfont {
