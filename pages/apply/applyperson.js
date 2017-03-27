@@ -90,7 +90,8 @@ Page({
                 },
                 searchpwd: {
                     required: true,
-                    minlength: 3
+                    minlength: 6,
+                    maxlength: 18
                 },
                 university: {
                     required: true,
@@ -122,7 +123,8 @@ Page({
                 },
                 searchpwd: { //提示信息
                     required: "请填写密码",
-                    minlength: "密码至少输入三个字符"
+                    minlength: "密码至少输入6个字符",
+                    maxlength: "密码最多输入18个字符"
                 },
                 university: { //提示信息
                     required: "请填写学校名称",

@@ -25,13 +25,13 @@ Date.prototype.Format = function (fmt) { //
 /**
  * JavaScript合并两个Json对象
  */
- function mergeJsonObject (jsonbject1, jsonbject2) {
-    var resultJsonObject={};
-    for(var attr in jsonbject1){
-        resultJsonObject[attr]=jsonbject1[attr];
+function mergeJsonObject(jsonbject1, jsonbject2) {
+    var resultJsonObject = {};
+    for (var attr in jsonbject1) {
+        resultJsonObject[attr] = jsonbject1[attr];
     }
-    for(var attr in jsonbject2){
-        resultJsonObject[attr]=jsonbject2[attr];
+    for (var attr in jsonbject2) {
+        resultJsonObject[attr] = jsonbject2[attr];
     }
     return resultJsonObject;
 };
@@ -59,7 +59,7 @@ function https(url, type, data, callBack) {
                 wx.showToast({
                     title: res.data.Msg,
                     icon: 'success',
-                    duration: 3000
+                    duration: 2000
                 })
             }
             callBack(res.data);
@@ -68,7 +68,7 @@ function https(url, type, data, callBack) {
             wx.showToast({
                 title: "请求失败:" + JSON.stringify(error),
                 icon: 'success',
-                duration: 3000
+                duration: 2000
             })
             console.log(error)
         },
@@ -80,5 +80,5 @@ function https(url, type, data, callBack) {
 
 module.exports = {
     https: https,
-    mergeJsonObject:mergeJsonObject
+    mergeJsonObject: mergeJsonObject
 }

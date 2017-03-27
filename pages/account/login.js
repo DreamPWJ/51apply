@@ -1,7 +1,7 @@
 // pages/account/login.js
 var app = getApp();
 var util = require('../../utils/util.js');
-import WxValidate from '../../utils/validate'
+import WxValidate from '../../utils/validate';
 var inputContent = {};//输入内容
 Page({
     data: {},
@@ -11,22 +11,26 @@ Page({
         this.WxValidate = new WxValidate({
                 user: {  //验证规则 input name值
                     required: true,
-                    minlength: 11
+                    minlength: 11,
+                    maxlength: 18
                 },
                 password: {
                     required: true,
-                    minlength: 3
+                    minlength: 6,
+                    maxlength: 18
                 },
 
             },
             {
                 user: { //提示信息
                     required: "请填写身份证或者手机号",
-                    minlength: "账户至少输入11个字符"
+                    minlength: "账户至少输入11个字符",
+                    maxlength:"账户最多输入18个字符"
                 },
                 password: { //提示信息
                     required: "请填写密码",
-                    minlength: "账户至少输入3个字符"
+                    minlength: "密码至少输入6个字符",
+                    maxlength:"密码最多输入18个字符"
                 }
             })
     },
@@ -85,11 +89,11 @@ Page({
     },
     userLogin: function (data) { //用户登录回调
         console.log(data);
-        this.setData({
-            userData: data.Data
-        });
         if (data.StatusCode == 0) {
+            wx.setStorageSync("StudentId", data.Data.StudentID);//"用户ID"
+            wx.setStorageSync("TokenInfo", data.Data.TokenInfo);//"用户Token"
             wx.setStorageSync("userData", data.Data);//用户信息
+
             wx.showToast({
                 title: '登录成功',
                 icon: 'success',
