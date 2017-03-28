@@ -1,6 +1,6 @@
 <!--pages/account/account.wxml-->
 <view class="list">
-    <view class="item item-avatar">
+    <view class="item item-avatar" wx:if="{{!isLogin}}">
         <image src="../../images/logo.png"></image>
         <view class="p text-center">登录51报名管家,体验更完善功能</view>
         <view class="p row row-horizontal-around">
@@ -8,6 +8,20 @@
             </navigator>
             <navigator url="login" open-type="navigate" hover-class="none" class="col-30 button button-energized">登录
             </navigator>
+        </view>
+    </view>
+    <view class="item item-avatar login" wx:if="{{isLogin}}">
+        <image src="../../images/logo.png"></image>
+        <view>潘维吉
+            <text class="sex calm-bg light">男</text>
+        </view>
+        <view class="energized grade">
+            <text class="iconfont icon-jushoucanggift"></text>
+            <text class="iconfont icon-jushoucanggift"></text>
+            <text class="iconfont icon-jushoucanggift"></text>
+            <text class="iconfont icon-jushoucanggift"></text>
+            <text class="iconfont icon-jushoucanggift"></text>
+            4.5
         </view>
     </view>
 </view>

@@ -77,8 +77,15 @@ function https(url, type, data, callBack) {
         }
     })
 }
+/**
+ * 是否登录
+ */
+function isLogin() {
+    return wx.getStorageSync("TokenInfo") ? true : false;
+}
 
 module.exports = {
     https: https,
+    isLogin:isLogin,
     mergeJsonObject: mergeJsonObject
 }

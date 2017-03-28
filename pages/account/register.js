@@ -18,6 +18,10 @@ Page({
                     required: true,
                     idcard: true
                 },
+                school: {
+                    required: true,
+                    minlength: 3
+                },
                 password: {
                     required: true,
                     minlength: 6,
@@ -36,6 +40,10 @@ Page({
                 },
                 user: { //提示信息
                     required: "请填写身份证"
+                },
+                school: { //提示信息
+                    required: "请填写学校名称",
+                    minlength: "学校至少输入3个字符",
                 },
                 password: { //提示信息
                     required: "请填写密码",
@@ -92,6 +100,7 @@ Page({
                     QQNumber: inputContent.qq,	//个人qq号，方便密码找回
                     IDCard: inputContent.user,	//身份证号
                     TelNum: "",	//手机号码
+                    University: inputContent.school,//学校
                     SearchPwd: inputContent.password,		//密码
                     StuLatitude: wx.getStorageSync("latitude"), //用户的纬度
                     StuLongitude: wx.getStorageSync("longitude"), //用户的经度
@@ -105,18 +114,42 @@ Page({
     userRegister: function (data) { //用户注册回调
         console.log(data);
         if (data.StatusCode == 0) {
-            wx.setStorageSync("StudentId", data.Data.StudentID);//"用户ID"
-            wx.setStorageSync("TokenInfo", data.Data.TokenInfo);//"用户Token"
-
+            this.loginSubmit();//注册成功后自动登录
             wx.showToast({
                 title: '注册成功',
                 icon: 'success',
                 duration: 1000
             })
             wx.switchTab({
-                url: '/pages/account/account'
+                url: '/pages/index/index'
             })
 
         }
+    },
+    loginSubmit: function () {//登录
+        //首页活动报名列表
+        util.https(app.globalData.api + "/UserLogin", "GET", {
+                inputJson: {
+                    IDCard: inputContent.user,	//身份证号
+                    TelNum: "",		//手机号码
+                    SearchPwd: inputContent.password,		//密码
+                    StuLatitude: wx.getStorageSync("latitude"), //用户的纬度
+                    StuLongitude: wx.getStorageSync("longitude"), //用户的经度
+                    TypeId: "1",	//注册类型  1 表示身份证号，2表示手机号
+                },
+                praviteKey: app.globalData.praviteKey
+            },
+            this.userLogin
+        )
+    },
+    userLogin: function (data) { //用户登录回调
+        console.log(data);
+        if (data.StatusCode == 0) {
+            wx.setStorageSync("StudentId", data.Data.StudentID);//"用户ID"
+            wx.setStorageSync("TokenInfo", data.Data.TokenInfo);//"用户Token"
+            wx.setStorageSync("userData", data.Data);//用户信息
+
+        }
     }
+
 })

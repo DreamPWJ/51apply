@@ -930,7 +930,7 @@ a.item:hover, a.item:focus {
  * --------------------------------------------------
  */
 
-.item-icon-left .iconfont, .item-icon-right .iconfont {
+.item-icon-left .iconfont, .item-icon-right .iconfont,.item-icon-left .icon, .item-icon-right .icon {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -948,7 +948,7 @@ a.item:hover, a.item:focus {
     font-size: 32px;
 }
 
-.item-icon-left .iconfont:before, .item-icon-right .iconfont:before {
+.item-icon-left .iconfont:before, .item-icon-right .iconfont:before ,.item-icon-left .icon:before, .item-icon-right .icon:before{
     display: block;
     width: 32px;
     text-align: center;
@@ -964,7 +964,7 @@ a.item:hover, a.item:focus {
     padding-left: 54px;
 }
 
-.item-icon-left .iconfont {
+.item-icon-left .iconfont ,.item-icon-left .icon{
     left: 11px;
 }
 
@@ -980,7 +980,7 @@ a.item:hover, a.item:focus {
     padding-right: 54px;
 }
 
-.item-icon-right .iconfont {
+.item-icon-right .iconfont ,.item-icon-right .icon{
     right: 11px;
 }
 
@@ -992,12 +992,13 @@ a.item:hover, a.item:focus {
     padding-right: 54px;
 }
 
-.item-icon-left.item-icon-right .iconfont:first-child {
+.item-icon-left.item-icon-right .iconfont:first-child,.item-icon-left.item-icon-right .icon:first-child {
     right: auto;
 }
 
 .item-icon-left.item-icon-right .iconfont:last-child,
-.item-icon-left .item-delete .iconfont {
+.item-icon-left .item-delete .iconfont ,.item-icon-left.item-icon-right .icon:last-child,
+.item-icon-left .item-delete .icon{
     left: auto;
 }
 
