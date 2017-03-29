@@ -1,5 +1,5 @@
 <!--pages/account/account.wxml-->
-<view class="has-bottom-button">
+
     <view class="list ">
         <view class="item item-avatar" wx:if="{{!isLogin}}">
             <image src="../../images/logo.png"></image>
@@ -92,9 +92,10 @@
             联系客服
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </navigator>
+        <view class="padding">
         <navigator wx:if="{{isLogin}}" url="login" open-type="navigate"
-                   hover-class="navigator-hover" class="padding-top fixed-bottom">
+                   hover-class="navigator-hover" >
             <button size="" plain="" class="energized-bg light "> 退出登录</button>
         </navigator>
+        </view>
     </view>
-</view>
