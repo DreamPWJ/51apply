@@ -6,6 +6,7 @@ var inputContent = {};//输入内容
 import WxValidate from '../../utils/validate'
 Page({
     data: {
+        isLogin: util.isLogin(),
         date: new Date().Format("yyyy-MM-dd"),
         entranceDate: new Date().Format("yyyy"),
         credentialsIndex: 0,
@@ -61,6 +62,10 @@ Page({
     },
     onShow: function () {
         // 页面显示
+        this.setData({
+            isLogin: util.isLogin(),
+            userData:wx.getStorageSync("userData")//用户信息
+        })
     },
     onHide: function () {
         // 页面隐藏

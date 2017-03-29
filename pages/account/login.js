@@ -6,6 +6,12 @@ var inputContent = {};//输入内容
 Page({
     data: {},
     onLoad: function (options) {
+
+        //退出清除用户数据
+        wx.removeStorageSync("StudentId");//"用户ID"
+        wx.removeStorageSync("TokenInfo");//"用户Token"
+        wx.removeStorageSync("userData");//用户信息
+
         // 页面初始化 options为页面跳转所带来的参数
         //验证表单
         this.WxValidate = new WxValidate({
@@ -25,12 +31,12 @@ Page({
                 user: { //提示信息
                     required: "请填写身份证或者手机号",
                     minlength: "账户至少输入11个字符",
-                    maxlength:"账户最多输入18个字符"
+                    maxlength: "账户最多输入18个字符"
                 },
                 password: { //提示信息
                     required: "请填写密码",
                     minlength: "密码至少输入6个字符",
-                    maxlength:"密码最多输入18个字符"
+                    maxlength: "密码最多输入18个字符"
                 }
             })
     },
@@ -99,10 +105,13 @@ Page({
                 icon: 'success',
                 duration: 1000
             })
-            wx.switchTab({
-                url: '/pages/account/account'
+            /*         wx.switchTab({
+             url: '/pages/account/account'
+             })*/
+            //返回上一页
+            wx.navigateBack({
+                delta: 1
             })
-
         }
     }
 })

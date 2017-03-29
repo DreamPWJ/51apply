@@ -12,15 +12,20 @@
 }
 
 .item-avatar.login view {
+    padding-top: 0.5rem;
     padding-left: 1.5rem;
 }
 
 .login .sex {
-    padding: 0 0.1rem;
+    padding:  0.1rem;
     border-radius: 0.2rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
 
 .login .grade {
-    margin-top: 1rem;
+    margin-top: 0.8rem;
+}
+
+.item-icon-left .iconfont:first-child{
+    font-size: 1.4rem;
 }

@@ -1,27 +1,100 @@
 <!--pages/account/account.wxml-->
-<view class="list">
-    <view class="item item-avatar" wx:if="{{!isLogin}}">
-        <image src="../../images/logo.png"></image>
-        <view class="p text-center">登录51报名管家,体验更完善功能</view>
-        <view class="p row row-horizontal-around">
-            <navigator url="register" open-type="navigate" hover-class="none" class="col-30 button button-energized ">注册
-            </navigator>
-            <navigator url="login" open-type="navigate" hover-class="none" class="col-30 button button-energized">登录
-            </navigator>
+<view class="has-bottom-button">
+    <view class="list ">
+        <view class="item item-avatar" wx:if="{{!isLogin}}">
+            <image src="../../images/logo.png"></image>
+            <view class="p text-center">登录51报名管家,体验更完善功能</view>
+            <view class="p row row-horizontal-around">
+                <navigator url="register" open-type="navigate" hover-class="none"
+                           class="col-30 button button-energized ">注册
+                </navigator>
+                <navigator url="login" open-type="navigate" hover-class="none" class="col-30 button button-energized">登录
+                </navigator>
+            </view>
         </view>
-    </view>
-    <view class="item item-avatar login" wx:if="{{isLogin}}">
-        <image src="../../images/logo.png"></image>
-        <view>潘维吉
-            <text class="sex calm-bg light">男</text>
+        <view class="item item-avatar login" wx:if="{{isLogin}}">
+            <image src="{{userData.Picture}}"></image>
+            <view>{{userData.Name}}
+                <text class="sex calm-bg light">{{userData.Gender==1?'男':'女'}}</text>
+            </view>
+            <view class="energized grade">
+                <text class="iconfont icon-xing"></text>
+                <text class="iconfont icon-xing"></text>
+                <text class="iconfont icon-xing"></text>
+                <text class="iconfont icon-xing"></text>
+                <text class="iconfont icon-xing"></text>
+            3.5
+            </view>
         </view>
-        <view class="energized grade">
-            <text class="iconfont icon-jushoucanggift"></text>
-            <text class="iconfont icon-jushoucanggift"></text>
-            <text class="iconfont icon-jushoucanggift"></text>
-            <text class="iconfont icon-jushoucanggift"></text>
-            <text class="iconfont icon-jushoucanggift"></text>
-            4.5
-        </view>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right margin-top">
+            <text class=" iconfont icon-user calm"></text>
+            个人信息
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-zhaoxiangji balanced"></text>
+            证件照
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-trade royal"></text>
+            增值服务订单
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-yijianfankui balanced"></text>
+            继续报名
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-wodedingdan balanced"></text>
+            报名记录
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-time balanced"></text>
+            我的预约
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-xiangguanjiansuo royal"></text>
+            成绩查询
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-seach energized"></text>
+            准考证查询
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-kecheng calm"></text>
+            我的课程
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-zhangjielianxi calm"></text>
+            我的练习
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator url="" open-type="navigate"
+                   hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
+            <text class=" iconfont icon-kefu energized"></text>
+            联系客服
+            <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
+        </navigator>
+        <navigator wx:if="{{isLogin}}" url="login" open-type="navigate"
+                   hover-class="navigator-hover" class="padding-top fixed-bottom">
+            <button size="" plain="" class="energized-bg light "> 退出登录</button>
+        </navigator>
     </view>
 </view>
