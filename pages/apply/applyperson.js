@@ -64,7 +64,7 @@ Page({
         // 页面显示
         this.setData({
             isLogin: util.isLogin(),
-            userData:wx.getStorageSync("userData")//用户信息
+            userData: wx.getStorageSync("userData") || ""//用户信息
         })
     },
     onHide: function () {
@@ -76,72 +76,72 @@ Page({
     wxValidate: function () {
         //验证表单
         this.WxValidate = new WxValidate({
-                idcard: { //验证规则 input name值
+                IDCard: { //验证规则 input name值
                     required: true,
                     idcard: true
                 },
-                name: {
+                Name: {
                     required: true,
                     minlength: 2
                 },
-                telnum: {
+                TelNum: {
                     required: true,
                     tel: true
                 },
-                qqnumber: {
+                QQNumber: {
                     required: true,
                     digits: true,
                     minlength: 5
                 },
-                searchpwd: {
-                    required: true,
+                SearchPwd: {
+                    required: !this.data.isLogin,
                     minlength: 6,
                     maxlength: 18
                 },
-                university: {
+                University: {
                     required: true,
                     minlength: 4
                 },
-                colledge: {
+                Colledge: {
                     required: true
                 },
-                majorcode: {
+                MajorCode: {
                     required: true
                 },
-                classcode: {
+                ClassCode: {
                     required: true
                 },
             },
             {
-                idcard: { //提示信息
+                IDCard: { //提示信息
                     required: "请填写身份证号"
                 },
-                name: { //提示信息
+                Name: { //提示信息
                     required: "请填写真实姓名",
                     minlength: "姓名至少输入两个字符"
                 },
-                telnum: { //提示信息
+                TelNum: { //提示信息
                     required: "请填写真实手机号码"
                 },
-                qqnumber: { //提示信息
+                QQNumber: { //提示信息
                     required: "请填写QQ号码"
                 },
-                searchpwd: { //提示信息
+                SearchPwd: { //提示信息
                     required: "请填写密码",
                     minlength: "密码至少输入6个字符",
                     maxlength: "密码最多输入18个字符"
                 },
-                university: { //提示信息
+                University: { //提示信息
                     required: "请填写学校名称",
                     minlength: "学校名称至少输入四个字符"
                 },
-                colledge: { //提示信息
+                Colledge: { //提示信息
                     required: "请填写学院信息"
                 },
-                majorcode: { //提示信息
+                MajorCode: { //提示信息
                     required: "请填写专业信息"
                 },
-                classcode: { //提示信息
+                ClassCode: { //提示信息
                     required: "请填写班级信息"
                 }
             })
@@ -207,52 +207,54 @@ Page({
         } else {
             //验证表单
             this.WxValidate = new WxValidate({
-                    idcard: { //验证规则 input name值
+                    IDCard: { //验证规则 input name值
                         required: true,
                         idcard: true
                     },
-                    name: {
+                    Name: {
                         required: true,
                         minlength: 2
                     },
-                    telnum: {
+                    TelNum: {
                         required: true,
                         tel: true
                     },
-                    qqnumber: {
+                    QQNumber: {
                         required: true,
                         digits: true,
                         minlength: 5
                     },
-                    searchpwd: {
-                        required: true,
-                        minlength: 3
+                    SearchPwd: {
+                        required: !this.data.isLogin,
+                        minlength: 6,
+                        maxlength: 18
                     },
-                    address: {
+                    Address: {
                         required: true,
                         minlength: 5
                     },
 
                 },
                 {
-                    idcard: { //提示信息
+                    IDCard: { //提示信息
                         required: "请填写身份证号"
                     },
-                    name: { //提示信息
+                    Name: { //提示信息
                         required: "请填写真实姓名",
                         minlength: "姓名至少输入两个字符"
                     },
-                    telnum: { //提示信息
+                    TelNum: { //提示信息
                         required: "请填写真实手机号码"
                     },
-                    qqnumber: { //提示信息
+                    QQNumber: { //提示信息
                         required: "请填写QQ号码"
                     },
-                    searchpwd: { //提示信息
+                    SearchPwd: { //提示信息
                         required: "请填写密码",
-                        minlength: "密码至少输入三个字符"
+                        minlength: "密码至少输入6个字符",
+                        maxlength: "密码最多输入18个字符"
                     },
-                    address: { //提示信息
+                    Address: { //提示信息
                         required: "请填写联系地址",
                         minlength: "联系地址至少输入五个字符"
                     },
@@ -301,6 +303,9 @@ Page({
         //调用验证表单方法
         const params = e.detail.value
         console.log(params);
+        if (this.data.isLogin) { //已登录自动获取数据
+            inputContent = util.mergeJsonObject(inputContent, params)
+        }
         if (!this.WxValidate.checkForm(e)) {
             const error = this.WxValidate.errorList
             wx.showModal({
