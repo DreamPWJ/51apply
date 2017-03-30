@@ -38,7 +38,7 @@ Page({
         var headExamType = data.Data;
         for (var index in headExamType) {
             //考试时间差
-            headExamType[index].differdays = Math.floor((new Date(headExamType[index].RealExamDate).getTime() - new Date().getTime()) / (24 * 3600 * 1000));
+            headExamType[index].differdays = Math.floor((new Date(headExamType[index].EndDate).getTime() - new Date().getTime()) / (24 * 3600 * 1000));
         }
         console.log(headExamType);
         this.setData({
