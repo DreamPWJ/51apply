@@ -50,7 +50,7 @@
             继续报名
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </navigator>
-        <navigator url="" open-type="navigate"
+        <navigator url="../record/applyrecord" open-type="navigate"
                    hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
             <text class=" iconfont icon-wodedingdan balanced"></text>
             报名记录
@@ -89,7 +89,7 @@
         <navigator url="" open-type="navigate"
                    hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
             <text class=" iconfont icon-kefu energized"></text>
-            联系客服
+            技术客服
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </navigator>
         <view class="padding">
