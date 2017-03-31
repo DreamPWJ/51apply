@@ -1,1 +1,10 @@
 /* pages/record/applyrecorddetails.wxss */
+
+.status .item-icon-left .iconfont {
+    font-size: 1rem !important;
+}
+
+.status .item .p {
+    font-size: 0.6rem !important;
+}
+

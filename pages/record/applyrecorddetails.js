@@ -2,7 +2,9 @@
 var app = getApp();
 var util = require('../../utils/util.js');
 Page({
-    data: {},
+    data: {
+        viewmore: false
+    },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
         // 所有有登录状态接口默认带上userId和token。没有登录状态的接口默认带上pkey.防止其他方非法使用web服务的访问
@@ -29,10 +31,15 @@ Page({
     onUnload: function () {
         // 页面关闭
     },
-    getStudentExamDetail: function (data) {
+    getStudentExamDetail: function (data) { //报名记录详情
         console.log(data);
         this.setData({
             studentExamDetail: data.Data
+        })
+    },
+    viewMore: function () { //查看更多信息
+        this.setData({
+            viewmore: true
         })
     }
 })

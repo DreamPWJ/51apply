@@ -1,7 +1,142 @@
 <!--pages/record/applyrecorddetails.wxml-->
 <view class="list">
+    <view class="item item-avatar-right" wx:if="{{viewmore}}">
+        证件照
+        <image src="{{studentExamDetail.Picture}}"></image>
+    </view>
     <view class="item">
         报名科目
-        <text class="item-note">c语言</text>
+        <text class="item-note">{{studentExamDetail.SubjectName}}
+            <text class="energized " wx:if="{{!viewmore}}">￥{{studentExamDetail.ExamMoney}}</text>
+        </text>
+    </view>
+    <view class="item">
+        报考网址
+        <text class="p text-wrap grey">{{studentExamDetail.GWURL}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        报名时间
+        <text class="item-note">{{studentExamDetail.ExamDate}}
+        </text>
+    </view>
+    <view class="item">
+        报考考点
+        <text class="item-note">{{studentExamDetail.SchoolName}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        报名费用
+        <text class="item-note">{{studentExamDetail.ExamMoney}}
+        </text>
+    </view>
+    <view class="item">
+        考试时间
+        <text class="item-note">{{studentExamDetail.RealExamTimes}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        考试地点
+        <text class="p text-wrap grey">{{studentExamDetail.SchoolAddress}}
+        </text>
+    </view>
+    <view class="item">
+        密码
+        <text class="item-note">{{studentExamDetail.SearchPwd}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        姓名
+        <text class="item-note">{{studentExamDetail.Name}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        性别
+        <text class="item-note">{{studentExamDetail.Gender==1?'男':'女'}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        出生日期
+        <text class="item-note">{{studentExamDetail.Birthday}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        民族
+        <text class="item-note">{{studentExamDetail.Nation}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        职业
+        <text class="item-note">{{studentExamDetail.Job}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        学历
+        <text class="item-note">{{studentExamDetail.Education}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        手机号码
+        <text class="item-note">{{studentExamDetail.TelNum}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        学号
+        <text class="item-note">{{studentExamDetail.SchoolNum}}
+        </text>
+    </view>
+    <view class="item" wx:if="{{viewmore}}">
+        QQ号码
+        <text class="item-note">{{studentExamDetail.QQNumber}}
+        </text>
+    </view>
+    <view wx:if="{{!viewmore}}" class="item item-divider light-bg text-center energized" bindtap="viewMore">查看更多</view>
+    <view class="status">
+        <view class="item item-divider">
+            以上信息有程序自动注册,请勿重复注册
+        </view>
+        <view class="item">
+            状态
+        </view>
+        <view class="item item-icon-left">
+            <text class="iconfont icon-wancheng balanced"></text>
+            填写个人信息
+        </view>
+        <view class="item item-icon-left">
+            <text class="iconfont icon-wancheng balanced"></text>
+            选择考试科目
+        </view>
+        <view class="item item-icon-left item-button-right">
+            <text class="iconfont icon-tishi assertive"></text>
+            支付报名费用
+            <text class="button button-energized ">未支付</text>
+        </view>
+        <view class="item item-icon-left item-button-right">
+            <text class="iconfont icon-tishi assertive"></text>
+            上传证件照
+            <text class="button button-energized ">未完成</text>
+        </view>
+        <view class="item item-icon-left item-button-right">
+            <text class="iconfont icon-tishi assertive"></text>
+            照片审核
+            <text class="button button-energized ">未完成</text>
+        </view>
+        <view class="item item-icon-left item-button-right">
+            <text class="iconfont icon-tishi assertive"></text>
+            完成报名
+            <text class="button button-energized ">未完成</text>
+        </view>
+        <view class="item item-icon-left item-button-right">
+            <text class="iconfont icon-tishi assertive"></text>
+            信息上报
+            <view class="p">本步骤由程序自动完成</view>
+            <text class="button button-energized ">未完成</text>
+        </view>
+        <view class="item item-icon-left item-button-right">
+            <text class="iconfont icon-tishi assertive"></text>
+            打印准考证
+            <view class="p">{{studentExamDetail.ExamCertPrintDate}}</view>
+            <text class="button button-energized ">未开放</text>
+        </view>
     </view>
 </view>
