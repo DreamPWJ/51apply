@@ -78,7 +78,7 @@ Page({
                     util.https(app.globalData.api + "/DeleteOrderInfo", "GET", {
                             userId: wx.getStorageSync("StudentId"),//用户id
                             tokenInfo: wx.getStorageSync("TokenInfo"), //用户token
-                            inputJson:{
+                            inputJson: {
                                 PayType: "1",//删除类型，1表示计算机考试报名，2表示模拟考试，3表示教材，4表示考霸课程,5表示会计报名,6 表示报名的技能高考模拟练习,7 表示删除快递证书,8表示删除培训订单,9 表示删除考试提醒
                                 SubjectID: 0, //表示科目ID
                                 BookId: 0, //表示书本ID
@@ -89,6 +89,10 @@ Page({
                         },
                         function (data) {
                             util.showToast(data.Msg);
+                            if (data.StatusCode == 0) {
+                                this.getExamReocrdListHttps();
+                            }
+
                         }
                     )
                 }
