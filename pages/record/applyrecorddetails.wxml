@@ -129,13 +129,13 @@
         <view class="item item-icon-left item-button-right">
             <text class="iconfont icon-tishi assertive"></text>
             信息上报
-            <view class="p">本步骤由程序自动完成</view>
+            <view class="p padding-top">本步骤由程序自动完成</view>
             <text class="button button-energized ">未完成</text>
         </view>
         <view class="item item-icon-left item-button-right">
             <text class="iconfont icon-tishi assertive"></text>
             打印准考证
-            <view class="p">{{studentExamDetail.ExamCertPrintDate}}</view>
+            <view class="p padding-top">{{studentExamDetail.ExamCertPrintDate}}</view>
             <text class="button button-energized ">未开放</text>
         </view>
     </view>

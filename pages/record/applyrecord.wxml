@@ -4,10 +4,10 @@
         <view class="item item-divider item-icon-right text-center item-energized ">
             <text>考试倒计时{{item.differdays}}天</text>
             <text wx:if="{{item.ExamStatus==0}}" class="iconfont icon-lajixiang" bindtap="deleteExamReocrdList"
-                  data-id="{{item.ExamTypeID}}"
+                  data-id="{{item.ExamTypeID}}" data-subjectid="{{item.SubjectID}}"
             ></text>
         </view>
-        <view bindtap="getExamReocrdListDetails" data-id="{{item.StudentExamId}}" data-examtypeid="{{item.ExamTypeID}}">
+        <view bindtap="getExamReocrdListDetails" data-id="{{item.StudentExamId}}" data-examtypeid="{{item.ExamTypeID}}"   >
             <view class="item ">
                 考试类型
                 <text class="item-note">{{item.ExamType}}</text>
