@@ -1,2 +1,19 @@
 <!--pages/account/subscribe.wxml-->
 
+<view class="swiper-tab row row-horizontal-around">
+    <view class="col-45 swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">考试报名预约</view>
+    <view class="col-45 swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">成绩查询预约</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px"
+        bindchange="bindChange">
+    <!-- 考试报名预约 -->
+    <swiper-item>
+        <view>考试报名预约</view>
+    </swiper-item>
+    <!-- 成绩查询预约 -->
+    <swiper-item>
+        <view>成绩查询预约</view>
+    </swiper-item>
+
+</swiper>

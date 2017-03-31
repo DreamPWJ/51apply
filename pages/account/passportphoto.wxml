@@ -1,2 +1,9 @@
 <!--pages/account/passportphoto.wxml-->
+<view class="has-bottom-button">
+    <view class="list">
 
+        <view class="padding-top fixed-bottom">
+            <button size="" plain="" bindtap="shootCredentials" class="energized-bg light "> 拍摄其他证件照</button>
+        </view>
+    </view>
+</view>

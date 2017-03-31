@@ -78,7 +78,7 @@
         </view>
 
         <view class="padding-top fixed-bottom">
-            <button size="" plain="" bindtap="applyperson" class="energized-bg light "> 立即报名</button>
+            <button size="" plain="" bindtap="" class="energized-bg light "> 立即报名</button>
         </view>
     </view>
 </view>

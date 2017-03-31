@@ -28,5 +28,24 @@ Page({
     },
     onUnload: function () {
         // 页面关闭
+    },
+    shootCredentials: function () {
+        wx.chooseImage({
+            success: function (res) {
+                var tempFilePaths = res.tempFilePaths
+                wx.uploadFile({
+                    url: 'http://example.weixin.qq.com/upload', //开发者服务器 url
+                    filePath: tempFilePaths[0],//要上传文件资源的路径
+                    name: 'file',//文件对应的 key , 开发者在服务器端通过这个 key 可以获取到文件二进制内容
+                    formData: { //HTTP 请求中其他额外的 form data
+                        'user': 'test'
+                    },
+                    success: function (res) {
+                        var data = res.data;//开发者服务器返回的数据
+                        //do something
+                    }
+                })
+            }
+        })
     }
 })

@@ -1,1 +1,33 @@
 /* pages/account/subscribe.wxss */
+.swiper-tab {
+
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.swiper-tab-list {
+    font-size: 16px;
+    box-sizing: border-box;
+    display: inline-block;
+    color: #777777;
+    padding: 0.5rem 0 0.3rem;
+}
+
+
+.on {
+    color: #f26604;
+    border-bottom: 2px solid #f26604;
+}
+
+.swiper-box {
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 1rem;
+    background-color: #ffffff;
+}
+
+.swiper-box view {
+
+}
