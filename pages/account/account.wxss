@@ -17,6 +17,7 @@
 }
 
 .login .sex {
+    margin-left: 0.5rem;
     padding:  0.1rem;
     border-radius: 0.2rem;
     font-size: 0.8rem;

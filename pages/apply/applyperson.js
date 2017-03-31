@@ -54,8 +54,7 @@ Page({
             inputContent["Birthday"] = this.data.date.replace(/-/g, "");
             inputContent["Gender"] = 1;
         }
-        //验证表单
-        this.wxValidate();
+        inputContent.AutoData = [];
     },
     onReady: function () {
         // 页面渲染完成
@@ -66,6 +65,9 @@ Page({
             isLogin: util.isLogin(),
             userData: wx.getStorageSync("userData") || ""//用户信息
         })
+        console.log(wx.getStorageSync("userData"));
+        //验证表单
+        this.wxValidate();
     },
     onHide: function () {
         // 页面隐藏
@@ -296,6 +298,14 @@ Page({
         inputContent[e.currentTarget.id] = e.detail.value
         console.log(inputContent);
     },
+    //获取用户输入的动态字段
+    bindChangeAuto: function (e) {
+        inputContent.AutoData.push({
+            TypeFieldId: e.currentTarget.id,//自动字段ID，来源于接口99的返回
+            AutoValue: e.detail.value //自动字段用户填写输入的信息
+        })
+        console.log(inputContent);
+    },
     /**
      * 考试报名最终提交数据
      */
@@ -304,6 +314,7 @@ Page({
         const params = e.detail.value
         console.log(params);
         if (this.data.isLogin) { //已登录自动获取数据
+            inputContent.SearchPwd="";
             inputContent = util.mergeJsonObject(inputContent, params)
         }
         if (!this.WxValidate.checkForm(e)) {
@@ -351,15 +362,15 @@ Page({
             //  ProvinceName: "湖北省",//省份名称
             // IsJoin: "0",  //模拟考试ID，0表示没参加。最多传入一个考试科目ID 勾选了模拟考试就给1，没勾就给0
             // BookID: "0", //需要的教材ID，如果有多本就用,号分割，没有预定就是0
-            ReceiveName: "",// 表示收件人
-            ReceiveTel: "", // 表示收件人电话
-            ReceiveAdd: "",// 表示收件人地址
+            // ReceiveName: "",// 表示收件人
+            // ReceiveTel: "", // 表示收件人电话
+            // ReceiveAdd: "",// 表示收件人地址
             //  OpenId: "oUpF8uMuAJO_M2pxb1Q9zNjWeS6o",// 微信用户标示
-            AutoData: [
-                /* {
-                 TypeFieldId: "",//自动字段ID，来源于接口99的返回
-                 AutoValue: "" //自动字段用户填写输入的信息
-                 }*/]
+            /*AutoData: [
+             {
+             TypeFieldId: "",//自动字段ID，来源于接口99的返回
+             AutoValue: "" //自动字段用户填写输入的信息
+             }]*/
 
         }
 

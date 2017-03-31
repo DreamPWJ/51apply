@@ -38,22 +38,43 @@ Page({
             this.getHeadExamType
         )
         //误操作提示
-/*        if (!wx.getStorageSync("isManyPeoplePrompt")) {*/
-            wx.showModal({
-                title: '友情提示',
-                content: "请勿使用同一个小程序或App给多人报名，造成信息错误后果自行承担!",
-                showCancel: false,
-                confirmColor: "#f26604",
-                success: function (res) {
-                    if (res.confirm) {
-                        wx.setStorageSync("isManyPeoplePrompt", true);
-                        console.log('用户点击确定');
-                    }
+        /*        if (!wx.getStorageSync("isManyPeoplePrompt")) {*/
+        wx.showModal({
+            title: '友情提示',
+            content: "请勿使用同一个小程序或App给多人报名，造成信息错误后果自行承担!",
+            showCancel: false,
+            confirmColor: "#f26604",
+            success: function (res) {
+                if (res.confirm) {
+                    wx.setStorageSync("isManyPeoplePrompt", true);
+                    console.log('用户点击确定');
                 }
-            })
-     /*   }*/
-    }
-    ,
+            }
+        })
+        /*   }*/
+    },
+    onReady: function () {
+        // 页面渲染完成
+    },
+    onShow: function () {
+        // 页面显示
+        this.setData({
+            isLogin: util.isLogin(),
+            userData: wx.getStorageSync("userData") || ""//用户信息
+        })
+        //初始化数据
+        inputContent.ReceiveName = "";// 表示收件人
+        inputContent.ReceiveTel = "";// 表示收件人电话
+        inputContent.ReceiveAdd = "";// 表示收件人地址
+        //验证表单
+        /*        this.wxValidate();*/
+    },
+    onHide: function () {
+        // 页面隐藏
+    },
+    onUnload: function () {
+        // 页面关闭
+    },
 //考试报名列表
     getHeadExamType: function (data) {
         var headExamTypeArr = [];
@@ -76,7 +97,8 @@ Page({
         //考试科目获取
         this.getExamSubjectHttp(this.data.ExamTypeId)
         inputContent["ExamType"] = this.data.headExamType[this.data.headExamTypeIndex].ExamTypeId;
-    },
+    }
+    ,
 
 //考试名称选择
     bindNamePickerChange: function (e) {
@@ -99,13 +121,14 @@ Page({
             },
             this.getExamSubject
         )
-    },
+    }
+    ,
 //考试科目获取
     getExamSubject: function (data) {
         this.setData({
             examSubject: data.Data
         });
-        this.getExamProvinceListHttps(this.data.examSubject[0].examSubjectID)
+        this.getExamProvinceListHttps(this.data.examSubject[0].SubjectID)
     }
     ,
 //考试科目选择
@@ -117,7 +140,9 @@ Page({
         inputContent[e.currentTarget.id] = this.data.examSubject[e.detail.value].SubjectID;
         //考试的省份获取
         this.getExamProvinceListHttps(this.data.examSubject[e.detail.value].SubjectID)
-    },
+
+    }
+    ,
 //考试的省份获取
     getExamProvinceListHttps: function (SubjectID) {
         util.https(app.globalData.api + "/GetExamProvinceList", "GET", {
@@ -128,7 +153,8 @@ Page({
             },
             this.getExamProvinceList
         )
-    },
+    }
+    ,
 //考试的省份获取
     getExamProvinceList: function (data) {
         this.setData({
@@ -149,7 +175,7 @@ Page({
         this.getExamPlaceHttp(e);
     }
     ,
-    //考点获取http请求
+//考点获取http请求
     getExamPlaceHttp: function (e) {
         util.https(app.globalData.api + "/GetExamPlace", "GET", {
                 inputJson: {
@@ -162,7 +188,8 @@ Page({
             },
             this.getExamPlace
         )
-    },
+    }
+    ,
 
 //考点获取
     getExamPlace: function (data) {
@@ -193,8 +220,9 @@ Page({
         inputContent[e.currentTarget.id] = this.data.examPlace[e.detail.value].SchoolID;
         //根据考试的科目和考点来获取对应的增值服务
         this.getAddServicesHttp();
-    },
-    //根据考试的科目和考点来获取对应的增值服务http请求
+    }
+    ,
+//根据考试的科目和考点来获取对应的增值服务http请求
     getAddServicesHttp: function () {
         util.https(app.globalData.api + "/GetAddServices", "GET", {
                 inputJson: {
@@ -205,16 +233,18 @@ Page({
             },
             this.getAddServices
         )
-    },
-    //根据考试的科目和考点来获取对应的增值服务
+    }
+    ,
+//根据考试的科目和考点来获取对应的增值服务
     getAddServices: function (data) {
         console.log(data);
         this.setData({
             addServices: data.Data
         });
-    },
+    }
+    ,
 
-    //点击选择增值服务
+//点击选择增值服务
     checkboxChange: function (e) {
         console.log('checkbox发生change事件，携带value值为：', e.detail.value);
         var serveArr = e.detail.value;
@@ -225,21 +255,30 @@ Page({
         inputContent["IsJoin"] = serveArr.length == 0 ? 0 : 1;
         //需要的教材ID，如果有多本就用,号分割，没有预定就是0
         inputContent["BookID"] = serveArr.length <= 1 ? 0 : e.detail.value.slice(1).join(",");
-    },
+    }
+    ,
 
-    //使用微信内置地图查看位置
+//使用微信内置地图查看位置
     openLocation: function () {
         wx.openLocation({
             latitude: this.data.latitude,
             longitude: this.data.longitude,
             scale: 18
         })
-    },
-    //下一步事件处理函数
+    }
+    ,
+//获取用户输入
+    bindChange: function (e) {
+        inputContent[e.currentTarget.id] = e.detail.value
+        console.log(inputContent);
+    }
+    ,
+//下一步事件处理函数
     applyperson: function () {
         console.log(inputContent);
         wx.navigateTo({
             url: 'applyperson?inputContent=' + JSON.stringify(inputContent)
         })
-    },
+    }
+    ,
 })

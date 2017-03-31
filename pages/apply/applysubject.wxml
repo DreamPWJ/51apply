@@ -21,7 +21,7 @@
     <view class="item item-icon-right">
         科目选择
         <view class="item-note">
-            <picker id="SubjectId" bindchange="bindexamSubjectPickerChange"  value="{{examSubjectIndex}}"
+            <picker id="SubjectId" bindchange="bindexamSubjectPickerChange" value="{{examSubjectIndex}}"
                     range-key="SubjectName"
                     range="{{examSubject}}">
                 <view class="picker">
@@ -35,7 +35,8 @@
     <view class="item item-icon-right">
         考试省份
         <view class="item-note">
-            <picker id="ProvinceName" name="province" bindchange="bindProvincePickerChange" value="{{provinceListIndex}}"
+            <picker id="ProvinceName" name="province" bindchange="bindProvincePickerChange"
+                    value="{{provinceListIndex}}"
                     range-key="ProvinceName"
                     range="{{examProvinceList}}">
                 <view class="picker">
@@ -70,22 +71,47 @@
                 <checkbox value="{{item.TestID}}" color="#f26604"/>
                 {{item.TestName}}
                 <text class="float-right energized">￥{{item.TestMoney}}</text>
-                <view> <text class="iconfont icon-time balanced"></text> {{item.TestTime}}</view>
-                <view> <text class="iconfont icon-shouhuodizhi balanced"></text> {{item.TestAddress}}</view>
+                <view>
+                    <text class="iconfont icon-time balanced"></text>
+                    {{item.TestTime}}
+                </view>
+                <view>
+                    <text class="iconfont icon-shouhuodizhi balanced"></text>
+                    {{item.TestAddress}}
+                </view>
             </label>
             <label class="checkbox" wx:for="{{addServices.BookList}}">
                 <checkbox value="{{item.BookId}}" color="#f26604"/>
                 {{item.BookName}}
                 <text class="float-right energized">￥{{item.BookMoney}}</text>
-  <!--              <image style="width:80%; height: 100px; background-color: #eeeeee;" mode="scaleToFill"
-                       src="{{item.BookPicUrl}}"></image>-->
+                <!--              <image style="width:80%; height: 100px; background-color: #eeeeee;" mode="scaleToFill"
+                                     src="{{item.BookPicUrl}}"></image>-->
             </label>
+            <view wx:if="{{addServices.BookList.length!=0}}">
+                <view class="item item-input">
+                    <span class="input-label"> 收件人 </span>
+                    <input type="text" id="ReceiveName" name="ReceiveName" bindchange="bindChange" class="text-right"
+                           placeholder="请输入收件人姓名"/>
+                </view>
+                <view class="item item-input">
+                    <span class="input-label"> 收件人电话 </span>
+                    <input type="number" id="ReceiveTel" name="ReceiveTel" bindchange="bindChange" class="text-right"
+                           placeholder="请输入收件人电话"/>
+                </view>
+                <view class="item item-input">
+                    <span class="input-label"> 收件人地址 </span>
+                    <input type="text" id="ReceiveAdd" name="ReceiveAdd" bindchange="bindChange" class="text-right"
+                           placeholder="请输入收件人地址"/>
+                </view>
+            </view>
+
             <label class="checkbox" wx:if="{{addServices.BookList.length!=0}}">
-                <checkbox checked="true"  disabled="true" color="#f26604"/>
+                <checkbox checked="true" disabled="true" color="#f26604"/>
                 快递(默认收8元快递费用)
             </label>
         </checkbox-group>
-        <navigator wx:if="{{addServices.BookList.length!=0}}" url="../address/addressmanage" open-type="navigate" hover-class="navigator-hover"
+        <navigator wx:if="{{addServices.BookList.length!=0}}" url="../address/addressmanage" open-type="navigate"
+                   hover-class="navigator-hover"
                    class="text-center padding-vertical light-bg grey address">点击选择地址
         </navigator>
     </view>
@@ -114,6 +140,6 @@
     </view>
 
     <view class="padding-top">
-        <button size="" plain=""  bindtap="applyperson" class="energized-bg light "> 下一步</button>
+        <button size="" plain="" bindtap="applyperson" class="energized-bg light "> 下一步</button>
     </view>
 </view>

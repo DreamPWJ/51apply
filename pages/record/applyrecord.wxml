@@ -1,8 +1,8 @@
 <!--pages/record/applyrecord.wxml-->
-<view id="applyrecord" class="has-bottom-button" >
+<view id="applyrecord" class=""><!-- has-bottom-button-->
     <view class="list" wx:for="{{examReocrdList}}">
-        <view class="item item-divider text-center item-energized "  >
-           <text >考试倒计时{{item.differdays}}天</text>
+        <view class="item item-divider text-center item-energized ">
+            <text>考试倒计时{{item.differdays}}天</text>
         </view>
         <view class="item  ">
             考试类型
@@ -24,7 +24,7 @@
         </view>
 
     </view>
-    <view class="fixed-bottom padding-top">
-        <button size="" plain="" bindtap="applyperson" class="energized-bg light "> 添加记录</button>
-    </view>
+    <!--    <view class="fixed-bottom padding-top">
+            <button size="" plain="" bindtap="" class="energized-bg light "> 添加记录</button>
+        </view>-->
 </view>
