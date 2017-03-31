@@ -1,1 +1,8 @@
 /* pages/record/applyrecord.wxss */
+.item-button-right .button {
+    margin-top: -0.2rem;
+}
+
+.icon-lajixiang {
+    font-size: 1rem!important;
+}

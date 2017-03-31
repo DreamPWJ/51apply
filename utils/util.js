@@ -109,9 +109,20 @@ function isLoginModal() {
         }
     })
 }
+/**
+ * Toast提示框
+ */
+function showToast(title, icon, duration) {
+    wx.showToast({
+        title: title || "",
+        icon: icon || 'success',
+        duration: duration || 2000
+    })
+}
 module.exports = {
     https: https,
     isLogin: isLogin,
     isLoginModal: isLoginModal,
+    showToast: showToast,
     mergeJsonObject: mergeJsonObject
 }

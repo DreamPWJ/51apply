@@ -23,13 +23,7 @@ Page({
             util.isLoginModal();
         } else {
             //报考记录
-            // 所有有登录状态接口默认带上userId和token。没有登录状态的接口默认带上pkey.防止其他方非法使用web服务的访问
-            util.https(app.globalData.api + "/GetExamReocrdList", "GET", {
-                    userId: wx.getStorageSync("StudentId"),//用户id
-                    tokenInfo: wx.getStorageSync("TokenInfo") //用户token
-                },
-                this.getExamReocrdList
-            )
+            this.getExamReocrdListHttps();
         }
     },
     onHide: function () {
@@ -38,6 +32,16 @@ Page({
     onUnload: function () {
         // 页面关闭
     },
+    getExamReocrdListHttps: function () {  //报考记录
+        // 所有有登录状态接口默认带上userId和token。没有登录状态的接口默认带上pkey.防止其他方非法使用web服务的访问
+        util.https(app.globalData.api + "/GetExamReocrdList", "GET", {
+                userId: wx.getStorageSync("StudentId"),//用户id
+                tokenInfo: wx.getStorageSync("TokenInfo") //用户token
+            },
+            this.getExamReocrdList
+        )
+    },
+
     //报考记录
     getExamReocrdList: function (data) {
         console.log(data);
@@ -49,6 +53,46 @@ Page({
         this.setData({
             examReocrdList: examReocrdList
 
+        })
+    },
+    //报考记录详情
+    getExamReocrdListDetails: function (e) {
+        var dataset = e.currentTarget.dataset;
+        wx.navigateTo({
+            url: 'applyrecorddetails?MulStuId=' + dataset.id + '&ExamTypeId=' + dataset.examtypeid
+        })
+    },
+    //删除未支付
+    deleteExamReocrdList: function (e) {
+        console.log(e.currentTarget.dataset);
+
+        wx.showModal({
+            title: '删除记录',
+            content: "确定删除这条报考记录?",
+            showCancel: true,
+            confirmText: "删除",
+            confirmColor: "#f26604",
+            success: function (res) {
+                if (res.confirm) {
+                    // 考生删除未缴费的订单信息
+                    util.https(app.globalData.api + "/DeleteOrderInfo", "GET", {
+                            userId: wx.getStorageSync("StudentId"),//用户id
+                            tokenInfo: wx.getStorageSync("TokenInfo"), //用户token
+                            inputJson:{
+                                PayType: "1",//删除类型，1表示计算机考试报名，2表示模拟考试，3表示教材，4表示考霸课程,5表示会计报名,6 表示报名的技能高考模拟练习,7 表示删除快递证书,8表示删除培训订单,9 表示删除考试提醒
+                                SubjectID: 0, //表示科目ID
+                                BookId: 0, //表示书本ID
+                                CourseId: 0, //表示课程ID,接口33有返回
+                                ExamTypeId: e.currentTarget.dataset.id, //表示考试类型
+                            }
+
+                        },
+                        function (data) {
+                            util.showToast(data.Msg);
+                        }
+                    )
+                }
+            }
         })
     }
 })

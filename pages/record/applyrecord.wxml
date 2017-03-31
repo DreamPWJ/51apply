@@ -1,26 +1,31 @@
 <!--pages/record/applyrecord.wxml-->
 <view id="applyrecord" class=""><!-- has-bottom-button-->
     <view class="list" wx:for="{{examReocrdList}}">
-        <view class="item item-divider text-center item-energized ">
+        <view class="item item-divider item-icon-right text-center item-energized ">
             <text>考试倒计时{{item.differdays}}天</text>
+            <text wx:if="{{item.ExamStatus==0}}" class="iconfont icon-lajixiang" bindtap="deleteExamReocrdList"
+                  data-id="{{item.ExamTypeID}}"
+            ></text>
         </view>
-        <view class="item  ">
-            考试类型
-            <text class="item-note">{{item.ExamType}}</text>
-        </view>
-        <view class="item ">
-            考试科目
-            <text class="item-note">{{item.ExamName}}</text>
+        <view bindtap="getExamReocrdListDetails" data-id="{{item.StudentExamId}}" data-examtypeid="{{item.ExamTypeID}}">
+            <view class="item ">
+                考试类型
+                <text class="item-note">{{item.ExamType}}</text>
+            </view>
+            <view class="item ">
+                考试科目
+                <text class="item-note">{{item.ExamName}}</text>
 
-        </view>
-        <view class="item ">
-            报名时间
-            <text class="item-note">{{item.ExamDate}}</text>
+            </view>
+            <view class="item ">
+                报名时间
+                <text class="item-note">{{item.ExamDate}}</text>
 
+            </view>
         </view>
-        <view class="item text-right">
+        <view class="item  item-button-right">
             <text class="energized">{{item.ExamStatus==0?"未缴费":(item.ExamStatus==1?"已缴费":"已过期")}}</text>
-
+            <text class="button button-energized button-outline ">立即支付</text>
         </view>
 
     </view>

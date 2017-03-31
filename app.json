@@ -5,6 +5,7 @@
     "pages/apply/applysubjectmore",
     "pages/apply/applyperson",
     "pages/record/applyrecord",
+    "pages/record/applyrecorddetails",
     "pages/address/addressmanage",
     "pages/address/addaddress",
     "pages/pay/applypay",
@@ -14,6 +15,9 @@
     "pages/account/account",
     "pages/account/login",
     "pages/account/register",
+    "pages/account/personalinfo",
+    "pages/account/passportphoto",
+    "pages/account/subscribe",
     "pages/news/news",
     "pages/find/find",
     "pages/service/service"

@@ -26,13 +26,13 @@
  <!--           3.5-->
             </view>
         </view>
-        <navigator url="" open-type="navigate"
+        <navigator url="personalinfo" open-type="navigate"
                    hover-class="navigator-hover" class="item item-icon-left item-icon-right margin-top">
             <text class=" iconfont icon-user calm"></text>
             个人信息
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </navigator>
-        <navigator url="" open-type="navigate"
+        <navigator url="passportphoto" open-type="navigate"
                    hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
             <text class=" iconfont icon-zhaoxiangji balanced"></text>
             证件照
@@ -56,7 +56,7 @@
             报名记录
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </navigator>
-        <navigator url="" open-type="navigate"
+        <navigator url="subscribe" open-type="navigate"
                    hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
             <text class=" iconfont icon-time balanced"></text>
             我的预约

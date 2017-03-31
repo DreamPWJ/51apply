@@ -1,0 +1,7 @@
+<!--pages/record/applyrecorddetails.wxml-->
+<view class="list">
+    <view class="item">
+        报名科目
+        <text class="item-note">c语言</text>
+    </view>
+</view>
