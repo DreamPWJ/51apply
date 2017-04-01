@@ -1,6 +1,12 @@
 <!--pages/address/addressmanage.wxml-->
-<view class="list">
-    <view class="fixed-bottom padding-top">
-        <button size="" plain="" bindtap="addDress" class="energized-bg light "> 新增地址</button>
+<view class="has-bottom-button">
+    <view class="list">
+        <view class="isNotDataHint">
+            <view class="iconfont icon-xiaoxizhongxin"></view>
+            <text>暂无地址数据</text>
+        </view>
+        <view class="fixed-bottom padding-top">
+            <button size="" plain="" bindtap="addDress" class="energized-bg light "> 新增地址</button>
+        </view>
     </view>
 </view>

@@ -44,7 +44,7 @@
             增值服务订单
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </navigator>
-        <navigator url="" open-type="navigate"
+        <navigator url="../apply/applysubjectmore" open-type="navigate"
                    hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
             <text class=" iconfont icon-yijianfankui balanced"></text>
             继续报名

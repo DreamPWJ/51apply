@@ -1,6 +1,6 @@
 <!--pages/record/applyrecord.wxml-->
 <view id="applyrecord" class=""><!-- has-bottom-button-->
-    <view wx:if="{{examReocrdList.length==0}}" class="isNotDataHint">
+    <view wx:if="{{examReocrdList==null}}" class="isNotDataHint">
         <view class="iconfont icon-xiaoxizhongxin"></view>
         <text>暂无报名记录数据</text>
     </view>

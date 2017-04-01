@@ -29,7 +29,9 @@ Page({
     onUnload: function () {
         // 页面关闭
     },
-    shootCredentials: function () {
+
+    shootCredentials: function () {       //图片上传
+
         wx.chooseImage({
             success: function (res) {
                 var tempFilePaths = res.tempFilePaths
@@ -41,7 +43,6 @@ Page({
                         'userId': wx.getStorageSync("StudentId"),
                         'Token': wx.getStorageSync("TokenInfo"),
                         'PicType': 1,////照片类型,1表示计算机考试，2表示教师资格，3表示会计,4考霸或用户的icon,5 考霸证书的照片,6课程的图片,7 课程的附件
-                        s
                     },
                     success: function (res) {
                         console.log(res);

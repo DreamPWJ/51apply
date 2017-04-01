@@ -10,7 +10,7 @@
     <!-- 考试报名预约 -->
     <swiper-item>
         <view class="list">
-            <view wx:if="{{myAllOrderInfo.length==0}}" class="isNotDataHint">
+            <view wx:if="{{myAllOrderInfo==null}}" class="isNotDataHint">
                 <view class="iconfont icon-xiaoxizhongxin"></view>
                 <text>无考试报名预约数据</text>
             </view>

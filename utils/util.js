@@ -45,7 +45,8 @@ function mergeJsonObject(jsonbject1, jsonbject2) {
 function https(url, type, data, callBack) {
     wx.showToast({
         title: '51报名管家',
-        icon: 'loading'
+        icon: 'loading',
+        duration: 1000
     })
     wx.request({
         url: url,
@@ -73,7 +74,7 @@ function https(url, type, data, callBack) {
             console.log(error)
         },
         complete: function () {
-            wx.hideToast();
+            /*  wx.hideToast();*/
         }
     })
 }
@@ -116,7 +117,7 @@ function showToast(title, icon, duration) {
     wx.showToast({
         title: title || "",
         icon: icon || 'success',
-        duration: duration || 2000
+        duration: duration || 1500
     })
 }
 module.exports = {

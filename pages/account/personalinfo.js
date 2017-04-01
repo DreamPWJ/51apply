@@ -49,15 +49,82 @@ Page({
             util.isLoginModal();
         } else {
             //个人信息
-
+            this.wxValidate();
         }
+
     },
     onHide: function () {
         // 页面隐藏
     },
     onUnload: function () {
         // 页面关闭
-    },  //证件类型选择
+    },
+    wxValidate: function () {
+        //验证表单
+        this.WxValidate = new WxValidate({
+                IDCard: { //验证规则 input name值
+                    required: true,
+                    idcard: true
+                },
+                Name: {
+                    required: true,
+                    minlength: 2
+                },
+                TelNum: {
+                    required: true,
+                    tel: true
+                },
+                QQNumber: {
+                    required: true,
+                    digits: true,
+                    minlength: 5
+                },
+                University: {
+                    required: true,
+                    minlength: 4
+                },
+                Colledge: {
+                    required: true
+                },
+                MajorCode: {
+                    required: true
+                },
+                ClassCode: {
+                    required: true
+                },
+            },
+            {
+                IDCard: { //提示信息
+                    required: "请填写身份证号"
+                },
+                Name: { //提示信息
+                    required: "请填写真实姓名",
+                    minlength: "姓名至少输入两个字符"
+                },
+                TelNum: { //提示信息
+                    required: "请填写真实手机号码"
+                },
+                QQNumber: { //提示信息
+                    required: "请填写QQ号码"
+                },
+
+                University: { //提示信息
+                    required: "请填写学校名称",
+                    minlength: "学校名称至少输入四个字符"
+                },
+                Colledge: { //提示信息
+                    required: "请填写学院信息"
+                },
+                MajorCode: { //提示信息
+                    required: "请填写专业信息"
+                },
+                ClassCode: { //提示信息
+                    required: "请填写班级信息"
+                }
+            })
+
+    },
+    //证件类型选择
     bindCredentialsPickerChange: function (e) {
         this.setData({
             credentialsIndex: e.detail.value
@@ -131,6 +198,27 @@ Page({
      * 个人信息提交数据
      */
     personalInfoSubmit: function (e) {
+        //调用验证表单方法
+        const params = e.detail.value
+        console.log(params);
+        inputContent = util.mergeJsonObject(inputContent, params)
+        if (!this.WxValidate.checkForm(e)) {
+            const error = this.WxValidate.errorList
+            wx.showModal({
+                title: '友情提示',
+                content: error[0].msg,
+                showCancel: false,
+                confirmColor: "#f26604",
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    }
+                }
+            })
+            console.log(error)
+            return false
+        }
+
         //个人信息修改
         // 所有有登录状态接口默认带上userId和token。没有登录状态的接口默认带上pkey.防止其他方非法使用web服务的访问
         util.https(app.globalData.api + "/UpdateUserProfile", "GET", {

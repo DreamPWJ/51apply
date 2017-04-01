@@ -1,6 +1,6 @@
 <!--pages/activity/activityapplymore.wxml-->
 <view class=" applylist ">
-    <view wx:if="{{headActiveList.length==0}}" class="isNotDataHint">
+    <view wx:if="{{headActiveList==null}}" class="isNotDataHint">
         <view class="iconfont icon-xiaoxizhongxin"></view>
         <text>暂无活动报名数据</text>
     </view>

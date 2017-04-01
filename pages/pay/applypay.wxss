@@ -3,3 +3,7 @@
     with: 100%;
     overflow: hidden;
 }
+.headLine {
+    font-size: 0.8rem;
+    font-weight: 100 !important;
+}

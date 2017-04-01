@@ -7,7 +7,7 @@
         <view class="item item-input">
             <span class="input-label"> 姓名 </span>
             <input type="text" class="text-right" id="Name" name="Name" bindchange="bindChange"
-                   placeholder="请输入您的真实姓名" value="{{userData.Name}}" disabled="{{userData!=''&&userData.Name!=null}}"/>
+                   placeholder="请输入您的真实姓名" value="{{userData.Name}}"/>
         </view>
         <view class="item item-icon-right">
             性别
@@ -52,13 +52,13 @@
             <span class="input-label"> 手机号码 </span>
             <input type="number" id="TelNum" name="TelNum" bindchange="bindChange" class="text-right"
                    placeholder="请输入您的手机号码" value="{{userData.TelNum}}"
-                   disabled="{{userData!=''&&userData.TelNum!=null}}"/>
+            />
         </view>
         <view class="item item-input">
             <span class="input-label"> QQ号码 </span>
             <input type="number" id="QQNumber" name="QQNumber" bindchange="bindChange" class="text-right"
                    placeholder="请输入您的QQ号码" value="{{userData.QQNumber}}"
-                   disabled="{{userData!=''&&userData.QQNumber!=null}}"/>
+            />
         </view>
 
         <view class="item item-divider">
@@ -81,7 +81,7 @@
             <span class="input-label"> 证件号码 </span>
             <input type="idcard" id="IDCard" name="IDCard" bindchange="bindChange" class="text-right"
                    placeholder="请输入您选择的证件号码" value="{{userData.IDCard}}"
-                   disabled="{{userData!=''&&userData.IDCard!=null}}"/>
+            />
         </view>
 
         <view class="item item-icon-right">
@@ -103,7 +103,7 @@
             <span class="input-label"> 联系地址 </span>
             <input type="text" id="Address" name="Address" bindchange="bindChange" class="text-right"
                    placeholder="请输入您的联系地址" value="{{userData.Address}}"
-                   disabled="{{userData!=''&&userData.Address!=null}}"/>
+            />
         </view>
 
 
@@ -115,14 +115,14 @@
                 <span class="input-label"> 学校 </span>
                 <input type="text" id="University" name="University" bindchange="bindChange" class="text-right"
                        placeholder="请输入您就读的学校" value="{{userData.University}}"
-                       disabled="{{userData!=''&&userData.University!=null}}"/>
+                />
 
             </view>
             <view class="item item-input ">
                 <span class="input-label"> 学院 </span>
                 <input type="text" id="Colledge" name="Colledge" bindchange="bindChange" class="text-right"
                        placeholder="请输入您就读的学院" value="{{userData.Colledge}}"
-                       disabled="{{userData!=''&&userData.Colledge!=null}}"/>
+                />
             </view>
             <view class="item item-icon-right">
                 学历
@@ -181,13 +181,13 @@
                 <span class="input-label"> 专业 </span>
                 <input type="text" id="MajorCode" name="MajorCode" bindchange="bindChange" class="text-right"
                        placeholder="请输入您就读的专业" value="{{userData.MajorCode}}"
-                       disabled="{{userData!=''&&userData.MajorCode!=null}}"/>
+                />
             </view>
             <view class="item item-input">
                 <span class="input-label"> 班级 </span>
                 <input type="text" id="ClassCode" name="ClassCode" bindchange="bindChange" class="text-right"
                        placeholder="请输入您就读的班级" value="{{userData.ClassCode}}"
-                       disabled="{{userData!=''&&userData.ClassCode!=null}}"/>
+                />
             </view>
             <view class="item item-input">
                 <span class="input-label"> 学号 </span>

@@ -1,7 +1,7 @@
 <!--pages/pay/applypay.wxml-->
-<view id="applypay">
+<view id="applypay" class="has-bottom-button">
     <view class="list">
-        <view class="item item-divider">
+        <view class="item item-divider headLine">
             <view class="iconfont icon-shengyin assertive "> 注意 : 在线支付成功后报名方为有效</view>
         </view>
         <view class="item item-divider">

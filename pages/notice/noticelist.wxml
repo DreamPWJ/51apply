@@ -1,6 +1,6 @@
 <!--pages/notice/noticelist.wxml-->
 <view class="list">
-    <view wx:if="{{examNotice.length==0}}" class="isNotDataHint">
+    <view wx:if="{{examNotice==null}}" class="isNotDataHint">
         <view class="iconfont icon-xiaoxizhongxin"></view>
         <text>暂无考试公告数据</text>
     </view>

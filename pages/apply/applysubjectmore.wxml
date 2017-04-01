@@ -1,6 +1,6 @@
 <!--pages/apply/applysubjectmore.wxml-->
 <view class=" applylist ">
-    <view wx:if="{{headExamType.length==0}}" class="isNotDataHint">
+    <view wx:if="{{headExamType==null}}" class="isNotDataHint">
         <view class="iconfont icon-xiaoxizhongxin"></view>
         <text>暂无考试报名数据</text>
     </view>
