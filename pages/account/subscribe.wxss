@@ -1,8 +1,7 @@
 /* pages/account/subscribe.wxss */
 .swiper-tab {
-
     text-align: center;
-    background-color: #ffffff;
+    background-color: rgba(253, 255, 243, 0.06);
 }
 
 .swiper-tab-list {
@@ -10,9 +9,8 @@
     box-sizing: border-box;
     display: inline-block;
     color: #777777;
-    padding: 0.5rem 0 0.3rem;
+    padding: 0.5rem;
 }
-
 
 .on {
     color: #f26604;
@@ -24,10 +22,12 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    padding-top: 1rem;
-    background-color: #ffffff;
 }
 
 .swiper-box view {
 
+}
+
+.item .p:first-child {
+    padding-top: 0.3rem;
 }

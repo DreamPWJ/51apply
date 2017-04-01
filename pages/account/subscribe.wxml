@@ -1,19 +1,36 @@
 <!--pages/account/subscribe.wxml-->
 
 <view class="swiper-tab row row-horizontal-around">
-    <view class="col-45 swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">考试报名预约</view>
-    <view class="col-45 swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">成绩查询预约</view>
+    <view class="col-35 swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">考试报名预约</view>
+    <view class="col-35 swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">成绩查询预约</view>
 </view>
 
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px"
         bindchange="bindChange">
     <!-- 考试报名预约 -->
     <swiper-item>
-        <view>考试报名预约</view>
+        <view class="list">
+            <view wx:if="{{myAllOrderInfo.length==0}}" class="isNotDataHint">
+                <view class="iconfont icon-xiaoxizhongxin"></view>
+                <text>无考试报名预约数据</text>
+            </view>
+            <view wx:for="{{myAllOrderInfo}}" class="item">
+                {{item.ExamName}}
+                <view class="p">科目 : {{item.SubjectName}}</view>
+                <view class="p">时间 : {{item.ExamTimes}}</view>
+                <view class="p">预约状态 : {{item.OrderStatus}}</view>
+                <view class="p">官网状态 : {{item.OfficeWebStatus}}</view>
+            </view>
+        </view>
     </swiper-item>
     <!-- 成绩查询预约 -->
     <swiper-item>
-        <view>成绩查询预约</view>
+        <view class="list">
+            <view class="isNotDataHint">
+                <view class="iconfont icon-xiaoxizhongxin"></view>
+                <text>无成绩查询预约数据</text>
+            </view>
+        </view>
     </swiper-item>
 
 </swiper>

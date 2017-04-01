@@ -1,5 +1,9 @@
 <!--pages/account/passportphoto.wxml-->
 <view class="has-bottom-button">
+    <view  class="isNotDataHint">
+        <view class="iconfont icon-xiaoxizhongxin"></view>
+        <text>暂无证件照数据</text>
+    </view>
     <view class="list">
 
         <view class="padding-top fixed-bottom">

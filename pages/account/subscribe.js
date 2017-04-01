@@ -38,7 +38,7 @@ Page({
             util.isLoginModal();
         } else {
             //我的预约
-
+            this.getMyAllOrderInfoHttps()
         }
     },
     onHide: function () {
@@ -46,6 +46,22 @@ Page({
     },
     onUnload: function () {
         // 页面关闭
+    },
+    getMyAllOrderInfoHttps: function () {  //获取用户的我的预约列表
+        // 所有有登录状态接口默认带上userId和token。没有登录状态的接口默认带上pkey.防止其他方非法使用web服务的访问
+        util.https(app.globalData.api + "/GetMyAllOrderInfo", "GET", {
+                userId: wx.getStorageSync("StudentId"),//用户id
+                tokenInfo: wx.getStorageSync("TokenInfo") //用户token
+            },
+            this.getMyAllOrderInfo
+        )
+    },
+    getMyAllOrderInfo: function (data) {
+        console.log(data);
+        this.setData({
+            myAllOrderInfo: data.Data
+
+        })
     },
     /**
      * 滑动切换tab

@@ -1,14 +1,19 @@
 <!--pages/apply/applysubjectmore.wxml-->
 <view class=" applylist ">
+    <view wx:if="{{headExamType.length==0}}" class="isNotDataHint">
+        <view class="iconfont icon-xiaoxizhongxin"></view>
+        <text>暂无考试报名数据</text>
+    </view>
     <block wx:for="{{headExamType}}">
-        <view  class="item item-icon-left item-button-right">
+        <view class="item item-icon-left item-button-right">
             <text class="iconfont icon-naozhong">
                 <text>{{item.differdays}}</text>
             </text>
             {{item.ExamTypeName}}
             <view class="p"> 报名时间 : {{item.SignTimes}}</view>
             <view class="p"> 考试时间 : {{item.ExamTimes}}</view>
-            <navigator wx-if="{{item.IsActive==1||item.IsActive==2}}"  url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate"
+            <navigator wx-if="{{item.IsActive==1||item.IsActive==2}}"
+                       url="../apply/applysubject?ExamTypeId={{item.ExamTypeId}}" open-type="navigate"
                        hover-class="navigator-hover" class="button button-energized button-outline ">
                 {{item.differdays<10?'立即':'预约'}}报名
             </navigator>

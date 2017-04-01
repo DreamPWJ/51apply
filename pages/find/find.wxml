@@ -1,3 +1,7 @@
 <!--pages/find/find.wxml-->
-<view class="text-center margin-top padding"><text class="iconfont icon-tishi"> 小程序版正在开发中,请下载51报名管家App使用本功能</text>
+<view class="text-center  padding">
+    <view class="isNotDataHint">
+        <view class="iconfont icon-xiaoxizhongxin"></view>
+        <text>小程序版正在开发中,请下载51报名管家App使用本功能</text>
+    </view>
 </view>
