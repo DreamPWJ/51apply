@@ -68,7 +68,7 @@
             证件类型
             <view class="item-note">
                 <picker id="IDType" bindchange="bindCredentialsPickerChange" value="{{credentialsIndex}}"
-                        range="{{credentials}}">
+                        range="{{credentials}}" disabled="true">
                     <view class="picker">
                         {{credentials[credentialsIndex]}}
                         <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
@@ -191,7 +191,8 @@
             </view>
             <view class="item item-input">
                 <span class="input-label"> 学号 </span>
-                <input type="number" class="text-right" placeholder="请输入您的学号"/>
+                <input type="number" id="StudentNum" name="StudentNum" bindchange="bindChange" class="text-right"
+                       placeholder="请输入您的学号" value="{{userData.StudentNum}}"/>
             </view>
         </block>
 

@@ -25,16 +25,7 @@ Page({
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
-        //初始化数据
-        inputContent["IDType"] = 1;
-        inputContent["Nation"] = this.data.nation[0];
-        inputContent["Job"] = this.data.profession[0];
-        inputContent["Admssion"] = this.data.entranceDate[0];
-        inputContent["Education"] = this.data.culture[0];
-        if (this.data.credentialsIndex != 0) {
-            inputContent["Birthday"] = this.data.date.replace(/-/g, "");
-            inputContent["Gender"] = 1;
-        }
+
     },
     onReady: function () {
         // 页面渲染完成
@@ -49,6 +40,43 @@ Page({
             util.isLoginModal();
         } else {
             //个人信息
+            //初始化数据
+            inputContent["Nation"] = this.data.userData.Nation || this.data.nation[0];
+            if (this.data.userData.Nation) {
+                this.setData({
+                    nationIndex: this.data.nation.indexOf(this.data.userData.Nation)
+                })
+            }
+            inputContent["Job"] = this.data.userData.Job || this.data.profession[0];
+            if (this.data.userData.Job) {
+                this.setData({
+                    professionIndex: this.data.profession.indexOf(this.data.userData.Job)
+                })
+            }
+            inputContent["Admssion"] = this.data.userData.Admssion || this.data.entranceDate[0];
+            if (this.data.userData.Admssion) {
+                this.setData({
+                    entranceDate: this.data.userData.Admssion
+                })
+            }
+            inputContent["Education"] = this.data.userData.Education || this.data.culture[0];
+            if (this.data.userData.Education) {
+                this.setData({
+                    cultureIndex: this.data.culture.indexOf(this.data.userData.Education)
+                })
+            }
+            inputContent["Birthday"] = this.data.userData.Birthday || this.data.date.replace(/-/g, "");
+            if (this.data.userData.Birthday) {
+                this.setData({
+                    date: this.data.userData.Birthday
+                })
+            }
+            inputContent["Gender"] = this.data.userData.Gender || 1;
+            if (this.data.userData.Gender) {
+                this.setData({
+                    sexIndex: this.data.userData.Gender - 1
+                })
+            }
             this.wxValidate();
         }
 
@@ -129,8 +157,6 @@ Page({
         this.setData({
             credentialsIndex: e.detail.value
         })
-        inputContent[e.currentTarget.id] = Number(e.detail.value) + 1;
-
     },
 
     //民族类型选择
@@ -160,7 +186,6 @@ Page({
         this.setData({
             professionIndex: e.detail.value
         })
-
         inputContent[e.currentTarget.id] = this.data.profession[e.detail.value]
     },
     //学历选择
@@ -175,12 +200,14 @@ Page({
         this.setData({
             degreeIndex: e.detail.value
         })
+        inputContent[e.currentTarget.id] = this.data.degree[e.detail.value]
     },
     //学历类型选择
     bindCultureTypePickerChange: function (e) {
         this.setData({
             cultureTypeIndex: e.detail.value
         })
+        inputContent[e.currentTarget.id] = this.data.cultureType[e.detail.value]
     },
     //性别类型选择
     bindSexPickerChange: function (e) {
@@ -201,7 +228,8 @@ Page({
         //调用验证表单方法
         const params = e.detail.value
         console.log(params);
-        inputContent = util.mergeJsonObject(inputContent, params)
+        inputContent = util.mergeJsonObject(inputContent, params);
+        console.log(inputContent);
         if (!this.WxValidate.checkForm(e)) {
             const error = this.WxValidate.errorList
             wx.showModal({
@@ -218,34 +246,33 @@ Page({
             console.log(error)
             return false
         }
-
         //个人信息修改
         // 所有有登录状态接口默认带上userId和token。没有登录状态的接口默认带上pkey.防止其他方非法使用web服务的访问
-        util.https(app.globalData.api + "/UpdateUserProfile", "GET", {
-                userId: wx.getStorageSync("StudentId"),//用户id
-                tokenInfo: wx.getStorageSync("TokenInfo"), //用户token
-                inputJson: {
-                    Gender: 1,//1表示男，2表示女
-                    Name: "报考名",  //姓名
-                    Nation: "汉",  //民族
-                    Job: "php工程师", //职位
-                    TelNum: "13800138000", //手机号
-                    QQNumber: "123456780", //qq号
-                    University: "深圳大学",
-                    Colledge: "文华学院",
-                    Education: "本科", //学历
-                    Admssion: "2010",   //入学年份
-                    GraduationTime: "2014", //毕业年份，毕业年份不需要填，直接根据入学年份加上学历就算出毕业年份了
-                    MajorCode: "计算机技术",  //专业
-                    ClassCode: "1班",          //班级
-                    StudentNum: "123456",  //考生学号
-                    Birthday: "19900101",  //考生生日
-                    Address: "武汉科技大学"  //考生当前报名地址
-                }
-            },
-            function (data) {
-                util.showToast(data.Msg);
-            }
-        )
+        /*        util.https(app.globalData.api + "/UpdateUserProfile", "GET", {
+         userId: wx.getStorageSync("StudentId"),//用户id
+         tokenInfo: wx.getStorageSync("TokenInfo"), //用户token
+         inputJson: inputContent /!*{
+         Gender: 1,//1表示男，2表示女
+         Name: "报考名",  //姓名
+         Nation: "汉",  //民族
+         Job: "php工程师", //职位
+         TelNum: "13800138000", //手机号
+         QQNumber: "123456780", //qq号
+         University: "深圳大学",
+         Colledge: "文华学院",
+         Education: "本科", //学历
+         Admssion: "2010",   //入学年份
+         GraduationTime: "2014", //毕业年份，毕业年份不需要填，直接根据入学年份加上学历就算出毕业年份了
+         MajorCode: "计算机技术",  //专业
+         ClassCode: "1班",          //班级
+         StudentNum: "123456",  //考生学号
+         Birthday: "19900101",  //考生生日
+         Address: "武汉科技大学"  //考生当前报名地址
+         }*!/
+         },
+         function (data) {
+         util.showToast(data.Msg);
+         }
+         )*/
     }
 })
