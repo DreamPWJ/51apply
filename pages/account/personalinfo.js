@@ -131,6 +131,33 @@ Page({
      * 个人信息提交数据
      */
     personalInfoSubmit: function (e) {
-
+        //个人信息修改
+        // 所有有登录状态接口默认带上userId和token。没有登录状态的接口默认带上pkey.防止其他方非法使用web服务的访问
+        util.https(app.globalData.api + "/UpdateUserProfile", "GET", {
+                userId: wx.getStorageSync("StudentId"),//用户id
+                tokenInfo: wx.getStorageSync("TokenInfo"), //用户token
+                inputJson: {
+                    Gender: 1,//1表示男，2表示女
+                    Name: "报考名",  //姓名
+                    Nation: "汉",  //民族
+                    Job: "php工程师", //职位
+                    TelNum: "13800138000", //手机号
+                    QQNumber: "123456780", //qq号
+                    University: "深圳大学",
+                    Colledge: "文华学院",
+                    Education: "本科", //学历
+                    Admssion: "2010",   //入学年份
+                    GraduationTime: "2014", //毕业年份，毕业年份不需要填，直接根据入学年份加上学历就算出毕业年份了
+                    MajorCode: "计算机技术",  //专业
+                    ClassCode: "1班",          //班级
+                    StudentNum: "123456",  //考生学号
+                    Birthday: "19900101",  //考生生日
+                    Address: "武汉科技大学"  //考生当前报名地址
+                }
+            },
+            function (data) {
+                util.showToast(data.Msg);
+            }
+        )
     }
 })

@@ -21,7 +21,7 @@
 .icon-naozhong:before {
     border-color: transparent;
     color: #f26604;
-    font-size: 2rem !important;
+    font-size: 2.2rem !important;
 }
 
 .icon-naozhong {
@@ -58,6 +58,10 @@
     margin-top: -0.6rem;
     color: #000;
     height: 300 rpx;
+}
+
+.applylist:last-child {
+    margin-bottom: 0.6rem;
 }
 
 .applylist .p {

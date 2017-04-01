@@ -1,7 +1,10 @@
 /* pages/account/subscribe.wxss */
 .swiper-tab {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
     text-align: center;
-    background-color: rgba(253, 255, 243, 0.06);
+    background-color: #f8f8f8;
 }
 
 .swiper-tab-list {
@@ -19,7 +22,7 @@
 
 .swiper-box {
     display: block;
-    height: 100%;
+    margin-top: 50px;
     width: 100%;
     overflow: hidden;
 }
