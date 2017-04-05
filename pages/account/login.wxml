@@ -8,7 +8,7 @@
 
     <view class="item item-input">
         <text class="input-label  "> 密码</text>
-        <input type="text" bindchange="bindChange" id="password" name="password" placeholder="请输入你的密码"/>
+        <input type="text" bindchange="bindChange" password="true" id="password" name="password" placeholder="请输入你的密码"/>
     </view>
 
 
