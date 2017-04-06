@@ -48,6 +48,8 @@ Page({
                         console.log(res);
                         var data = res.data;//开发者服务器返回的数据
                         //do something
+                    }, fail: function (error) {
+                        console.log(error);
                     }
                 })
             }

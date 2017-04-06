@@ -68,6 +68,36 @@ Page({
         console.log(wx.getStorageSync("userData"));
         //验证表单
         this.wxValidate();
+        if (this.data.isLogin) { //已登录
+            //民族
+            inputContent["Nation"] = this.data.userData.Nation || this.data.nation[0];
+            if (this.data.userData.Nation) {
+                this.setData({
+                    nationIndex: this.data.nation.indexOf(this.data.userData.Nation)
+                })
+            }
+            //职业
+            inputContent["Job"] = this.data.userData.Job || this.data.profession[0];
+            if (this.data.userData.Job) {
+                this.setData({
+                    professionIndex: this.data.profession.indexOf(this.data.userData.Job)
+                })
+            }
+            //学历
+            inputContent["Education"] = this.data.userData.Education || this.data.culture[0];
+            if (this.data.userData.Education) {
+                this.setData({
+                    cultureIndex: this.data.culture.indexOf(this.data.userData.Education)
+                })
+            }
+            //入学时间
+            inputContent["Admssion"] = this.data.userData.Admssion || this.data.entranceDate[0];
+            if (this.data.userData.Admssion) {
+                this.setData({
+                    entranceDate: this.data.userData.Admssion
+                })
+            }
+        }
     },
     onHide: function () {
         // 页面隐藏
@@ -314,7 +344,7 @@ Page({
         const params = e.detail.value
         console.log(params);
         if (this.data.isLogin) { //已登录自动获取数据
-            inputContent.SearchPwd="";
+            inputContent.SearchPwd = "";
             inputContent = util.mergeJsonObject(inputContent, params)
         }
         if (!this.WxValidate.checkForm(e)) {

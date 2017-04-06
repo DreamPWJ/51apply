@@ -78,7 +78,7 @@ Page({
 
             return false
         }
-        //首页活动报名列表
+        //用户登录
         util.https(app.globalData.api + "/UserLogin", "GET", {
                 inputJson: {
                     IDCard: inputContent.user,	//身份证号

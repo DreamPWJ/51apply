@@ -61,7 +61,7 @@
 }
 
 .applylist:last-child {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
 }
 
 .applylist .p {
@@ -72,6 +72,7 @@
     font-size: 0.8rem;
     color: #262626;
     font-weight: 100 !important;
+    line-height: 20px;
 }
 
 .headLine .iconfont {
