@@ -11,7 +11,6 @@ Page({
     },
     onShow: function () {
         // 页面显示
-        // 页面显示
         this.setData({
             isLogin: util.isLogin(),
             userData: wx.getStorageSync("userData") || ""//用户信息
@@ -30,19 +29,22 @@ Page({
         // 页面关闭
     },
 
-    shootCredentials: function () {       //图片上传
-
+    shootCredentials: function () {//图片上传
+        //选择上传文件
         wx.chooseImage({
             success: function (res) {
                 var tempFilePaths = res.tempFilePaths
                 wx.uploadFile({
-                    url: app.globalData.api + '/GetFileInfo.aspx', //开发者服务器 url
+                    url: app.globalData.api + '/SetExamPicture', //开发者服务器 url
                     filePath: tempFilePaths[0],//要上传文件资源的路径
                     name: 'file',//文件对应的 key , 开发者在服务器端通过这个 key 可以获取到文件二进制内容
                     formData: { //HTTP 请求中其他额外的 form data
+                        'inputJson': {
+                            'PicType': 1,////照片类型,1表示计算机考试，2表示教师资格，3表示会计,4考霸或用户的icon,5 考霸证书的照片,6课程的图片,7 课程的附件
+                        },
                         'userId': wx.getStorageSync("StudentId"),
                         'Token': wx.getStorageSync("TokenInfo"),
-                        'PicType': 1,////照片类型,1表示计算机考试，2表示教师资格，3表示会计,4考霸或用户的icon,5 考霸证书的照片,6课程的图片,7 课程的附件
+
                     },
                     success: function (res) {
                         console.log(res);
