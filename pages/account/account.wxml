@@ -74,7 +74,7 @@
             准考证查询
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
         </navigator>
-        <navigator url="" open-type="navigate"
+<!--        <navigator url="" open-type="navigate"
                    hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
             <text class=" iconfont icon-kecheng calm"></text>
             我的课程
@@ -85,7 +85,7 @@
             <text class=" iconfont icon-zhangjielianxi calm"></text>
             我的练习
             <text class="icon-accessory iconfont icon-xiangyoujiantou"></text>
-        </navigator>
+        </navigator>-->
         <navigator url="" open-type="navigate"
                    hover-class="navigator-hover" class="item item-icon-left item-icon-right ">
             <text class=" iconfont icon-kefu energized"></text>

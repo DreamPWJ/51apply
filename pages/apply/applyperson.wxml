@@ -137,7 +137,7 @@
                 <span class="input-label"> 联系地址 </span>
                 <input type="text" id="Address" name="Address" bindchange="bindChange" class="text-right"
                        placeholder="请输入您的联系地址" value="{{userData.Address}}"
-                       disabled="{{userData!=''&&userData.Address!=null}}"/>
+                      />
             </view>
         </block>
         <block wx:if="{{examTypeFieldList.length!=0}}">
