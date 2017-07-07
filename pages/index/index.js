@@ -8,6 +8,13 @@ Page({
     },
 
     onLoad: function () {
+
+    },
+    onReady: function () {
+        // 页面渲染完成
+    },
+    onShow: function () {
+        // 页面显示
         //考试报名列表
         util.https(app.globalData.api + "/GetHeadExamType", "GET", {
                 praviteKey: app.globalData.praviteKey
@@ -32,6 +39,12 @@ Page({
             this.getHeadActiveList
         )
     },
+    onHide: function () {
+        // 页面隐藏
+    },
+    onUnload: function () {
+        // 页面关闭
+    },
     //考试报名列表
     getHeadExamType: function (data) {
 
@@ -46,15 +59,17 @@ Page({
         });
 
 
-    },
-    //考试头条
+    }
+    ,
+//考试头条
     getHeadLines: function (data) {
         this.setData({
             headLine: data.Data
         });
 
-    },
-    //首页活动报名列表
+    }
+    ,
+//首页活动报名列表
     getHeadActiveList: function (data) {
         console.log(data);
         var headActiveList = data.Data;
@@ -66,5 +81,6 @@ Page({
             headActiveList: headActiveList
         });
 
-    },
+    }
+    ,
 })
