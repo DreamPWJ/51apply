@@ -7,7 +7,8 @@ Page({
         // 页面初始化 options为页面跳转所带来的参数
         //获取收货地址
         util.https(app.globalData.api + "/GetMyAddress", "GET", {
-                praviteKey: app.globalData.praviteKey
+                userId: wx.getStorageSync("StudentId"),//用户id
+                tokenInfo: wx.getStorageSync("TokenInfo"), //用户token
             },
             this.getAddress
         )
@@ -28,7 +29,6 @@ Page({
         console.log(data);
         this.setData({
             addressList: data.Data
-
         })
     },
     //增加地址页面
