@@ -57,7 +57,7 @@ function https(url, type, data, callBack) {
         method: type,
         data: data,
         header: {
-            "Content-Type": "json"
+            "Content-Type": "application/json"
         },
         success: function (res) {
             if (res.data.StatusCode != 0) {
