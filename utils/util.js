@@ -44,14 +44,7 @@ function mergeJsonObject(jsonbject1, jsonbject2) {
  */
 function https(url, type, data, callBack) {
 
-/*    wx.showToast({
-        title: '51报名管家',
-        icon: 'loading',
-        duration: 500
-    })*/
-/*    wx.showLoading({
-        title: '加载中',
-    })*/
+    wx.showNavigationBarLoading();
     wx.request({
         url: url,
         method: type,
@@ -61,8 +54,7 @@ function https(url, type, data, callBack) {
         },
         success: function (res) {
             if (res.data.StatusCode != 0) {
-        /*        wx.hideLoading()
-                wx.hideToast();*/
+
                 wx.showToast({
                     title: res.data.Msg,
                     icon: 'success',
@@ -82,7 +74,9 @@ function https(url, type, data, callBack) {
             console.log(error)
         },
         complete: function () {
-            /*  wx.hideToast();*/
+            wx.hideLoading();
+            wx.stopPullDownRefresh();
+            wx.hideNavigationBarLoading();
         }
     })
 }
