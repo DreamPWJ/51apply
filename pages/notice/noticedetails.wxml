@@ -1,0 +1,9 @@
+<!--pages/notice/noticedetails.wxml-->
+<view>
+    <view class="list">
+        <view class="item item-body item-image ">
+            <rich-text  nodes="{{helpdata}}" class="helpContent" ></rich-text>
+        </view>
+    </view>
+</view>
+

@@ -22,6 +22,7 @@ Date.prototype.Format = function (fmt) { //
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
+
 /**
  * JavaScript合并两个Json对象
  */
@@ -35,6 +36,7 @@ function mergeJsonObject(jsonbject1, jsonbject2) {
     }
     return resultJsonObject;
 };
+
 /**
  * 公共微信https请求封装
  * @param url
@@ -50,7 +52,7 @@ function https(url, type, data, callBack) {
         method: type,
         data: data,
         header: {
-            "Content-Type": "application/json"
+            "Content-Type": "json"
         },
         success: function (res) {
             if (res.data.StatusCode != 0) {
@@ -64,10 +66,8 @@ function https(url, type, data, callBack) {
             callBack(res.data);
         },
         fail: function (error) {
-            /*            wx.hideLoading()
-             wx.hideToast();*/
             wx.showToast({
-                title: "请求失败:" + JSON.stringify(error),
+                title: "请求失败" ,
                 icon: 'success',
                 duration: 2000
             })
@@ -80,6 +80,7 @@ function https(url, type, data, callBack) {
         }
     })
 }
+
 /**
  * 是否登录
  */
@@ -112,6 +113,7 @@ function isLoginModal() {
         }
     })
 }
+
 /**
  * Toast提示框
  */
@@ -162,15 +164,19 @@ function rol(num, cnt) {
 function cmn(q, a, b, x, s, t) {
     return safe_add(rol(safe_add(safe_add(a, q), safe_add(x, t)), s), b)
 }
+
 function ff(a, b, c, d, x, s, t) {
     return cmn((b & c) | ((~b) & d), a, b, x, s, t)
 }
+
 function gg(a, b, c, d, x, s, t) {
     return cmn((b & d) | (c & (~d)), a, b, x, s, t)
 }
+
 function hh(a, b, c, d, x, s, t) {
     return cmn(b ^ c ^ d, a, b, x, s, t)
 }
+
 function ii(a, b, c, d, x, s, t) {
     return cmn(c ^ (b | (~d)), a, b, x, s, t)
 }
@@ -330,15 +336,19 @@ function strw2binl(str) {
 function hexMD5(str) {
     return binl2hex(coreMD5(str2binl(str)))
 }
+
 function hexMD5w(str) {
     return binl2hex(coreMD5(strw2binl(str)))
 }
+
 function b64MD5(str) {
     return binl2b64(coreMD5(str2binl(str)))
 }
+
 function b64MD5w(str) {
     return binl2b64(coreMD5(strw2binl(str)))
 }
+
 /* Backward compatibility */
 function calcMD5(str) {
     return binl2hex(coreMD5(str2binl(str)))

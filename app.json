@@ -12,6 +12,7 @@
     "pages/activity/activityapply",
     "pages/activity/activityapplymore",
     "pages/notice/noticelist",
+    "pages/notice/noticedetails",
     "pages/account/account",
     "pages/account/login",
     "pages/account/register",
